@@ -580,20 +580,20 @@ footer a{color:var(--blue);text-decoration:none}
 
 <script>
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const SB  = 'https://llheudreg'+'eksbyjuscr'+'w.supabase.co';
-const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsaGV1ZHJlZ2Vrc2J5anVzY3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODg1NzUsImV4cCI6MjA4ODU2NDU3NX0.oglo1qODsVra6EdJcrwZ9p2P_SR73R_XfH736V1Giuk';
+const SB  = 'https://tzlhosdbopjkhqtgpqrz.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR6bGhvc2Rib3Bqa2hxdGdwcXJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMTI2NTQsImV4cCI6MjA4OTY4ODY1NH0.FWk_scY6OM1ygtVltSbzMgjgtM27NQlH3myMvk2xUzY';
 const DC_CLIENT = '1477279042230157404';
 const DC_GUILD  = '1452963098284785765';
 const DC_ROLE   = '1480610386032988373';
-const REDIR     = 'https://jojolm24.github.io/status-dev-center/';
+const REDIR     = 'https://devcenter24.github.io/status-dev-center/';
 
 // Default services (used if Supabase table is empty)
 const DEFAULT_SERVICES = [
-  {id:'web',    label:'Site Principal', desc:'devcenter.vyral-studio.com',               url:'https://devcenter.vyral-studio.com/',           thr_deg:2000, thr_down:5000, sort_order:0},
-  {id:'status', label:'Status Page',   desc:'jojolm24.github.io/status-dev-center',      url:'https://jojolm24.github.io/status-dev-center/', thr_deg:2000, thr_down:5000, sort_order:1},
-  {id:'db',     label:'Database',      desc:'Supabase PostgreSQL',                        url:null,                                            thr_deg:3000, thr_down:8000, sort_order:2},
-  {id:'cdn',    label:'CDN Assets',    desc:'Distribution de ressources statiques',       url:'https://cdnjs.cloudflare.com/',                 thr_deg:1500, thr_down:4000, sort_order:3},
-  {id:'discord',label:'Discord',       desc:'API Discord · discord.com',                  url:'https://discord.com/',                          thr_deg:1500, thr_down:4000, sort_order:4},
+  {id:'web',    label:'Site Principal', description:'devcenter.vyral-studio.com',               url:'https://devcenter.vyral-studio.com/',           thr_deg:2000, thr_down:5000, sort_order:0},
+  {id:'status', label:'Status Page',   description:'devcenter24.github.io/status-dev-center',    url:'https://devcenter24.github.io/status-dev-center/', thr_deg:2000, thr_down:5000, sort_order:1},
+  {id:'db',     label:'Database',      description:'Supabase PostgreSQL',                        url:null,                                            thr_deg:3000, thr_down:8000, sort_order:2},
+  {id:'cdn',    label:'CDN Assets',    description:'Distribution de ressources statiques',       url:'https://cdnjs.cloudflare.com/',                 thr_deg:1500, thr_down:4000, sort_order:3},
+  {id:'discord',label:'Discord',       description:'API Discord · discord.com',                  url:'https://discord.com/',                          thr_deg:1500, thr_down:4000, sort_order:4},
 ];
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -634,7 +634,7 @@ async function loadServices(){
   SERVICES=DEFAULT_SERVICES;
   for(const s of DEFAULT_SERVICES){
     try{ await sbInsert('dc_services',{
-      id:s.id,label:s.label,desc:s.desc,url:s.url||'',
+      id:s.id,label:s.label,description:s.description,url:s.url||'',
       thr_deg:s.thr_deg,thr_down:s.thr_down,sort_order:s.sort_order
     });}catch{}
   }
@@ -654,7 +654,7 @@ function buildServiceCards(){
       </div>
       <div class="svc-info">
         <div class="svc-name">${esc(svc.label)}</div>
-        <div class="svc-desc">${esc(svc.desc||svc.url||'')}</div>
+        <div class="svc-desc">${esc(svc.description||svc.url||'')}</div>
       </div>
       <div class="svc-right">
         <div class="svc-status">
@@ -695,7 +695,7 @@ async function pingUrl(url){
 }
 async function checkDB(){
   const t=Date.now();
-  try{const r=await fetch(`${SB}/rest/v1/`,{headers:H()});return{ok:r.ok,ms:Date.now()-t};}
+  try{const r=await fetch(`${SB}/rest/v1/dc_status_overrides?id=eq.main&select=id`,{headers:H()});return{ok:r.ok||r.status<400,ms:Date.now()-t};}
   catch{return{ok:false,ms:null};}
 }
 
@@ -867,7 +867,7 @@ function openServiceModal(svc=null){
   $('modalSvcId').value=svc?.id||'';
   $('modalTitle').textContent=svc?'Modifier le service':'Ajouter un service';
   $('modalName').value=svc?.label||'';
-  $('modalDesc').value=svc?.desc||'';
+  $('modalDesc').value=svc?.description||'';
   $('modalUrl').value=svc?.url||'';
   $('modalThrDeg').value=svc?.thr_deg||2000;
   $('modalThrDown').value=svc?.thr_down||5000;
@@ -888,13 +888,13 @@ async function saveSvcModal(){
 
   if(id){
     // update
-    await sbUpdate('dc_services',id,{label,desc,url,thr_deg,thr_down,sort_order,updated_at:new Date().toISOString()});
+    await sbUpdate('dc_services',id,{label,description:desc,url,thr_deg,thr_down,sort_order,updated_at:new Date().toISOString()});
     await addLog(`Service modifié: ${label} (seuils dégradé=${thr_deg}ms, hors ligne=${thr_down}ms)`);
     showToast('toastSvc','✓ Service modifié');
   }else{
     // insert
     const newId=label.toLowerCase().replace(/[^a-z0-9]/g,'_').substring(0,20)+'_'+Date.now().toString(36);
-    await sbInsert('dc_services',{id:newId,label,desc,url,thr_deg,thr_down,sort_order,created_at:new Date().toISOString()});
+    await sbInsert('dc_services',{id:newId,label,description:desc,url,thr_deg,thr_down,sort_order,created_at:new Date().toISOString()});
     await addLog(`Service ajouté: ${label}`);
     showToast('toastSvc','✓ Service ajouté');
   }
@@ -927,7 +927,7 @@ function renderAdminSvcList(){
     row.innerHTML=`
       <div style="flex:1">
         <div class="arow-name">${esc(svc.label)}</div>
-        <div class="arow-desc">${esc(svc.url||svc.desc||'—')} · dégradé>${svc.thr_deg||2000}ms · hors ligne>${svc.thr_down||5000}ms</div>
+        <div class="arow-desc">${esc(svc.url||svc.description||'—')} · dégradé>${svc.thr_deg||2000}ms · hors ligne>${svc.thr_down||5000}ms</div>
       </div>
       <div style="display:flex;gap:7px;flex-shrink:0">
         <button class="btn-sm edit" onclick='openServiceModal(${JSON.stringify(svc)})'>✏️ Modifier</button>
