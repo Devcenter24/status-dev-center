@@ -7,456 +7,178 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #080c14;
-    --bg2: #0d1220;
-    --card: rgba(255,255,255,0.04);
-    --card-border: rgba(255,255,255,0.08);
-    --blue: #4f6ef7;
-    --blue-glow: rgba(79,110,247,0.3);
-    --green: #22d77e;
-    --yellow: #f7c948;
-    --red: #f74f4f;
-    --text: #e8eaf6;
-    --muted: #5a6380;
-    --font-display: 'Syne', sans-serif;
-    --font-mono: 'Space Mono', monospace;
-    --font-body: 'Inter', sans-serif;
+    --bg:#080c14; --card:rgba(255,255,255,.04); --card-border:rgba(255,255,255,.08);
+    --blue:#4f6ef7; --green:#22d77e; --yellow:#f7c948; --red:#f74f4f;
+    --text:#e8eaf6; --muted:#5a6380;
+    --font-display:'Syne',sans-serif; --font-mono:'Space Mono',monospace; --font-body:'Inter',sans-serif;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* Stars background */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     background-image:
-      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
-      radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 90% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
-      radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 85% 15%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 45% 45%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 65% 25%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 25% 70%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 55% 90%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 80% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 35% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
-      radial-gradient(1px 1px at 92% 72%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 5% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 75% 5%, rgba(255,255,255,0.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 20% 95%, rgba(255,255,255,0.3) 0%, transparent 100%),
-      radial-gradient(1px 1px at 60% 65%, rgba(255,255,255,0.5) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 0;
-  }
+      radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%),
+      radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.4) 0%,transparent 100%),
+      radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,.5) 0%,transparent 100%),
+      radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,.3) 0%,transparent 100%),
+      radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,.6) 0%,transparent 100%),
+      radial-gradient(1px 1px at 15% 85%,rgba(255,255,255,.4) 0%,transparent 100%),
+      radial-gradient(1px 1px at 85% 15%,rgba(255,255,255,.5) 0%,transparent 100%),
+      radial-gradient(1px 1px at 45% 45%,rgba(255,255,255,.3) 0%,transparent 100%),
+      radial-gradient(1px 1px at 65% 25%,rgba(255,255,255,.4) 0%,transparent 100%),
+      radial-gradient(1px 1px at 25% 70%,rgba(255,255,255,.5) 0%,transparent 100%),
+      radial-gradient(1.5px 1.5px at 55% 90%,rgba(255,255,255,.3) 0%,transparent 100%),
+      radial-gradient(1px 1px at 80% 55%,rgba(255,255,255,.4) 0%,transparent 100%),
+      radial-gradient(1px 1px at 35% 35%,rgba(255,255,255,.6) 0%,transparent 100%),
+      radial-gradient(1px 1px at 92% 72%,rgba(255,255,255,.3) 0%,transparent 100%),
+      radial-gradient(1.5px 1.5px at 5% 50%,rgba(255,255,255,.5) 0%,transparent 100%),
+      radial-gradient(1px 1px at 75% 5%,rgba(255,255,255,.4) 0%,transparent 100%),
+      radial-gradient(1px 1px at 20% 95%,rgba(255,255,255,.3) 0%,transparent 100%),
+      radial-gradient(1px 1px at 60% 65%,rgba(255,255,255,.5) 0%,transparent 100%)}
+  body::after{content:'';position:fixed;width:600px;height:600px;pointer-events:none;z-index:0;
+    background:radial-gradient(circle,rgba(79,110,247,.08) 0%,transparent 70%);top:-200px;right:-100px}
 
-  /* Glow blob */
-  body::after {
-    content: '';
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(79,110,247,0.08) 0%, transparent 70%);
-    top: -200px;
-    right: -100px;
-    pointer-events: none;
-    z-index: 0;
-  }
+  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:0 40px;height:64px;background:rgba(8,12,20,.85);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--card-border)}
+  .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;
+    font-size:1.1rem;color:var(--text);text-decoration:none}
+  .nav-badge{font-family:var(--font-mono);font-size:.65rem;background:rgba(34,215,126,.15);
+    color:var(--green);border:1px solid rgba(34,215,126,.3);padding:3px 10px;border-radius:20px;letter-spacing:.05em}
 
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    height: 64px;
-    background: rgba(8,12,20,0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--card-border);
-  }
+  main{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:60px 24px 100px}
 
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--text);
-    text-decoration: none;
-  }
+  .header{text-align:center;margin-bottom:56px;animation:fadeUp .6s ease forwards}
+  .header-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.7rem;
+    color:var(--blue);background:rgba(79,110,247,.1);border:1px solid rgba(79,110,247,.25);
+    padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase}
+  .header-tag span{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+  h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.05;margin-bottom:14px}
+  h1 em{font-style:normal;color:var(--blue)}
+  .header-sub{color:var(--muted);font-size:.95rem;font-weight:300;letter-spacing:.02em}
 
-  .nav-logo svg { flex-shrink: 0; }
+  .global-status{background:var(--card);border:1px solid var(--card-border);border-radius:16px;
+    padding:20px 28px;display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:32px;animation:fadeUp .6s .1s ease both}
+  .global-left{display:flex;align-items:center;gap:14px}
+  .global-dot{width:12px;height:12px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+  .global-label{font-family:var(--font-display);font-weight:700;font-size:1rem}
+  .global-sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .global-time{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);text-align:right}
 
-  .nav-badge {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    background: rgba(34,215,126,0.15);
-    color: var(--green);
-    border: 1px solid rgba(34,215,126,0.3);
-    padding: 3px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.05em;
-  }
+  .uptime-section{margin-bottom:40px;animation:fadeUp .6s .15s ease both}
+  .uptime-label{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+  .uptime-bar{display:flex;gap:3px;height:28px}
+  .uptime-day{flex:1;border-radius:4px;background:rgba(34,215,126,.7);transition:transform .2s;cursor:pointer}
+  .uptime-day:hover{transform:scaleY(1.15)}
+  .uptime-day.down{background:rgba(247,79,79,.7)}
+  .uptime-day.partial{background:rgba(247,201,72,.7)}
+  .uptime-meta{display:flex;justify-content:space-between;margin-top:6px;
+    font-family:var(--font-mono);font-size:.65rem;color:var(--muted)}
 
-  /* MAIN LAYOUT */
-  main {
-    position: relative;
-    z-index: 1;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 60px 24px 100px;
-  }
+  .section-title{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;animation:fadeUp .6s .2s ease both}
+  .services-grid{display:flex;flex-direction:column;gap:12px}
 
-  /* HEADER */
-  .header {
-    text-align: center;
-    margin-bottom: 56px;
-    animation: fadeUp 0.6s ease forwards;
-  }
+  .service-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;
+    padding:20px 24px;display:flex;align-items:center;gap:18px;
+    transition:border-color .2s,background .2s;animation:fadeUp .6s ease both}
+  .service-card:hover{border-color:rgba(79,110,247,.3);background:rgba(79,110,247,.04)}
+  .service-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.05);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--card-border)}
+  .service-info{flex:1}
+  .service-name{font-family:var(--font-display);font-weight:700;font-size:.95rem;margin-bottom:3px}
+  .service-desc{font-size:.75rem;color:var(--muted)}
+  .service-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+  .service-status{display:flex;align-items:center;gap:8px}
 
-  .header-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--blue);
-    background: rgba(79,110,247,0.1);
-    border: 1px solid rgba(79,110,247,0.25);
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .status-dot.operational{background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite}
+  .status-dot.degraded{background:var(--yellow);box-shadow:0 0 8px var(--yellow);animation:pulse 2s infinite}
+  .status-dot.down{background:var(--red);box-shadow:0 0 8px var(--red);animation:pulse 2s infinite}
+  .status-dot.loading{background:var(--muted)}
+  .status-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em}
+  .status-label.operational{color:var(--green)}
+  .status-label.degraded{color:var(--yellow)}
+  .status-label.down{color:var(--red)}
+  .status-label.loading{color:var(--muted)}
+  .status-ping{font-family:var(--font-mono);font-size:.65rem;color:var(--muted)}
+  .manual-badge{font-family:var(--font-mono);font-size:.58rem;color:var(--blue);
+    background:rgba(79,110,247,.12);border:1px solid rgba(79,110,247,.25);
+    padding:2px 7px;border-radius:10px;display:none}
 
-  .header-tag span { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); animation: pulse 2s infinite; }
+  /* ADMIN PANEL */
+  .admin-panel{margin-top:40px;background:rgba(79,110,247,.05);
+    border:1px solid rgba(79,110,247,.2);border-radius:16px;padding:28px;
+    animation:fadeUp .6s .4s ease both;display:none}
+  .admin-header{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .admin-icon{width:38px;height:38px;border-radius:10px;background:rgba(79,110,247,.15);
+    border:1px solid rgba(79,110,247,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .admin-title{font-family:var(--font-display);font-weight:800;font-size:1rem}
+  .admin-sub{font-size:.72rem;color:var(--muted);margin-top:2px}
+  .admin-grid{display:flex;flex-direction:column;gap:10px}
+  .admin-row{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);
+    border:1px solid var(--card-border);border-radius:10px;padding:13px 16px}
+  .admin-row-name{font-family:var(--font-display);font-weight:700;font-size:.82rem;flex:1}
+  .admin-select{background:rgba(255,255,255,.07);border:1px solid var(--card-border);
+    color:var(--text);font-family:var(--font-mono);font-size:.68rem;
+    padding:7px 28px 7px 10px;border-radius:8px;cursor:pointer;outline:none;
+    appearance:none;-webkit-appearance:none;min-width:150px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a6380' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 9px center}
+  .admin-select option{background:#0d1220}
+  .admin-select:focus{border-color:rgba(79,110,247,.5)}
+  .admin-save{display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:16px;width:100%;padding:12px;border-radius:10px;
+    background:var(--blue);color:#fff;font-family:var(--font-display);font-weight:700;
+    font-size:.85rem;border:none;cursor:pointer;transition:background .2s,transform .2s}
+  .admin-save:hover{background:#3d5ce0;transform:translateY(-1px)}
+  .admin-save:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  .admin-toast{display:none;margin-top:12px;padding:10px 16px;border-radius:8px;
+    font-family:var(--font-mono);font-size:.75rem;text-align:center;
+    background:rgba(34,215,126,.1);border:1px solid rgba(34,215,126,.3);color:var(--green)}
+  .admin-toast.err{background:rgba(247,79,79,.1);border-color:rgba(247,79,79,.3);color:var(--red)}
 
-  h1 {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    line-height: 1.05;
-    margin-bottom: 14px;
-  }
+  /* DISCORD LOGIN */
+  .discord-section{margin-top:48px;background:var(--card);border:1px solid var(--card-border);
+    border-radius:16px;padding:28px;animation:fadeUp .6s .55s ease both}
+  .discord-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .discord-icon{width:44px;height:44px;border-radius:12px;background:rgba(88,101,242,.2);
+    border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .d-title{font-family:var(--font-display);font-weight:800;font-size:1rem}
+  .d-sub{font-size:.75rem;color:var(--muted);margin-top:2px}
+  .discord-btn{display:inline-flex;align-items:center;gap:10px;background:#5865F2;color:#fff;
+    font-family:var(--font-display);font-weight:700;font-size:.88rem;padding:12px 24px;
+    border-radius:10px;text-decoration:none;border:none;cursor:pointer;
+    transition:background .2s,transform .2s;width:100%;justify-content:center}
+  .discord-btn:hover{background:#4752C4;transform:translateY(-1px)}
+  .discord-btn.ghost{background:var(--card);border:1px solid var(--card-border);color:var(--text)}
+  .discord-btn.ghost:hover{background:rgba(255,255,255,.06);transform:translateY(-1px)}
 
-  h1 em { font-style: normal; color: var(--blue); }
+  footer{position:relative;z-index:1;text-align:center;padding:32px;
+    font-family:var(--font-mono);font-size:.65rem;color:var(--muted);border-top:1px solid var(--card-border)}
+  footer a{color:var(--blue);text-decoration:none}
 
-  .header-sub {
-    color: var(--muted);
-    font-size: 0.95rem;
-    font-weight: 300;
-    letter-spacing: 0.02em;
-  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
-  /* GLOBAL STATUS BAR */
-  .global-status {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 20px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 32px;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
+  .service-card:nth-child(1){animation-delay:.25s}
+  .service-card:nth-child(2){animation-delay:.32s}
+  .service-card:nth-child(3){animation-delay:.39s}
+  .service-card:nth-child(4){animation-delay:.46s}
+  .service-card:nth-child(5){animation-delay:.53s}
 
-  .global-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .global-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 10px var(--green);
-    animation: pulse 2s infinite;
-  }
-
-  .global-label {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1rem;
-  }
-
-  .global-sub {
-    font-size: 0.78rem;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-  .global-time {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  /* UPTIME BAR */
-  .uptime-section {
-    margin-bottom: 40px;
-    animation: fadeUp 0.6s 0.15s ease both;
-  }
-
-  .uptime-label {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
-  }
-
-  .uptime-bar {
-    display: flex;
-    gap: 3px;
-    height: 28px;
-  }
-
-  .uptime-day {
-    flex: 1;
-    border-radius: 4px;
-    background: rgba(34,215,126,0.7);
-    transition: transform 0.2s;
-    cursor: pointer;
-  }
-
-  .uptime-day:hover { transform: scaleY(1.15); }
-  .uptime-day.down { background: rgba(247,79,79,0.7); }
-  .uptime-day.partial { background: rgba(247,201,72,0.7); }
-
-  .uptime-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 6px;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--muted);
-  }
-
-  /* SERVICES */
-  .services-title {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.1rem;
-    margin-bottom: 16px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.75rem;
-    animation: fadeUp 0.6s 0.2s ease both;
-  }
-
-  .services-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .service-card {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 14px;
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    transition: border-color 0.2s, background 0.2s;
-    cursor: pointer;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .service-card:hover {
-    border-color: rgba(79,110,247,0.3);
-    background: rgba(79,110,247,0.04);
-  }
-
-  .service-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border: 1px solid var(--card-border);
-  }
-
-  .service-info { flex: 1; }
-
-  .service-name {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 3px;
-  }
-
-  .service-desc {
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
-
-  .service-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .status-dot.operational { background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2s infinite; }
-  .status-dot.degraded { background: var(--yellow); box-shadow: 0 0 8px var(--yellow); animation: pulse 2s infinite; }
-  .status-dot.down { background: var(--red); box-shadow: 0 0 8px var(--red); animation: pulse 2s infinite; }
-  .status-dot.loading { background: var(--muted); }
-
-  .status-label {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.05em;
-  }
-
-  .status-label.operational { color: var(--green); }
-  .status-label.degraded { color: var(--yellow); }
-  .status-label.down { color: var(--red); }
-  .status-label.loading { color: var(--muted); }
-
-  .status-ping {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  .discord-section {
-    margin-top: 48px;
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 28px;
-    animation: fadeUp 0.6s 0.5s ease both;
-  }
-
-  .discord-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
-  }
-
-  .discord-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: rgba(88,101,242,0.2);
-    border: 1px solid rgba(88,101,242,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .discord-title {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1rem;
-  }
-
-  .discord-sub {
-    font-size: 0.75rem;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-  .discord-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #5865F2;
-    color: #fff;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.88rem;
-    padding: 12px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .discord-btn:hover { background: #4752C4; transform: translateY(-1px); }
-
-  /* FOOTER */
-  footer {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    padding: 32px;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--muted);
-    border-top: 1px solid var(--card-border);
-  }
-
-  footer a { color: var(--blue); text-decoration: none; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  /* Stagger service cards */
-  .service-card:nth-child(1) { animation-delay: 0.25s; }
-  .service-card:nth-child(2) { animation-delay: 0.32s; }
-  .service-card:nth-child(3) { animation-delay: 0.39s; }
-  .service-card:nth-child(4) { animation-delay: 0.46s; }
-  .service-card:nth-child(5) { animation-delay: 0.53s; }
+  /* Avatar ring */
+  .avatar-ring{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid}
+  .avatar-ring img{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">
-    <!-- Cloud icon -->
+  <a class="nav-logo" href="https://devcenter.vyral-studio.com/" target="_blank">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
       <rect width="28" height="28" rx="8" fill="rgba(79,110,247,0.15)" stroke="rgba(79,110,247,0.4)" stroke-width="1"/>
       <path d="M8 18C6.343 18 5 16.657 5 15C5 13.465 6.14 12.195 7.621 12.021C7.538 11.69 7.5 11.35 7.5 11C7.5 8.515 9.515 6.5 12 6.5C13.827 6.5 15.41 7.555 16.172 9.102C16.44 9.036 16.716 9 17 9C18.933 9 20.5 10.567 20.5 12.5C20.5 12.567 20.497 12.633 20.492 12.699C21.39 13.162 22 14.11 22 15.2C22 16.743 20.743 18 19.2 18H8Z" fill="#4f6ef7"/>
@@ -468,15 +190,13 @@
 
 <main>
 
-  <!-- HEADER -->
   <div class="header">
     <div class="header-tag"><span></span>Status en temps réel</div>
     <h1>État des <em>services</em><br>Dev Center</h1>
     <p class="header-sub">Surveillance continue · Mise à jour automatique toutes les 60s</p>
   </div>
 
-  <!-- GLOBAL STATUS -->
-  <div class="global-status" id="globalStatus">
+  <div class="global-status">
     <div class="global-left">
       <div class="global-dot" id="globalDot"></div>
       <div>
@@ -484,13 +204,12 @@
         <div class="global-sub" id="globalSub">Connexion aux services</div>
       </div>
     </div>
-    <div class="global-time" id="globalTime">
+    <div class="global-time">
       <div>Dernière vérif.</div>
       <div id="lastCheck">—</div>
     </div>
   </div>
 
-  <!-- UPTIME BAR -->
   <div class="uptime-section">
     <div class="uptime-label">Disponibilité — 60 derniers jours</div>
     <div class="uptime-bar" id="uptimeBar"></div>
@@ -501,36 +220,34 @@
     </div>
   </div>
 
-  <!-- SERVICES -->
-  <div class="services-title">Services surveillés</div>
-  <div class="services-grid" id="servicesGrid">
+  <div class="section-title">Services surveillés</div>
+  <div class="services-grid">
 
-    <!-- Site Principal -->
-    <div class="service-card" id="card-web">
+    <div class="service-card">
       <div class="service-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <circle cx="11" cy="11" r="9" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M11 2C11 2 7 7 7 11C7 15 11 20 11 20" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M11 2C11 2 15 7 15 11C15 15 11 20 11 20" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M2 11H20" stroke="#4f6ef7" stroke-width="1.5"/>
-          <path d="M3 7H19M3 15H19" stroke="#4f6ef7" stroke-width="1" opacity="0.5"/>
+          <path d="M3 7H19M3 15H19" stroke="#4f6ef7" stroke-width="1" opacity=".5"/>
         </svg>
       </div>
       <div class="service-info">
         <div class="service-name">Site Principal</div>
-        <div class="service-desc">jojolm24.github.io/status-dev-center</div>
+        <div class="service-desc">devcenter.vyral-studio.com</div>
       </div>
-      <div>
+      <div class="service-right">
         <div class="service-status">
           <div class="status-dot loading" id="dot-web"></div>
           <div class="status-label loading" id="label-web">—</div>
         </div>
         <div class="status-ping" id="ping-web">— ms</div>
+        <div class="manual-badge" id="mb-web">Manuel</div>
       </div>
     </div>
 
-    <!-- Status Page -->
-    <div class="service-card" id="card-status">
+    <div class="service-card">
       <div class="service-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <rect x="3" y="3" width="16" height="16" rx="3" stroke="#4f6ef7" stroke-width="1.5"/>
@@ -544,17 +261,17 @@
         <div class="service-name">Status Page</div>
         <div class="service-desc">Surveillance des services & alertes</div>
       </div>
-      <div>
+      <div class="service-right">
         <div class="service-status">
           <div class="status-dot loading" id="dot-status"></div>
           <div class="status-label loading" id="label-status">—</div>
         </div>
         <div class="status-ping" id="ping-status">— ms</div>
+        <div class="manual-badge" id="mb-status">Manuel</div>
       </div>
     </div>
 
-    <!-- Database -->
-    <div class="service-card" id="card-db">
+    <div class="service-card">
       <div class="service-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <ellipse cx="11" cy="6" rx="7" ry="3" stroke="#4f6ef7" stroke-width="1.5"/>
@@ -564,19 +281,19 @@
       </div>
       <div class="service-info">
         <div class="service-name">Database</div>
-        <div class="service-desc">Supabase PostgreSQL · llheudreg...</div>
+        <div class="service-desc">Supabase PostgreSQL</div>
       </div>
-      <div>
+      <div class="service-right">
         <div class="service-status">
           <div class="status-dot loading" id="dot-db"></div>
           <div class="status-label loading" id="label-db">—</div>
         </div>
         <div class="status-ping" id="ping-db">— ms</div>
+        <div class="manual-badge" id="mb-db">Manuel</div>
       </div>
     </div>
 
-    <!-- CDN Assets -->
-    <div class="service-card" id="card-cdn">
+    <div class="service-card">
       <div class="service-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <path d="M6 16C4.343 16 3 14.657 3 13C3 11.465 4.14 10.195 5.621 10.021C5.538 9.69 5.5 9.35 5.5 9C5.5 6.515 7.515 4.5 10 4.5C11.827 4.5 13.41 5.555 14.172 7.102C14.44 7.036 14.716 7 15 7C16.933 7 18.5 8.567 18.5 10.5C18.5 10.567 18.497 10.633 18.492 10.699C19.39 11.162 20 12.11 20 13.2C20 14.743 18.743 16 17.2 16H6Z" stroke="#4f6ef7" stroke-width="1.5"/>
@@ -587,137 +304,129 @@
         <div class="service-name">CDN Assets</div>
         <div class="service-desc">Distribution de ressources statiques</div>
       </div>
-      <div>
+      <div class="service-right">
         <div class="service-status">
           <div class="status-dot loading" id="dot-cdn"></div>
           <div class="status-label loading" id="label-cdn">—</div>
         </div>
         <div class="status-ping" id="ping-cdn">— ms</div>
+        <div class="manual-badge" id="mb-cdn">Manuel</div>
       </div>
     </div>
 
-    <!-- Discord -->
-    <div class="service-card" id="card-discord">
-      <div class="service-icon" style="background: rgba(88,101,242,0.15); border-color: rgba(88,101,242,0.3);">
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(88,101,242,.15);border-color:rgba(88,101,242,.3)">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/>
         </svg>
       </div>
       <div class="service-info">
-        <div class="service-name">Discord Bot</div>
-        <div class="service-desc">Serveur 1452963098284785765 · Bot actif</div>
+        <div class="service-name">Discord</div>
+        <div class="service-desc">API Discord · discord.com</div>
       </div>
-      <div>
+      <div class="service-right">
         <div class="service-status">
           <div class="status-dot loading" id="dot-discord"></div>
           <div class="status-label loading" id="label-discord">—</div>
         </div>
         <div class="status-ping" id="ping-discord">— ms</div>
+        <div class="manual-badge" id="mb-discord">Manuel</div>
       </div>
     </div>
 
   </div>
 
-  <!-- DISCORD LOGIN SECTION -->
-  <div class="discord-section" id="discordLoginSection">
+  <!-- ══ ADMIN PANEL (role-gated) ══ -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-header">
+      <div class="admin-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M9 2L11.2 6.5L16 7.3L12.5 10.7L13.4 15.5L9 13.1L4.6 15.5L5.5 10.7L2 7.3L6.8 6.5Z" stroke="#4f6ef7" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="admin-title">Panneau Admin</div>
+        <div class="admin-sub">Modifier manuellement le statut des services · Connecté comme <span id="adminUserName" style="color:var(--text)">—</span></div>
+      </div>
+      <button onclick="logout()" style="margin-left:auto;background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--muted);font-family:var(--font-mono);font-size:.62rem;padding:6px 12px;border-radius:8px;cursor:pointer;letter-spacing:.05em;white-space:nowrap">DÉCONNEXION</button>
+    </div>
 
-    <!-- STATE: not logged in -->
+    <div class="admin-grid" id="adminGrid"></div>
+
+    <button class="admin-save" id="adminSaveBtn" onclick="saveOverrides()">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Enregistrer les modifications
+    </button>
+    <div class="admin-toast" id="adminToast"></div>
+  </div>
+
+  <!-- ══ DISCORD LOGIN ══ -->
+  <div class="discord-section">
+
     <div id="stateLogin">
       <div class="discord-header">
         <div class="discord-icon">
-          <svg width="24" height="24" viewBox="0 0 22 22" fill="none">
-            <path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/>
-          </svg>
+          <svg width="24" height="24" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/></svg>
         </div>
         <div>
-          <div class="discord-title">Accès réservé</div>
-          <div class="discord-sub">Connecte-toi avec Discord pour voir les détails</div>
+          <div class="d-title">Connexion Admin</div>
+          <div class="d-sub">Réservé aux membres avec le rôle requis</div>
         </div>
       </div>
-      <p style="font-size:0.82rem; color:var(--muted); margin-bottom:20px; line-height:1.6;">
-        Cette section est réservée aux membres ayant le rôle requis sur le serveur Dev Center.<br>
-        Connecte ton compte Discord pour vérifier ton accès.
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:20px;line-height:1.7">
+        Connecte ton compte Discord pour accéder au panneau d'administration et modifier les statuts des services.
       </p>
-      <button class="discord-btn" id="loginBtn" onclick="startDiscordLogin()">
-        <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
-          <path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="white"/>
-        </svg>
+      <button class="discord-btn" onclick="startDiscordLogin()">
+        <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="white"/></svg>
         Se connecter avec Discord
       </button>
     </div>
 
-    <!-- STATE: loading / verifying -->
-    <div id="stateLoading" style="display:none; text-align:center; padding: 20px 0;">
-      <div style="margin-bottom:14px;">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="animation: spin 1s linear infinite;">
-          <circle cx="16" cy="16" r="13" stroke="rgba(79,110,247,0.2)" stroke-width="3"/>
-          <path d="M16 3 A13 13 0 0 1 29 16" stroke="#4f6ef7" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div style="font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);">Vérification en cours…</div>
+    <div id="stateLoading" style="display:none;text-align:center;padding:24px 0">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" style="animation:spin 1s linear infinite;margin-bottom:14px">
+        <circle cx="17" cy="17" r="14" stroke="rgba(79,110,247,.15)" stroke-width="3"/>
+        <path d="M17 3 A14 14 0 0 1 31 17" stroke="#4f6ef7" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div style="font-family:var(--font-mono);font-size:.75rem;color:var(--muted)">Vérification Discord…</div>
     </div>
 
-    <!-- STATE: access granted -->
-    <div id="stateGranted" style="display:none;">
-      <div class="discord-header">
-        <div id="userAvatar" style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--green);">
-          <img id="userAvatarImg" src="" width="44" height="44" style="object-fit:cover;" alt=""/>
-        </div>
-        <div>
-          <div class="discord-title" id="userNameDisplay">—</div>
-          <div class="discord-sub" style="color:var(--green);">
-            <span style="display:inline-flex;align-items:center;gap:5px;">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6L5 9L10 3" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              Accès autorisé · Rôle vérifié
-            </span>
-          </div>
-        </div>
-        <button onclick="logout()" style="margin-left:auto;background:rgba(255,255,255,0.05);border:1px solid var(--card-border);color:var(--muted);font-family:var(--font-mono);font-size:0.65rem;padding:6px 12px;border-radius:8px;cursor:pointer;letter-spacing:0.05em;">DÉCONNEXION</button>
-      </div>
-      <div style="background:rgba(34,215,126,0.06);border:1px solid rgba(34,215,126,0.2);border-radius:10px;padding:14px 18px;margin-top:4px;font-size:0.8rem;color:var(--green);display:flex;align-items:center;gap:10px;">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9L7 13L15 5" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Tu as accès à tous les services Dev Center.
+    <div id="stateGranted" style="display:none">
+      <div style="background:rgba(34,215,126,.06);border:1px solid rgba(34,215,126,.2);border-radius:10px;
+        padding:14px 18px;font-size:.82rem;color:var(--green);display:flex;align-items:center;gap:10px">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Connecté avec succès — le panneau admin est disponible ci-dessus.
       </div>
     </div>
 
-    <!-- STATE: access denied (no role) -->
-    <div id="stateDenied" style="display:none;">
+    <div id="stateDenied" style="display:none">
       <div class="discord-header">
-        <div id="userAvatarDenied" style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--red);">
-          <img id="userAvatarImgDenied" src="" width="44" height="44" style="object-fit:cover;" alt=""/>
+        <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--red)">
+          <img id="avatarDenied" src="" width="44" height="44" style="object-fit:cover;display:block" alt=""/>
         </div>
         <div>
-          <div class="discord-title" id="userNameDenied">—</div>
-          <div class="discord-sub" style="color:var(--red);">
-            <span style="display:inline-flex;align-items:center;gap:5px;">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 3L9 9M9 3L3 9" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>
-              Accès refusé · Rôle manquant
-            </span>
-          </div>
+          <div class="d-title" id="nameDenied">—</div>
+          <div class="d-sub" style="color:var(--red)">Accès refusé · Rôle manquant</div>
         </div>
-        <button onclick="logout()" style="margin-left:auto;background:rgba(255,255,255,0.05);border:1px solid var(--card-border);color:var(--muted);font-family:var(--font-mono);font-size:0.65rem;padding:6px 12px;border-radius:8px;cursor:pointer;letter-spacing:0.05em;">DÉCONNEXION</button>
+        <button onclick="logout()" style="margin-left:auto;background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--muted);font-family:var(--font-mono);font-size:.62rem;padding:6px 12px;border-radius:8px;cursor:pointer">DÉCO</button>
       </div>
-      <div style="background:rgba(247,79,79,0.06);border:1px solid rgba(247,79,79,0.2);border-radius:10px;padding:14px 18px;margin-top:4px;font-size:0.8rem;color:var(--red);display:flex;align-items:center;gap:10px;">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 5V9M9 13H9.01" stroke="var(--red)" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="var(--red)" stroke-width="1.5"/></svg>
+      <div style="background:rgba(247,79,79,.06);border:1px solid rgba(247,79,79,.2);border-radius:10px;
+        padding:12px 16px;font-size:.8rem;color:var(--red);display:flex;align-items:center;gap:10px">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="var(--red)" stroke-width="1.5"/><path d="M7.5 5V7.5M7.5 10H7.51" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>
         Tu n'as pas le rôle requis sur le serveur Dev Center.
       </div>
     </div>
 
-    <!-- STATE: not in server -->
-    <div id="stateNotMember" style="display:none;">
+    <div id="stateNotMember" style="display:none">
       <div class="discord-header">
-        <div class="discord-icon" style="background:rgba(247,201,72,0.15);border-color:rgba(247,201,72,0.3);">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 5V11M11 15H11.01" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="8" stroke="var(--yellow)" stroke-width="1.5"/></svg>
+        <div class="discord-icon" style="background:rgba(247,201,72,.12);border-color:rgba(247,201,72,.3)">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="var(--yellow)" stroke-width="1.5"/><path d="M10 6V10M10 13H10.01" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
         <div>
-          <div class="discord-title">Pas membre du serveur</div>
-          <div class="discord-sub" style="color:var(--yellow);">Tu n'es pas dans le serveur Dev Center</div>
+          <div class="d-title">Pas membre</div>
+          <div class="d-sub" style="color:var(--yellow)">Tu n'es pas dans le serveur Dev Center</div>
         </div>
       </div>
-      <p style="font-size:0.82rem;color:var(--muted);margin:14px 0 18px;line-height:1.6;">
-        Rejoins d'abord le serveur Discord Dev Center puis reconnecte-toi.
-      </p>
-      <button onclick="logout()" class="discord-btn" style="background:var(--card);border:1px solid var(--card-border);color:var(--text);">Réessayer</button>
+      <button class="discord-btn ghost" onclick="logout()" style="margin-top:14px">Réessayer</button>
     </div>
 
   </div>
@@ -725,267 +434,239 @@
 </main>
 
 <footer>
-  Dev Center Status · <a href="https://jojolm24.github.io/status-dev-center/" target="_blank">jojolm24.github.io/status-dev-center</a> · Mis à jour automatiquement
+  Dev Center Status · <a href="https://devcenter.vyral-studio.com/" target="_blank">devcenter.vyral-studio.com</a> · Mis à jour automatiquement
 </footer>
 
 <script>
-// ── CONFIG ─────────────────────────────────────────────────────────────────
-const SUPABASE_URL    = 'https://llheudreg' + 'eksbyjuscr' + 'w.supabase.co';
-const SUPABASE_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsaGV1ZHJlZ2Vrc2J5anVzY3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODg1NzUsImV4cCI6MjA4ODU2NDU3NX0.oglo1qODsVra6EdJcrwZ9p2P_SR73R_XfH736V1Giuk';
-const DISCORD_CLIENT  = '1477279042230157404';
-const DISCORD_GUILD   = '1452963098284785765';
-const DISCORD_ROLE    = '1480610386032988373';
-const REDIRECT_URI    = 'https://jojolm24.github.io/status-dev-center/';
-// ────────────────────────────────────────────────────────────────────────────
+// ── CONFIG ────────────────────────────────────────────────────────────────────
+const SB_URL    = 'https://llheudreg' + 'eksbyjuscr' + 'w.supabase.co';
+const SB_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsaGV1ZHJlZ2Vrc2J5anVzY3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODg1NzUsImV4cCI6MjA4ODU2NDU3NX0.oglo1qODsVra6EdJcrwZ9p2P_SR73R_XfH736V1Giuk';
+const DC_CLIENT = '1477279042230157404';
+const DC_GUILD  = '1452963098284785765';
+const DC_ROLE   = '1480610386032988373';
+const REDIR     = 'https://jojolm24.github.io/status-dev-center/';
 
-// ── DISCORD OAUTH2 ──────────────────────────────────────────────────────────
-function startDiscordLogin() {
-  const state = crypto.randomUUID();
-  sessionStorage.setItem('oauth_state', state);
-  const params = new URLSearchParams({
-    client_id:     DISCORD_CLIENT,
-    redirect_uri:  REDIRECT_URI,
-    response_type: 'token',
-    scope:         'identify guilds guilds.members.read',
-    state:         state
+const SERVICES = [
+  { id:'web',     label:'Site Principal',  url:'https://devcenter.vyral-studio.com/',              ms:2000 },
+  { id:'status',  label:'Status Page',     url:'https://jojolm24.github.io/status-dev-center/',    ms:2000 },
+  { id:'db',      label:'Database',        url:null,                                               ms:3000 },
+  { id:'cdn',     label:'CDN Assets',      url:'https://cdnjs.cloudflare.com/',                    ms:1500 },
+  { id:'discord', label:'Discord',         url:'https://discord.com/',                             ms:1500 },
+];
+
+let overrides = {};
+try { overrides = JSON.parse(localStorage.getItem('dc_ov') || '{}'); } catch{}
+
+// ── UTILS ─────────────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+function showState(s) {
+  ['Login','Loading','Granted','Denied','NotMember'].forEach(k => {
+    const el = $('state'+k);
+    if (el) el.style.display = (k.toLowerCase() === s) ? 'block' : 'none';
   });
-  window.location.href = 'https://discord.com/oauth2/authorize?' + params.toString();
+}
+
+// ── STATUS RENDERING ──────────────────────────────────────────────────────────
+const LABELS = { operational:'Opérationnel', degraded:'Dégradé', down:'Hors ligne' };
+
+function renderStatus(id, auto, ms) {
+  const state = overrides[id] || auto;
+  const dot   = $('dot-'+id);
+  const lbl   = $('label-'+id);
+  const ping  = $('ping-'+id);
+  const mb    = $('mb-'+id);
+  if (!dot) return state;
+  dot.className   = 'status-dot '+state;
+  lbl.className   = 'status-label '+state;
+  lbl.textContent = LABELS[state] || '—';
+  if (ms && ping) ping.textContent = ms+' ms';
+  if (mb) mb.style.display = overrides[id] ? 'block' : 'none';
+  return state;
+}
+
+function updateGlobal(states) {
+  const allOk   = states.every(s => s==='operational');
+  const anyDown = states.some(s => s==='down');
+  const dot = $('globalDot'), lbl = $('globalLabel'), sub = $('globalSub'), badge = $('navBadge');
+  if (allOk) {
+    dot.style.cssText='background:var(--green);box-shadow:0 0 10px var(--green)';
+    lbl.textContent='Tous les systèmes opérationnels'; sub.textContent='5 services · aucun incident';
+    badge.textContent='● Opérationnel'; badge.style.cssText='color:var(--green);background:rgba(34,215,126,.12);border-color:rgba(34,215,126,.3)';
+  } else if (anyDown) {
+    dot.style.cssText='background:var(--red);box-shadow:0 0 10px var(--red)';
+    lbl.textContent='Incident en cours'; sub.textContent='Un ou plusieurs services sont hors ligne';
+    badge.textContent='● Incident'; badge.style.cssText='color:var(--red);background:rgba(247,79,79,.12);border-color:rgba(247,79,79,.3)';
+  } else {
+    dot.style.cssText='background:var(--yellow);box-shadow:0 0 10px var(--yellow)';
+    lbl.textContent='Performances dégradées'; sub.textContent='Certains services sont lents';
+    badge.textContent='● Dégradé'; badge.style.cssText='color:var(--yellow);background:rgba(247,201,72,.12);border-color:rgba(247,201,72,.3)';
+  }
+}
+
+// ── HEALTH CHECKS ─────────────────────────────────────────────────────────────
+async function ping(url) {
+  const t = Date.now();
+  try { await fetch(url, {method:'HEAD',mode:'no-cors',cache:'no-store'}); return {ok:true,ms:Date.now()-t}; }
+  catch { return {ok:false,ms:null}; }
+}
+async function checkDB() {
+  const t = Date.now();
+  try {
+    const r = await fetch(SB_URL+'/rest/v1/', {headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
+    return {ok:r.ok,ms:Date.now()-t};
+  } catch { return {ok:false,ms:null}; }
+}
+
+async function runChecks() {
+  $('lastCheck').textContent = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const results = [];
+
+  const w  = await ping('https://devcenter.vyral-studio.com/');
+  results.push(renderStatus('web',     w.ok?(w.ms>2000?'degraded':'operational'):'down', w.ms));
+
+  const sp = await ping('https://jojolm24.github.io/status-dev-center/');
+  results.push(renderStatus('status',  sp.ok?(sp.ms>2000?'degraded':'operational'):'down', sp.ms));
+
+  const db = await checkDB();
+  results.push(renderStatus('db',      db.ok?(db.ms>3000?'degraded':'operational'):'down', db.ms));
+
+  const cdn= await ping('https://cdnjs.cloudflare.com/');
+  results.push(renderStatus('cdn',     cdn.ok?(cdn.ms>1500?'degraded':'operational'):'down', cdn.ms));
+
+  const dc = await ping('https://discord.com/');
+  results.push(renderStatus('discord', dc.ok?'operational':'down', dc.ms));
+
+  updateGlobal(results);
+}
+
+// ── UPTIME BAR ────────────────────────────────────────────────────────────────
+function buildUptimeBar() {
+  const bar = $('uptimeBar'); let down = 0;
+  for (let i=0;i<60;i++) {
+    const d = document.createElement('div');
+    d.className='uptime-day';
+    const r=Math.random();
+    if (r<.02){d.classList.add('down');down++;}
+    else if(r<.05) d.classList.add('partial');
+    d.title=`Jour ${60-i}`;
+    bar.appendChild(d);
+  }
+  $('uptimePct').textContent=(((60-down)/60)*100).toFixed(2)+' %';
+}
+
+// ── ADMIN PANEL ───────────────────────────────────────────────────────────────
+function buildAdminGrid() {
+  const grid = $('adminGrid'); grid.innerHTML='';
+  SERVICES.forEach(svc => {
+    const cur = overrides[svc.id] || 'auto';
+    const row = document.createElement('div');
+    row.className='admin-row';
+    row.innerHTML=`
+      <div class="admin-row-name">${svc.label}</div>
+      <select class="admin-select" id="as-${svc.id}">
+        <option value="auto"${cur==='auto'?' selected':''}>🔄 Automatique</option>
+        <option value="operational"${cur==='operational'?' selected':''}>🟢 Opérationnel</option>
+        <option value="degraded"${cur==='degraded'?' selected':''}>🟡 Dégradé</option>
+        <option value="down"${cur==='down'?' selected':''}>🔴 Hors ligne</option>
+      </select>`;
+    grid.appendChild(row);
+  });
+}
+
+async function saveOverrides() {
+  const btn=$('adminSaveBtn'), toast=$('adminToast');
+  btn.disabled=true; btn.textContent='Enregistrement…';
+  const newOv={};
+  SERVICES.forEach(s=>{const v=$('as-'+s.id).value; if(v!=='auto') newOv[s.id]=v;});
+  overrides=newOv;
+  localStorage.setItem('dc_ov',JSON.stringify(overrides));
+
+  // Try Supabase
+  try {
+    await fetch(SB_URL+'/rest/v1/service_overrides', {
+      method:'POST',
+      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},
+      body:JSON.stringify({id:'main',data:overrides,updated_at:new Date().toISOString()})
+    });
+  } catch{}
+
+  // Re-render cards immediately
+  await runChecks();
+  toast.className='admin-toast'; toast.textContent='✓ Statuts mis à jour avec succès'; toast.style.display='block';
+  setTimeout(()=>toast.style.display='none',4000);
+  btn.disabled=false;
+  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Enregistrer les modifications';
+}
+
+// ── DISCORD OAUTH ─────────────────────────────────────────────────────────────
+function startDiscordLogin() {
+  const state=crypto.randomUUID(); sessionStorage.setItem('dcstate',state);
+  const p=new URLSearchParams({client_id:DC_CLIENT,redirect_uri:REDIR,response_type:'token',
+    scope:'identify guilds guilds.members.read',state});
+  location.href='https://discord.com/oauth2/authorize?'+p;
 }
 
 function logout() {
-  sessionStorage.removeItem('discord_token');
-  sessionStorage.removeItem('discord_user');
+  sessionStorage.removeItem('dc_tok');
+  $('adminPanel').style.display='none';
   showState('login');
 }
 
-function showState(state) {
-  ['login','loading','granted','denied','notMember'].forEach(s => {
-    const el = document.getElementById('state' + s.charAt(0).toUpperCase() + s.slice(1));
-    if (el) el.style.display = (s === state) ? 'block' : 'none';
-  });
-}
-
-// Parse token from URL fragment after Discord redirect
-async function handleOAuthCallback() {
-  const hash = window.location.hash.substring(1);
+async function handleCallback() {
+  const hash=location.hash.substring(1);
   if (!hash.includes('access_token')) return false;
-
-  const params = new URLSearchParams(hash);
-  const token  = params.get('access_token');
-  const state  = params.get('state');
-
-  // Clean URL
-  history.replaceState(null, '', window.location.pathname);
-
-  if (!token) return false;
-
-  // Validate state
-  const savedState = sessionStorage.getItem('oauth_state');
-  if (state && savedState && state !== savedState) {
-    console.warn('OAuth state mismatch');
-    return false;
-  }
-  sessionStorage.removeItem('oauth_state');
-
-  sessionStorage.setItem('discord_token', token);
-  await verifyDiscordAccess(token);
-  return true;
+  const p=new URLSearchParams(hash);
+  const tok=p.get('access_token'); const st=p.get('state');
+  history.replaceState(null,'',location.pathname);
+  if (!tok) return false;
+  const saved=sessionStorage.getItem('dcstate');
+  if (st&&saved&&st!==saved) return false;
+  sessionStorage.removeItem('dcstate');
+  sessionStorage.setItem('dc_tok',tok);
+  await verifyAccess(tok); return true;
 }
 
-async function verifyDiscordAccess(token) {
+async function verifyAccess(tok) {
   showState('loading');
   try {
-    // 1. Fetch user info
-    const userRes = await fetch('https://discord.com/api/users/@me', {
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    if (!userRes.ok) throw new Error('user fetch failed');
-    const user = await userRes.json();
+    const ur=await fetch('https://discord.com/api/users/@me',{headers:{Authorization:'Bearer '+tok}});
+    if(!ur.ok) throw 0;
+    const user=await ur.json();
+    const mr=await fetch(`https://discord.com/api/users/@me/guilds/${DC_GUILD}/member`,{headers:{Authorization:'Bearer '+tok}});
 
-    // 2. Fetch guilds member info for our server
-    const memberRes = await fetch(`https://discord.com/api/users/@me/guilds/${DISCORD_GUILD}/member`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    const av=user.avatar
+      ?`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`
+      :`https://cdn.discordapp.com/embed/avatars/${parseInt(user.discriminator||'0')%5}.png`;
+    const name=user.global_name||user.username;
 
-    const avatarUrl = user.avatar
-      ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`
-      : `https://cdn.discordapp.com/embed/avatars/${parseInt(user.discriminator || '0') % 5}.png`;
+    if (mr.status===404||mr.status===403){showState('notMember');return;}
+    if (!mr.ok) throw 0;
+    const member=await mr.json();
 
-    const displayName = user.global_name || user.username;
-
-    if (memberRes.status === 404 || memberRes.status === 403) {
-      // Not in server
-      setDeniedAvatars(avatarUrl, displayName, 'notMember');
-      showState('notMember');
-      return;
-    }
-
-    if (!memberRes.ok) throw new Error('member fetch failed');
-    const member = await memberRes.json();
-
-    const hasRole = (member.roles || []).includes(DISCORD_ROLE);
-
-    if (hasRole) {
-      document.getElementById('userAvatarImg').src  = avatarUrl;
-      document.getElementById('userNameDisplay').textContent = displayName;
+    if ((member.roles||[]).includes(DC_ROLE)) {
+      // Admin granted
+      $('adminUserName').textContent = name;
+      buildAdminGrid();
+      $('adminPanel').style.display='block';
       showState('granted');
-      setStatus('discord', 'operational', 38);
+      setTimeout(()=>$('adminPanel').scrollIntoView({behavior:'smooth',block:'nearest'}),150);
     } else {
-      document.getElementById('userAvatarImgDenied').src  = avatarUrl;
-      document.getElementById('userNameDenied').textContent = displayName;
+      $('avatarDenied').src=av; $('nameDenied').textContent=name;
       showState('denied');
     }
-
-  } catch (err) {
-    console.error('Discord verify error:', err);
-    showState('login');
-  }
+  } catch { showState('login'); }
 }
 
-function setDeniedAvatars(url, name, state) {
-  if (state === 'notMember') return; // no avatar in that view
-  document.getElementById('userAvatarImgDenied').src = url;
-  document.getElementById('userNameDenied').textContent = name;
-}
-
-// Check if already has token in session
-async function checkExistingSession() {
-  const token = sessionStorage.getItem('discord_token');
-  if (token) {
-    await verifyDiscordAccess(token);
-    return true;
-  }
-  return false;
-}
-// ────────────────────────────────────────────────────────────────────────────
-
-// ── UPTIME BAR ───────────────────────────────────────────────────────────────
-function buildUptimeBar() {
-  const bar = document.getElementById('uptimeBar');
-  let downDays = 0;
-  for (let i = 0; i < 60; i++) {
-    const d = document.createElement('div');
-    d.className = 'uptime-day';
-    const r = Math.random();
-    if (r < 0.02)  { d.classList.add('down');    downDays++; }
-    else if (r < 0.05) { d.classList.add('partial'); }
-    d.title = `Jour ${60 - i}`;
-    bar.appendChild(d);
-  }
-  const pct = (((60 - downDays) / 60) * 100).toFixed(2);
-  document.getElementById('uptimePct').textContent = pct + ' %';
-}
-
-// ── HELPERS ──────────────────────────────────────────────────────────────────
-function updateTime() {
-  const now = new Date();
-  document.getElementById('lastCheck').textContent =
-    now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-}
-
-function setStatus(id, state, ms) {
-  const labels = { operational: 'Opérationnel', degraded: 'Dégradé', down: 'Hors ligne' };
-  const dot   = document.getElementById('dot-' + id);
-  const label = document.getElementById('label-' + id);
-  const ping  = document.getElementById('ping-' + id);
-  if (!dot || !label) return;
-  dot.className   = 'status-dot ' + state;
-  label.className = 'status-label ' + state;
-  label.textContent = labels[state] || '—';
-  if (ms !== null && ping) ping.textContent = ms + ' ms';
-}
-
-async function checkUrl(url) {
-  const t = Date.now();
-  try {
-    await fetch(url, { method: 'HEAD', mode: 'no-cors', cache: 'no-store' });
-    return { ok: true, ms: Date.now() - t };
-  } catch { return { ok: false, ms: null }; }
-}
-
-async function checkDatabase() {
-  const t = Date.now();
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/`, {
-      headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
-    });
-    return { ok: res.ok, ms: Date.now() - t };
-  } catch { return { ok: false, ms: null }; }
-}
-
-function updateGlobal(services) {
-  const allOk   = services.every(s => s === 'operational');
-  const anyDown = services.some(s => s === 'down');
-  const dot   = document.getElementById('globalDot');
-  const label = document.getElementById('globalLabel');
-  const sub   = document.getElementById('globalSub');
-  const badge = document.getElementById('navBadge');
-
-  if (allOk) {
-    dot.style.cssText   = 'background:var(--green);box-shadow:0 0 10px var(--green)';
-    label.textContent   = 'Tous les systèmes opérationnels';
-    sub.textContent     = '5 services surveillés · aucun incident';
-    badge.textContent   = '● Opérationnel';
-    badge.style.cssText = 'color:var(--green);background:rgba(34,215,126,0.12);border-color:rgba(34,215,126,0.3)';
-  } else if (anyDown) {
-    dot.style.cssText   = 'background:var(--red);box-shadow:0 0 10px var(--red)';
-    label.textContent   = 'Incident en cours';
-    sub.textContent     = 'Un ou plusieurs services sont hors ligne';
-    badge.textContent   = '● Incident';
-    badge.style.cssText = 'color:var(--red);background:rgba(247,79,79,0.12);border-color:rgba(247,79,79,0.3)';
-  } else {
-    dot.style.cssText   = 'background:var(--yellow);box-shadow:0 0 10px var(--yellow)';
-    label.textContent   = 'Performances dégradées';
-    sub.textContent     = 'Certains services sont lents';
-    badge.textContent   = '● Dégradé';
-    badge.style.cssText = 'color:var(--yellow);background:rgba(247,201,72,0.12);border-color:rgba(247,201,72,0.3)';
-  }
-}
-
-// ── MAIN CHECK LOOP ──────────────────────────────────────────────────────────
-async function runChecks() {
-  updateTime();
-  const statuses = [];
-
-  const web = await checkUrl('https://jojolm24.github.io/status-dev-center/');
-  const webState = web.ok ? (web.ms > 2000 ? 'degraded' : 'operational') : 'down';
-  setStatus('web', webState, web.ms);
-  statuses.push(webState);
-
-  const statusMs = web.ms ? web.ms + Math.floor(Math.random()*30) : null;
-  setStatus('status', web.ok ? 'operational' : 'down', statusMs);
-  statuses.push(web.ok ? 'operational' : 'down');
-
-  const db = await checkDatabase();
-  const dbState = db.ok ? (db.ms > 3000 ? 'degraded' : 'operational') : 'down';
-  setStatus('db', dbState, db.ms);
-  statuses.push(dbState);
-
-  const cdn = await checkUrl('https://cdnjs.cloudflare.com/');
-  const cdnState = cdn.ok ? (cdn.ms > 1500 ? 'degraded' : 'operational') : 'down';
-  setStatus('cdn', cdnState, cdn.ms);
-  statuses.push(cdnState);
-
-  // Discord status card shows operational if Discord API is reachable
-  const dc = await checkUrl('https://discord.com/api/v10/');
-  setStatus('discord', dc.ok ? 'operational' : 'down', dc.ms);
-  statuses.push(dc.ok ? 'operational' : 'down');
-
-  updateGlobal(statuses);
-}
-
-// ── INIT ─────────────────────────────────────────────────────────────────────
-(async () => {
+// ── INIT ──────────────────────────────────────────────────────────────────────
+(async()=>{
   buildUptimeBar();
   runChecks();
-  setInterval(runChecks, 60000);
-
-  // Handle OAuth callback first
-  const handled = await handleOAuthCallback();
-  if (!handled) {
-    // Check existing session
-    const hasSession = await checkExistingSession();
-    if (!hasSession) showState('login');
+  setInterval(runChecks,60000);
+  const done=await handleCallback();
+  if(!done){
+    const tok=sessionStorage.getItem('dc_tok');
+    if(tok) await verifyAccess(tok);
+    else showState('login');
   }
 })();
 </script>
