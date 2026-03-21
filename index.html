@@ -1179,5 +1179,36 @@ async function verifyAccess(tok){
   }
 })();
 </script>
+
+<script>
+// Protection source
+document.addEventListener('keydown', function(e) {
+  // Ctrl+U, Ctrl+S, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, F12
+  if (
+    (e.ctrlKey && e.key === 'u') ||
+    (e.ctrlKey && e.key === 's') ||
+    (e.ctrlKey && e.shiftKey && ['i','j','c','k'].includes(e.key.toLowerCase())) ||
+    e.key === 'F12'
+  ) { e.preventDefault(); return false; }
+});
+// Clic droit
+document.addEventListener('contextmenu', function(e) { e.preventDefault(); return false; });
+// Sélection texte
+document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
+// Drag
+document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
+// Détection DevTools (resize trick)
+(function() {
+  const threshold = 160;
+  setInterval(function() {
+    if (
+      window.outerWidth - window.innerWidth > threshold ||
+      window.outerHeight - window.innerHeight > threshold
+    ) {
+      document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#080c14;color:#f74f4f;font-family:monospace;font-size:1.2rem">⛔ Accès non autorisé</div>';
+    }
+  }, 1000);
+})();
+</script>
 </body>
 </html>
