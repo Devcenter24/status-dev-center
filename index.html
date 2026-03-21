@@ -4,179 +4,305 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dev Center — Status</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg:#080c14; --card:rgba(255,255,255,.04); --card-border:rgba(255,255,255,.08);
-    --blue:#4f6ef7; --green:#22d77e; --yellow:#f7c948; --red:#f74f4f;
-    --text:#e8eaf6; --muted:#5a6380;
-    --font-display:'Syne',sans-serif; --font-mono:'Space Mono',monospace; --font-body:'Inter',sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--text);font-family:var(--font-body);min-height:100vh;overflow-x:hidden}
-  body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-    background-image:
-      radial-gradient(1px 1px at 10% 20%,rgba(255,255,255,.6) 0%,transparent 100%),
-      radial-gradient(1px 1px at 30% 60%,rgba(255,255,255,.4) 0%,transparent 100%),
-      radial-gradient(1px 1px at 50% 10%,rgba(255,255,255,.5) 0%,transparent 100%),
-      radial-gradient(1px 1px at 70% 80%,rgba(255,255,255,.3) 0%,transparent 100%),
-      radial-gradient(1px 1px at 90% 40%,rgba(255,255,255,.6) 0%,transparent 100%),
-      radial-gradient(1px 1px at 15% 85%,rgba(255,255,255,.4) 0%,transparent 100%),
-      radial-gradient(1px 1px at 85% 15%,rgba(255,255,255,.5) 0%,transparent 100%),
-      radial-gradient(1px 1px at 45% 45%,rgba(255,255,255,.3) 0%,transparent 100%),
-      radial-gradient(1px 1px at 65% 25%,rgba(255,255,255,.4) 0%,transparent 100%),
-      radial-gradient(1px 1px at 25% 70%,rgba(255,255,255,.5) 0%,transparent 100%),
-      radial-gradient(1.5px 1.5px at 55% 90%,rgba(255,255,255,.3) 0%,transparent 100%),
-      radial-gradient(1px 1px at 80% 55%,rgba(255,255,255,.4) 0%,transparent 100%),
-      radial-gradient(1px 1px at 35% 35%,rgba(255,255,255,.6) 0%,transparent 100%),
-      radial-gradient(1px 1px at 92% 72%,rgba(255,255,255,.3) 0%,transparent 100%),
-      radial-gradient(1.5px 1.5px at 5% 50%,rgba(255,255,255,.5) 0%,transparent 100%),
-      radial-gradient(1px 1px at 75% 5%,rgba(255,255,255,.4) 0%,transparent 100%),
-      radial-gradient(1px 1px at 20% 95%,rgba(255,255,255,.3) 0%,transparent 100%),
-      radial-gradient(1px 1px at 60% 65%,rgba(255,255,255,.5) 0%,transparent 100%)}
-  body::after{content:'';position:fixed;width:600px;height:600px;pointer-events:none;z-index:0;
-    background:radial-gradient(circle,rgba(79,110,247,.08) 0%,transparent 70%);top:-200px;right:-100px}
+:root{
+  --bg:#080c14;--bg2:#0c1120;--card:rgba(255,255,255,.04);--card2:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.08);--border2:rgba(255,255,255,.14);
+  --blue:#4f6ef7;--blue2:rgba(79,110,247,.15);--blue3:rgba(79,110,247,.08);
+  --green:#22d77e;--yellow:#f7c948;--red:#f74f4f;--purple:#a78bfa;
+  --text:#e8eaf6;--text2:#b0b8d4;--muted:#5a6380;
+  --fd:'Syne',sans-serif;--fm:'Space Mono',monospace;--fb:'Inter',sans-serif;
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);min-height:100vh;overflow-x:hidden}
 
-  nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-    padding:0 40px;height:64px;background:rgba(8,12,20,.85);backdrop-filter:blur(20px);
-    border-bottom:1px solid var(--card-border)}
-  .nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:800;
-    font-size:1.1rem;color:var(--text);text-decoration:none}
-  .nav-badge{font-family:var(--font-mono);font-size:.65rem;background:rgba(34,215,126,.15);
-    color:var(--green);border:1px solid rgba(34,215,126,.3);padding:3px 10px;border-radius:20px;letter-spacing:.05em}
+/* stars */
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 8% 18%,rgba(255,255,255,.55) 0%,transparent 100%),
+    radial-gradient(1px 1px at 27% 58%,rgba(255,255,255,.38) 0%,transparent 100%),
+    radial-gradient(1px 1px at 48% 8%,rgba(255,255,255,.48) 0%,transparent 100%),
+    radial-gradient(1px 1px at 68% 78%,rgba(255,255,255,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 88% 38%,rgba(255,255,255,.55) 0%,transparent 100%),
+    radial-gradient(1px 1px at 14% 82%,rgba(255,255,255,.38) 0%,transparent 100%),
+    radial-gradient(1px 1px at 83% 13%,rgba(255,255,255,.48) 0%,transparent 100%),
+    radial-gradient(1px 1px at 43% 43%,rgba(255,255,255,.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 63% 23%,rgba(255,255,255,.38) 0%,transparent 100%),
+    radial-gradient(1px 1px at 23% 68%,rgba(255,255,255,.48) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 53% 88%,rgba(255,255,255,.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 78% 53%,rgba(255,255,255,.38) 0%,transparent 100%),
+    radial-gradient(1px 1px at 33% 33%,rgba(255,255,255,.55) 0%,transparent 100%),
+    radial-gradient(1px 1px at 91% 70%,rgba(255,255,255,.28) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 4% 48%,rgba(255,255,255,.48) 0%,transparent 100%),
+    radial-gradient(1px 1px at 73% 4%,rgba(255,255,255,.38) 0%,transparent 100%),
+    radial-gradient(1px 1px at 18% 93%,rgba(255,255,255,.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 58% 63%,rgba(255,255,255,.48) 0%,transparent 100%)}
+body::after{content:'';position:fixed;width:700px;height:700px;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(79,110,247,.07) 0%,transparent 70%);top:-250px;right:-150px}
 
-  main{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:60px 24px 100px}
+/* NAV */
+nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:64px;background:rgba(8,12,20,.9);backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:800;
+  font-size:1.1rem;color:var(--text);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-badge{font-family:var(--fm);font-size:.63rem;padding:4px 12px;border-radius:20px;
+  letter-spacing:.05em;border:1px solid;background:rgba(34,215,126,.12);
+  color:var(--green);border-color:rgba(34,215,126,.3)}
+#navUser{display:none;align-items:center;gap:8px}
+#navUser img{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--blue)}
+#navUser span{font-family:var(--fm);font-size:.65rem;color:var(--text2)}
 
-  .header{text-align:center;margin-bottom:56px;animation:fadeUp .6s ease forwards}
-  .header-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.7rem;
-    color:var(--blue);background:rgba(79,110,247,.1);border:1px solid rgba(79,110,247,.25);
-    padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase}
-  .header-tag span{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
-  h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.05;margin-bottom:14px}
-  h1 em{font-style:normal;color:var(--blue)}
-  .header-sub{color:var(--muted);font-size:.95rem;font-weight:300;letter-spacing:.02em}
+/* MAIN */
+main{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:60px 24px 120px}
 
-  .global-status{background:var(--card);border:1px solid var(--card-border);border-radius:16px;
-    padding:20px 28px;display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:32px;animation:fadeUp .6s .1s ease both}
-  .global-left{display:flex;align-items:center;gap:14px}
-  .global-dot{width:12px;height:12px;border-radius:50%;background:var(--green);
-    box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
-  .global-label{font-family:var(--font-display);font-weight:700;font-size:1rem}
-  .global-sub{font-size:.78rem;color:var(--muted);margin-top:2px}
-  .global-time{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);text-align:right}
+/* HEADER */
+.header{text-align:center;margin-bottom:56px;animation:fadeUp .6s ease forwards}
+.header-tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:.68rem;
+  color:var(--blue);background:rgba(79,110,247,.1);border:1px solid rgba(79,110,247,.25);
+  padding:5px 14px;border-radius:20px;margin-bottom:20px;letter-spacing:.08em;text-transform:uppercase}
+.header-tag span{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+h1{font-family:var(--fd);font-weight:900;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.05;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--blue)}
+.header-sub{color:var(--muted);font-size:.95rem;font-weight:300;letter-spacing:.02em}
 
-  .uptime-section{margin-bottom:40px;animation:fadeUp .6s .15s ease both}
-  .uptime-label{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);
-    text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-  .uptime-bar{display:flex;gap:3px;height:28px}
-  .uptime-day{flex:1;border-radius:4px;background:rgba(34,215,126,.7);transition:transform .2s;cursor:pointer}
-  .uptime-day:hover{transform:scaleY(1.15)}
-  .uptime-day.down{background:rgba(247,79,79,.7)}
-  .uptime-day.partial{background:rgba(247,201,72,.7)}
-  .uptime-meta{display:flex;justify-content:space-between;margin-top:6px;
-    font-family:var(--font-mono);font-size:.65rem;color:var(--muted)}
+/* GLOBAL STATUS */
+.global-status{background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:20px 28px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:32px;animation:fadeUp .6s .1s ease both}
+.global-left{display:flex;align-items:center;gap:14px}
+.global-dot{width:12px;height:12px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 12px var(--green);animation:pulse 2s infinite;flex-shrink:0}
+.global-label{font-family:var(--fd);font-weight:700;font-size:1rem}
+.global-sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+.global-time{font-family:var(--fm);font-size:.7rem;color:var(--muted);text-align:right}
 
-  .section-title{font-family:var(--font-mono);font-size:.68rem;color:var(--muted);
-    text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;animation:fadeUp .6s .2s ease both}
-  .services-grid{display:flex;flex-direction:column;gap:12px}
+/* UPTIME */
+.uptime-section{margin-bottom:40px;animation:fadeUp .6s .15s ease both}
+.uptime-label{font-family:var(--fm);font-size:.66rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.uptime-bar{display:flex;gap:3px;height:26px}
+.uptime-day{flex:1;border-radius:4px;background:rgba(34,215,126,.65);transition:transform .2s,opacity .2s;cursor:pointer}
+.uptime-day:hover{transform:scaleY(1.18);opacity:1!important}
+.uptime-day.down{background:rgba(247,79,79,.65)}
+.uptime-day.partial{background:rgba(247,201,72,.65)}
+.uptime-meta{display:flex;justify-content:space-between;margin-top:7px;
+  font-family:var(--fm);font-size:.63rem;color:var(--muted)}
 
-  .service-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;
-    padding:20px 24px;display:flex;align-items:center;gap:18px;
-    transition:border-color .2s,background .2s;animation:fadeUp .6s ease both}
-  .service-card:hover{border-color:rgba(79,110,247,.3);background:rgba(79,110,247,.04)}
-  .service-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.05);
-    display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--card-border)}
-  .service-info{flex:1}
-  .service-name{font-family:var(--font-display);font-weight:700;font-size:.95rem;margin-bottom:3px}
-  .service-desc{font-size:.75rem;color:var(--muted)}
-  .service-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
-  .service-status{display:flex;align-items:center;gap:8px}
+/* SERVICES */
+.section-title{font-family:var(--fm);font-size:.66rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;animation:fadeUp .6s .2s ease both}
+.services-grid{display:flex;flex-direction:column;gap:10px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:18px 22px;display:flex;align-items:center;gap:16px;
+  transition:border-color .2s,background .2s;animation:fadeUp .6s ease both}
+.service-card:hover{border-color:rgba(79,110,247,.3);background:rgba(79,110,247,.04)}
+.svc-icon{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid var(--border)}
+.svc-info{flex:1;min-width:0}
+.svc-name{font-family:var(--fd);font-weight:700;font-size:.93rem;margin-bottom:3px}
+.svc-desc{font-size:.73rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.svc-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.svc-status{display:flex;align-items:center;gap:7px}
+.sdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sdot.operational{background:var(--green);box-shadow:0 0 7px var(--green);animation:pulse 2.5s infinite}
+.sdot.degraded{background:var(--yellow);box-shadow:0 0 7px var(--yellow);animation:pulse 2.5s infinite}
+.sdot.down{background:var(--red);box-shadow:0 0 7px var(--red);animation:pulse 2.5s infinite}
+.sdot.loading{background:var(--muted)}
+.slabel{font-family:var(--fm);font-size:.66rem;letter-spacing:.04em}
+.slabel.operational{color:var(--green)}.slabel.degraded{color:var(--yellow)}.slabel.down{color:var(--red)}.slabel.loading{color:var(--muted)}
+.sping{font-family:var(--fm);font-size:.63rem;color:var(--muted)}
+.mbadge{font-family:var(--fm);font-size:.57rem;color:var(--blue);background:rgba(79,110,247,.12);
+  border:1px solid rgba(79,110,247,.25);padding:2px 7px;border-radius:10px;display:none}
 
-  .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-  .status-dot.operational{background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite}
-  .status-dot.degraded{background:var(--yellow);box-shadow:0 0 8px var(--yellow);animation:pulse 2s infinite}
-  .status-dot.down{background:var(--red);box-shadow:0 0 8px var(--red);animation:pulse 2s infinite}
-  .status-dot.loading{background:var(--muted)}
-  .status-label{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em}
-  .status-label.operational{color:var(--green)}
-  .status-label.degraded{color:var(--yellow)}
-  .status-label.down{color:var(--red)}
-  .status-label.loading{color:var(--muted)}
-  .status-ping{font-family:var(--font-mono);font-size:.65rem;color:var(--muted)}
-  .manual-badge{font-family:var(--font-mono);font-size:.58rem;color:var(--blue);
-    background:rgba(79,110,247,.12);border:1px solid rgba(79,110,247,.25);
-    padding:2px 7px;border-radius:10px;display:none}
+.service-card:nth-child(1){animation-delay:.25s}
+.service-card:nth-child(2){animation-delay:.32s}
+.service-card:nth-child(3){animation-delay:.39s}
+.service-card:nth-child(4){animation-delay:.46s}
+.service-card:nth-child(5){animation-delay:.53s}
 
-  /* ADMIN PANEL */
-  .admin-panel{margin-top:40px;background:rgba(79,110,247,.05);
-    border:1px solid rgba(79,110,247,.2);border-radius:16px;padding:28px;
-    animation:fadeUp .6s .4s ease both;display:none}
-  .admin-header{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-  .admin-icon{width:38px;height:38px;border-radius:10px;background:rgba(79,110,247,.15);
-    border:1px solid rgba(79,110,247,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .admin-title{font-family:var(--font-display);font-weight:800;font-size:1rem}
-  .admin-sub{font-size:.72rem;color:var(--muted);margin-top:2px}
-  .admin-grid{display:flex;flex-direction:column;gap:10px}
-  .admin-row{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);
-    border:1px solid var(--card-border);border-radius:10px;padding:13px 16px}
-  .admin-row-name{font-family:var(--font-display);font-weight:700;font-size:.82rem;flex:1}
-  .admin-select{background:rgba(255,255,255,.07);border:1px solid var(--card-border);
-    color:var(--text);font-family:var(--font-mono);font-size:.68rem;
-    padding:7px 28px 7px 10px;border-radius:8px;cursor:pointer;outline:none;
-    appearance:none;-webkit-appearance:none;min-width:150px;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a6380' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;background-position:right 9px center}
-  .admin-select option{background:#0d1220}
-  .admin-select:focus{border-color:rgba(79,110,247,.5)}
-  .admin-save{display:flex;align-items:center;justify-content:center;gap:8px;
-    margin-top:16px;width:100%;padding:12px;border-radius:10px;
-    background:var(--blue);color:#fff;font-family:var(--font-display);font-weight:700;
-    font-size:.85rem;border:none;cursor:pointer;transition:background .2s,transform .2s}
-  .admin-save:hover{background:#3d5ce0;transform:translateY(-1px)}
-  .admin-save:disabled{opacity:.5;cursor:not-allowed;transform:none}
-  .admin-toast{display:none;margin-top:12px;padding:10px 16px;border-radius:8px;
-    font-family:var(--font-mono);font-size:.75rem;text-align:center;
-    background:rgba(34,215,126,.1);border:1px solid rgba(34,215,126,.3);color:var(--green)}
-  .admin-toast.err{background:rgba(247,79,79,.1);border-color:rgba(247,79,79,.3);color:var(--red)}
+/* ══ ADMIN PANEL ══ */
+.admin-panel{
+  margin-top:44px;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(79,110,247,.25);
+  background:linear-gradient(160deg,rgba(79,110,247,.06) 0%,rgba(8,12,20,.8) 60%);
+  animation:fadeUp .6s .42s ease both;display:none
+}
 
-  /* DISCORD LOGIN */
-  .discord-section{margin-top:48px;background:var(--card);border:1px solid var(--card-border);
-    border-radius:16px;padding:28px;animation:fadeUp .6s .55s ease both}
-  .discord-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-  .discord-icon{width:44px;height:44px;border-radius:12px;background:rgba(88,101,242,.2);
-    border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .d-title{font-family:var(--font-display);font-weight:800;font-size:1rem}
-  .d-sub{font-size:.75rem;color:var(--muted);margin-top:2px}
-  .discord-btn{display:inline-flex;align-items:center;gap:10px;background:#5865F2;color:#fff;
-    font-family:var(--font-display);font-weight:700;font-size:.88rem;padding:12px 24px;
-    border-radius:10px;text-decoration:none;border:none;cursor:pointer;
-    transition:background .2s,transform .2s;width:100%;justify-content:center}
-  .discord-btn:hover{background:#4752C4;transform:translateY(-1px)}
-  .discord-btn.ghost{background:var(--card);border:1px solid var(--card-border);color:var(--text)}
-  .discord-btn.ghost:hover{background:rgba(255,255,255,.06);transform:translateY(-1px)}
+/* Tabs */
+.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:rgba(0,0,0,.2)}
+.atab{flex:1;padding:14px 8px;font-family:var(--fd);font-weight:700;font-size:.78rem;
+  color:var(--muted);background:none;border:none;cursor:pointer;
+  border-bottom:2px solid transparent;transition:color .2s,border-color .2s;letter-spacing:.03em;
+  display:flex;align-items:center;justify-content:center;gap:7px}
+.atab:hover{color:var(--text2)}
+.atab.active{color:var(--blue);border-bottom-color:var(--blue)}
 
-  footer{position:relative;z-index:1;text-align:center;padding:32px;
-    font-family:var(--font-mono);font-size:.65rem;color:var(--muted);border-top:1px solid var(--card-border)}
-  footer a{color:var(--blue);text-decoration:none}
+/* Tab content */
+.atab-content{display:none;padding:24px}
+.atab-content.active{display:block}
 
-  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+/* ── Tab: Status ── */
+.admin-status-grid{display:flex;flex-direction:column;gap:10px}
+.arow{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);
+  border:1px solid var(--border);border-radius:11px;padding:14px 16px;
+  transition:border-color .2s}
+.arow:hover{border-color:var(--border2)}
+.arow-name{font-family:var(--fd);font-weight:700;font-size:.83rem;flex:1}
+.arow-desc{font-size:.7rem;color:var(--muted);margin-top:2px}
+.asel{background:rgba(255,255,255,.07);border:1px solid var(--border2);
+  color:var(--text);font-family:var(--fm);font-size:.68rem;
+  padding:8px 28px 8px 10px;border-radius:8px;cursor:pointer;outline:none;
+  appearance:none;-webkit-appearance:none;min-width:155px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a6380' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 9px center;
+  transition:border-color .2s}
+.asel option{background:#0c1120}
+.asel:focus{border-color:rgba(79,110,247,.6)}
 
-  .service-card:nth-child(1){animation-delay:.25s}
-  .service-card:nth-child(2){animation-delay:.32s}
-  .service-card:nth-child(3){animation-delay:.39s}
-  .service-card:nth-child(4){animation-delay:.46s}
-  .service-card:nth-child(5){animation-delay:.53s}
+/* ── Tab: Incident ── */
+.inc-form{display:flex;flex-direction:column;gap:14px}
+.field-label{font-family:var(--fm);font-size:.66rem;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:6px}
+.ainput,.atextarea{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);
+  color:var(--text);font-family:var(--fb);font-size:.85rem;padding:10px 14px;
+  border-radius:9px;outline:none;transition:border-color .2s}
+.ainput:focus,.atextarea:focus{border-color:rgba(79,110,247,.6)}
+.atextarea{resize:vertical;min-height:90px;line-height:1.6}
+.sev-row{display:flex;gap:8px}
+.sev-btn{flex:1;padding:9px 6px;border-radius:8px;border:1px solid var(--border2);
+  background:rgba(255,255,255,.04);color:var(--muted);font-family:var(--fd);
+  font-weight:700;font-size:.75rem;cursor:pointer;transition:all .2s;text-align:center}
+.sev-btn:hover{border-color:var(--border2);background:rgba(255,255,255,.08)}
+.sev-btn.active-info{background:rgba(79,110,247,.15);border-color:rgba(79,110,247,.4);color:var(--blue)}
+.sev-btn.active-warn{background:rgba(247,201,72,.12);border-color:rgba(247,201,72,.35);color:var(--yellow)}
+.sev-btn.active-crit{background:rgba(247,79,79,.12);border-color:rgba(247,79,79,.35);color:var(--red)}
+.sev-btn.active-ok{background:rgba(34,215,126,.12);border-color:rgba(34,215,126,.35);color:var(--green)}
 
-  /* Avatar ring */
-  .avatar-ring{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid}
-  .avatar-ring img{width:100%;height:100%;object-fit:cover;display:block}
+/* incidents list */
+.inc-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.inc-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.inc-item-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
+.inc-badge{font-family:var(--fm);font-size:.6rem;padding:3px 9px;border-radius:20px;flex-shrink:0;letter-spacing:.04em}
+.inc-badge.info{background:rgba(79,110,247,.15);color:var(--blue);border:1px solid rgba(79,110,247,.3)}
+.inc-badge.warn{background:rgba(247,201,72,.12);color:var(--yellow);border:1px solid rgba(247,201,72,.3)}
+.inc-badge.crit{background:rgba(247,79,79,.12);color:var(--red);border:1px solid rgba(247,79,79,.3)}
+.inc-badge.ok{background:rgba(34,215,126,.12);color:var(--green);border:1px solid rgba(34,215,126,.3)}
+.inc-title{font-family:var(--fd);font-weight:700;font-size:.85rem;flex:1}
+.inc-time{font-family:var(--fm);font-size:.62rem;color:var(--muted);white-space:nowrap}
+.inc-msg{font-size:.78rem;color:var(--text2);line-height:1.55;margin-top:4px}
+.inc-delete{background:none;border:none;color:var(--muted);cursor:pointer;padding:2px 6px;
+  border-radius:5px;font-size:.7rem;transition:color .2s}
+.inc-delete:hover{color:var(--red)}
+
+/* ── Tab: Logs ── */
+.logs-list{display:flex;flex-direction:column;gap:6px;max-height:360px;overflow-y:auto}
+.logs-list::-webkit-scrollbar{width:4px}
+.logs-list::-webkit-scrollbar-track{background:transparent}
+.logs-list::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+.log-row{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;
+  background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:8px}
+.log-time{font-family:var(--fm);font-size:.6rem;color:var(--muted);white-space:nowrap;padding-top:1px}
+.log-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.log-msg{font-size:.78rem;color:var(--text2);line-height:1.5;flex:1}
+.log-by{font-family:var(--fm);font-size:.6rem;color:var(--muted);white-space:nowrap;padding-top:1px}
+
+/* ── Tab: Maintenance ── */
+.maint-form{display:flex;flex-direction:column;gap:14px}
+.date-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ainput[type=datetime-local]{color-scheme:dark}
+.maint-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.maint-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.maint-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--fm);font-size:.6rem;
+  padding:3px 9px;border-radius:20px;background:rgba(167,139,250,.12);
+  color:var(--purple);border:1px solid rgba(167,139,250,.3);margin-bottom:8px}
+.maint-title{font-family:var(--fd);font-weight:700;font-size:.85rem;margin-bottom:4px}
+.maint-meta{font-size:.73rem;color:var(--muted)}
+.maint-delete{background:none;border:none;color:var(--muted);cursor:pointer;font-size:.7rem;
+  padding:2px 6px;border-radius:5px;transition:color .2s;float:right}
+.maint-delete:hover{color:var(--red)}
+
+/* ── shared buttons ── */
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 20px;border-radius:10px;background:var(--blue);color:#fff;
+  font-family:var(--fd);font-weight:700;font-size:.84rem;border:none;cursor:pointer;
+  transition:background .2s,transform .2s;width:100%}
+.btn-primary:hover{background:#3d5ce0;transform:translateY(-1px)}
+.btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-secondary{display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:10px 20px;border-radius:10px;background:rgba(255,255,255,.05);color:var(--text2);
+  font-family:var(--fd);font-weight:700;font-size:.82rem;
+  border:1px solid var(--border2);cursor:pointer;transition:all .2s;width:100%}
+.btn-secondary:hover{background:rgba(255,255,255,.09);transform:translateY(-1px)}
+
+.toast{display:none;margin-top:14px;padding:11px 16px;border-radius:9px;
+  font-family:var(--fm);font-size:.73rem;text-align:center;
+  background:rgba(34,215,126,.1);border:1px solid rgba(34,215,126,.3);color:var(--green)}
+.toast.err{background:rgba(247,79,79,.1);border-color:rgba(247,79,79,.3);color:var(--red)}
+
+/* section separator */
+.sep{height:1px;background:var(--border);margin:0 24px}
+
+/* admin header bar */
+.admin-bar{padding:18px 24px;display:flex;align-items:center;gap:14px}
+.admin-bar-icon{width:38px;height:38px;border-radius:10px;background:rgba(79,110,247,.14);
+  border:1px solid rgba(79,110,247,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.admin-bar-title{font-family:var(--fd);font-weight:800;font-size:1rem}
+.admin-bar-sub{font-size:.72rem;color:var(--muted);margin-top:2px}
+
+/* ══ DISCORD SECTION ══ */
+.discord-section{margin-top:44px;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--r);padding:26px;animation:fadeUp .6s .55s ease both}
+.d-header{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.d-icon{width:44px;height:44px;border-radius:12px;background:rgba(88,101,242,.18);
+  border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.d-title{font-family:var(--fd);font-weight:800;font-size:1rem}
+.d-sub{font-size:.74rem;color:var(--muted);margin-top:2px}
+.discord-btn{display:inline-flex;align-items:center;gap:10px;background:#5865F2;color:#fff;
+  font-family:var(--fd);font-weight:700;font-size:.87rem;padding:12px 22px;
+  border-radius:10px;text-decoration:none;border:none;cursor:pointer;
+  transition:background .2s,transform .2s;width:100%;justify-content:center}
+.discord-btn:hover{background:#4752C4;transform:translateY(-1px)}
+.discord-btn.ghost{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--text2)}
+.discord-btn.ghost:hover{background:rgba(255,255,255,.09)}
+
+/* INCIDENTS PUBLIC */
+.public-incidents{margin-top:44px;animation:fadeUp .6s .48s ease both}
+.public-incidents .section-title{margin-bottom:14px}
+#publicIncList:empty::after{content:'Aucun incident actif.';display:block;
+  font-size:.8rem;color:var(--muted);padding:16px 0}
+
+/* FOOTER */
+footer{position:relative;z-index:1;text-align:center;padding:30px;
+  font-family:var(--fm);font-size:.63rem;color:var(--muted);border-top:1px solid var(--border)}
+footer a{color:var(--blue);text-decoration:none}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* loading spinner */
+.spin-wrap{text-align:center;padding:24px 0}
+.spin-wrap svg{animation:spin 1s linear infinite;margin-bottom:12px}
+.spin-wrap p{font-family:var(--fm);font-size:.73rem;color:var(--muted)}
+
+/* empty state */
+.empty{font-size:.78rem;color:var(--muted);padding:16px 0;text-align:center}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 </style>
 </head>
 <body>
 
+<!-- ══ NAV ══ -->
 <nav>
   <a class="nav-logo" href="https://devcenter.vyral-studio.com/" target="_blank">
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -185,22 +311,30 @@
     </svg>
     Dev Center
   </a>
-  <div class="nav-badge" id="navBadge">● Chargement…</div>
+  <div class="nav-right">
+    <div id="navUser">
+      <img id="navAvatar" src="" alt=""/>
+      <span id="navName"></span>
+    </div>
+    <div class="nav-badge" id="navBadge">● Chargement…</div>
+  </div>
 </nav>
 
 <main>
 
+  <!-- HEADER -->
   <div class="header">
     <div class="header-tag"><span></span>Status en temps réel</div>
     <h1>État des <em>services</em><br>Dev Center</h1>
     <p class="header-sub">Surveillance continue · Mise à jour automatique toutes les 60s</p>
   </div>
 
+  <!-- GLOBAL -->
   <div class="global-status">
     <div class="global-left">
       <div class="global-dot" id="globalDot"></div>
       <div>
-        <div class="global-label" id="globalLabel">Vérification en cours…</div>
+        <div class="global-label" id="globalLabel">Vérification…</div>
         <div class="global-sub" id="globalSub">Connexion aux services</div>
       </div>
     </div>
@@ -210,21 +344,21 @@
     </div>
   </div>
 
+  <!-- UPTIME -->
   <div class="uptime-section">
     <div class="uptime-label">Disponibilité — 60 derniers jours</div>
     <div class="uptime-bar" id="uptimeBar"></div>
     <div class="uptime-meta">
-      <span>Il y a 60 jours</span>
-      <span id="uptimePct">— %</span>
-      <span>Aujourd'hui</span>
+      <span>Il y a 60 jours</span><span id="uptimePct">— %</span><span>Aujourd'hui</span>
     </div>
   </div>
 
+  <!-- SERVICES -->
   <div class="section-title">Services surveillés</div>
   <div class="services-grid">
 
     <div class="service-card">
-      <div class="service-icon">
+      <div class="svc-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <circle cx="11" cy="11" r="9" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M11 2C11 2 7 7 7 11C7 15 11 20 11 20" stroke="#4f6ef7" stroke-width="1.5"/>
@@ -233,139 +367,228 @@
           <path d="M3 7H19M3 15H19" stroke="#4f6ef7" stroke-width="1" opacity=".5"/>
         </svg>
       </div>
-      <div class="service-info">
-        <div class="service-name">Site Principal</div>
-        <div class="service-desc">devcenter.vyral-studio.com</div>
+      <div class="svc-info">
+        <div class="svc-name">Site Principal</div>
+        <div class="svc-desc">devcenter.vyral-studio.com</div>
       </div>
-      <div class="service-right">
-        <div class="service-status">
-          <div class="status-dot loading" id="dot-web"></div>
-          <div class="status-label loading" id="label-web">—</div>
-        </div>
-        <div class="status-ping" id="ping-web">— ms</div>
-        <div class="manual-badge" id="mb-web">Manuel</div>
+      <div class="svc-right">
+        <div class="svc-status"><div class="sdot loading" id="dot-web"></div><div class="slabel loading" id="lbl-web">—</div></div>
+        <div class="sping" id="ping-web">— ms</div>
+        <div class="mbadge" id="mb-web">Manuel</div>
       </div>
     </div>
 
     <div class="service-card">
-      <div class="service-icon">
+      <div class="svc-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <rect x="3" y="3" width="16" height="16" rx="3" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M7 14L9.5 11L12 13L15 9" stroke="#4f6ef7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="7" cy="14" r="1" fill="#4f6ef7"/>
-          <circle cx="12" cy="13" r="1" fill="#4f6ef7"/>
-          <circle cx="15" cy="9" r="1" fill="#4f6ef7"/>
+          <circle cx="7" cy="14" r="1" fill="#4f6ef7"/><circle cx="12" cy="13" r="1" fill="#4f6ef7"/><circle cx="15" cy="9" r="1" fill="#4f6ef7"/>
         </svg>
       </div>
-      <div class="service-info">
-        <div class="service-name">Status Page</div>
-        <div class="service-desc">Surveillance des services & alertes</div>
+      <div class="svc-info">
+        <div class="svc-name">Status Page</div>
+        <div class="svc-desc">jojolm24.github.io/status-dev-center</div>
       </div>
-      <div class="service-right">
-        <div class="service-status">
-          <div class="status-dot loading" id="dot-status"></div>
-          <div class="status-label loading" id="label-status">—</div>
-        </div>
-        <div class="status-ping" id="ping-status">— ms</div>
-        <div class="manual-badge" id="mb-status">Manuel</div>
+      <div class="svc-right">
+        <div class="svc-status"><div class="sdot loading" id="dot-status"></div><div class="slabel loading" id="lbl-status">—</div></div>
+        <div class="sping" id="ping-status">— ms</div>
+        <div class="mbadge" id="mb-status">Manuel</div>
       </div>
     </div>
 
     <div class="service-card">
-      <div class="service-icon">
+      <div class="svc-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <ellipse cx="11" cy="6" rx="7" ry="3" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M4 6V11C4 12.657 7.134 14 11 14C14.866 14 18 12.657 18 11V6" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M4 11V16C4 17.657 7.134 19 11 19C14.866 19 18 17.657 18 16V11" stroke="#4f6ef7" stroke-width="1.5"/>
         </svg>
       </div>
-      <div class="service-info">
-        <div class="service-name">Database</div>
-        <div class="service-desc">Supabase PostgreSQL</div>
+      <div class="svc-info">
+        <div class="svc-name">Database</div>
+        <div class="svc-desc">Supabase PostgreSQL</div>
       </div>
-      <div class="service-right">
-        <div class="service-status">
-          <div class="status-dot loading" id="dot-db"></div>
-          <div class="status-label loading" id="label-db">—</div>
-        </div>
-        <div class="status-ping" id="ping-db">— ms</div>
-        <div class="manual-badge" id="mb-db">Manuel</div>
+      <div class="svc-right">
+        <div class="svc-status"><div class="sdot loading" id="dot-db"></div><div class="slabel loading" id="lbl-db">—</div></div>
+        <div class="sping" id="ping-db">— ms</div>
+        <div class="mbadge" id="mb-db">Manuel</div>
       </div>
     </div>
 
     <div class="service-card">
-      <div class="service-icon">
+      <div class="svc-icon">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
           <path d="M6 16C4.343 16 3 14.657 3 13C3 11.465 4.14 10.195 5.621 10.021C5.538 9.69 5.5 9.35 5.5 9C5.5 6.515 7.515 4.5 10 4.5C11.827 4.5 13.41 5.555 14.172 7.102C14.44 7.036 14.716 7 15 7C16.933 7 18.5 8.567 18.5 10.5C18.5 10.567 18.497 10.633 18.492 10.699C19.39 11.162 20 12.11 20 13.2C20 14.743 18.743 16 17.2 16H6Z" stroke="#4f6ef7" stroke-width="1.5"/>
           <path d="M11 16V20M8 18L11 20L14 18" stroke="#4f6ef7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div class="service-info">
-        <div class="service-name">CDN Assets</div>
-        <div class="service-desc">Distribution de ressources statiques</div>
+      <div class="svc-info">
+        <div class="svc-name">CDN Assets</div>
+        <div class="svc-desc">Distribution de ressources statiques</div>
       </div>
-      <div class="service-right">
-        <div class="service-status">
-          <div class="status-dot loading" id="dot-cdn"></div>
-          <div class="status-label loading" id="label-cdn">—</div>
-        </div>
-        <div class="status-ping" id="ping-cdn">— ms</div>
-        <div class="manual-badge" id="mb-cdn">Manuel</div>
+      <div class="svc-right">
+        <div class="svc-status"><div class="sdot loading" id="dot-cdn"></div><div class="slabel loading" id="lbl-cdn">—</div></div>
+        <div class="sping" id="ping-cdn">— ms</div>
+        <div class="mbadge" id="mb-cdn">Manuel</div>
       </div>
     </div>
 
     <div class="service-card">
-      <div class="service-icon" style="background:rgba(88,101,242,.15);border-color:rgba(88,101,242,.3)">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-          <path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/>
-        </svg>
+      <div class="svc-icon" style="background:rgba(88,101,242,.14);border-color:rgba(88,101,242,.3)">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/></svg>
       </div>
-      <div class="service-info">
-        <div class="service-name">Discord</div>
-        <div class="service-desc">API Discord · discord.com</div>
+      <div class="svc-info">
+        <div class="svc-name">Discord</div>
+        <div class="svc-desc">API Discord · discord.com</div>
       </div>
-      <div class="service-right">
-        <div class="service-status">
-          <div class="status-dot loading" id="dot-discord"></div>
-          <div class="status-label loading" id="label-discord">—</div>
-        </div>
-        <div class="status-ping" id="ping-discord">— ms</div>
-        <div class="manual-badge" id="mb-discord">Manuel</div>
+      <div class="svc-right">
+        <div class="svc-status"><div class="sdot loading" id="dot-discord"></div><div class="slabel loading" id="lbl-discord">—</div></div>
+        <div class="sping" id="ping-discord">— ms</div>
+        <div class="mbadge" id="mb-discord">Manuel</div>
       </div>
     </div>
 
   </div>
 
-  <!-- ══ ADMIN PANEL (role-gated) ══ -->
+  <!-- PUBLIC INCIDENTS -->
+  <div class="public-incidents">
+    <div class="section-title">Incidents & annonces</div>
+    <div id="publicIncList"></div>
+  </div>
+
+  <!-- ══ ADMIN PANEL ══ -->
   <div class="admin-panel" id="adminPanel">
-    <div class="admin-header">
-      <div class="admin-icon">
+
+    <div class="admin-bar">
+      <div class="admin-bar-icon">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <path d="M9 2L11.2 6.5L16 7.3L12.5 10.7L13.4 15.5L9 13.1L4.6 15.5L5.5 10.7L2 7.3L6.8 6.5Z" stroke="#4f6ef7" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9 1L11.5 6.2L17 7.1L13 11L14 16.5L9 13.8L4 16.5L5 11L1 7.1L6.5 6.2Z" stroke="#4f6ef7" stroke-width="1.4" stroke-linejoin="round"/>
         </svg>
       </div>
-      <div>
-        <div class="admin-title">Panneau Admin</div>
-        <div class="admin-sub">Modifier manuellement le statut des services · Connecté comme <span id="adminUserName" style="color:var(--text)">—</span></div>
+      <div style="flex:1">
+        <div class="admin-bar-title">Panneau Administration</div>
+        <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--text)">—</span></div>
       </div>
-      <button onclick="logout()" style="margin-left:auto;background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--muted);font-family:var(--font-mono);font-size:.62rem;padding:6px 12px;border-radius:8px;cursor:pointer;letter-spacing:.05em;white-space:nowrap">DÉCONNEXION</button>
+      <button onclick="logout()" style="background:rgba(255,255,255,.05);border:1px solid var(--border2);
+        color:var(--muted);font-family:var(--fm);font-size:.62rem;padding:7px 13px;
+        border-radius:8px;cursor:pointer;transition:all .2s;letter-spacing:.04em"
+        onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">
+        DÉCONNEXION
+      </button>
+    </div>
+    <div class="sep"></div>
+
+    <!-- TABS -->
+    <div class="admin-tabs">
+      <button class="atab active" onclick="switchTab('status',this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M4 6.5L6 8.5L9.5 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Statuts
+      </button>
+      <button class="atab" onclick="switchTab('incident',this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L12 11H1L6.5 1Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 5V8M6.5 9.5V10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Incidents
+      </button>
+      <button class="atab" onclick="switchTab('maintenance',this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 1V2.5M6.5 10.5V12M1 6.5H2.5M10.5 6.5H12M2.93 2.93L4 4M9 9L10.07 10.07M2.93 10.07L4 9M9 4L10.07 2.93" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Maintenance
+      </button>
+      <button class="atab" onclick="switchTab('logs',this)">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="1" width="11" height="11" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M3.5 4.5H9.5M3.5 6.5H7.5M3.5 8.5H6.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        Logs
+      </button>
     </div>
 
-    <div class="admin-grid" id="adminGrid"></div>
+    <!-- TAB: STATUS -->
+    <div class="atab-content active" id="tab-status">
+      <div class="admin-status-grid" id="statusGrid"></div>
+      <div style="margin-top:14px">
+        <button class="btn-primary" id="btnSaveStatus" onclick="saveStatuses()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Enregistrer les statuts
+        </button>
+        <div class="toast" id="toastStatus"></div>
+      </div>
+    </div>
 
-    <button class="admin-save" id="adminSaveBtn" onclick="saveOverrides()">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Enregistrer les modifications
-    </button>
-    <div class="admin-toast" id="adminToast"></div>
+    <!-- TAB: INCIDENTS -->
+    <div class="atab-content" id="tab-incident">
+      <div class="inc-form">
+        <div>
+          <div class="field-label">Titre de l'incident</div>
+          <input class="ainput" id="incTitle" type="text" placeholder="Ex: Latence élevée sur la Database"/>
+        </div>
+        <div>
+          <div class="field-label">Message / Description</div>
+          <textarea class="atextarea" id="incMsg" placeholder="Décris l'incident, les services affectés, les actions en cours…"></textarea>
+        </div>
+        <div>
+          <div class="field-label">Sévérité</div>
+          <div class="sev-row">
+            <button class="sev-btn active-info" id="sev-info"  onclick="setSev('info')">ℹ️ Info</button>
+            <button class="sev-btn"             id="sev-warn"  onclick="setSev('warn')">⚠️ Avertissement</button>
+            <button class="sev-btn"             id="sev-crit"  onclick="setSev('crit')">🔴 Critique</button>
+            <button class="sev-btn"             id="sev-ok"    onclick="setSev('ok')">✅ Résolu</button>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="publishIncident()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7L5 11L13 3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Publier l'incident
+        </button>
+        <div class="toast" id="toastInc"></div>
+      </div>
+      <div style="margin-top:20px;font-family:var(--fm);font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Incidents actifs</div>
+      <div class="inc-list" id="adminIncList"><div class="empty">Chargement…</div></div>
+    </div>
+
+    <!-- TAB: MAINTENANCE -->
+    <div class="atab-content" id="tab-maintenance">
+      <div class="maint-form">
+        <div>
+          <div class="field-label">Titre</div>
+          <input class="ainput" id="maintTitle" type="text" placeholder="Ex: Mise à jour base de données"/>
+        </div>
+        <div>
+          <div class="field-label">Description</div>
+          <textarea class="atextarea" id="maintMsg" placeholder="Détails de la maintenance planifiée…" style="min-height:70px"></textarea>
+        </div>
+        <div class="date-row">
+          <div>
+            <div class="field-label">Début</div>
+            <input class="ainput" id="maintStart" type="datetime-local"/>
+          </div>
+          <div>
+            <div class="field-label">Fin estimée</div>
+            <input class="ainput" id="maintEnd" type="datetime-local"/>
+          </div>
+        </div>
+        <button class="btn-primary" onclick="publishMaintenance()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V7L10 9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="7" r="6" stroke="white" stroke-width="1.5"/></svg>
+          Planifier la maintenance
+        </button>
+        <div class="toast" id="toastMaint"></div>
+      </div>
+      <div style="margin-top:20px;font-family:var(--fm);font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Maintenances planifiées</div>
+      <div class="maint-list" id="adminMaintList"><div class="empty">Chargement…</div></div>
+    </div>
+
+    <!-- TAB: LOGS -->
+    <div class="atab-content" id="tab-logs">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <span style="font-family:var(--fm);font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Journal d'activité admin</span>
+        <button class="btn-secondary" style="width:auto;padding:6px 14px;font-size:.72rem" onclick="loadLogs()">↻ Actualiser</button>
+      </div>
+      <div class="logs-list" id="logsList"><div class="empty">Chargement…</div></div>
+    </div>
+
   </div>
 
   <!-- ══ DISCORD LOGIN ══ -->
   <div class="discord-section">
 
     <div id="stateLogin">
-      <div class="discord-header">
-        <div class="discord-icon">
+      <div class="d-header">
+        <div class="d-icon">
           <svg width="24" height="24" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/></svg>
         </div>
         <div>
@@ -373,58 +596,55 @@
           <div class="d-sub">Réservé aux membres avec le rôle requis</div>
         </div>
       </div>
-      <p style="font-size:.82rem;color:var(--muted);margin-bottom:20px;line-height:1.7">
-        Connecte ton compte Discord pour accéder au panneau d'administration et modifier les statuts des services.
-      </p>
+      <p style="font-size:.81rem;color:var(--muted);margin-bottom:18px;line-height:1.7">Connecte ton Discord pour accéder au panneau d'administration complet.</p>
       <button class="discord-btn" onclick="startDiscordLogin()">
         <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="white"/></svg>
         Se connecter avec Discord
       </button>
     </div>
 
-    <div id="stateLoading" style="display:none;text-align:center;padding:24px 0">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" style="animation:spin 1s linear infinite;margin-bottom:14px">
+    <div id="stateLoading" style="display:none" class="spin-wrap">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
         <circle cx="17" cy="17" r="14" stroke="rgba(79,110,247,.15)" stroke-width="3"/>
         <path d="M17 3 A14 14 0 0 1 31 17" stroke="#4f6ef7" stroke-width="3" stroke-linecap="round"/>
       </svg>
-      <div style="font-family:var(--font-mono);font-size:.75rem;color:var(--muted)">Vérification Discord…</div>
+      <p>Vérification Discord…</p>
     </div>
 
     <div id="stateGranted" style="display:none">
-      <div style="background:rgba(34,215,126,.06);border:1px solid rgba(34,215,126,.2);border-radius:10px;
-        padding:14px 18px;font-size:.82rem;color:var(--green);display:flex;align-items:center;gap:10px">
+      <div style="background:rgba(34,215,126,.07);border:1px solid rgba(34,215,126,.22);border-radius:10px;
+        padding:14px 18px;font-size:.81rem;color:var(--green);display:flex;align-items:center;gap:10px">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6 12L14 4" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Connecté avec succès — le panneau admin est disponible ci-dessus.
+        Accès admin actif — panneau disponible ci-dessus.
       </div>
     </div>
 
     <div id="stateDenied" style="display:none">
-      <div class="discord-header">
+      <div class="d-header">
         <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--red)">
           <img id="avatarDenied" src="" width="44" height="44" style="object-fit:cover;display:block" alt=""/>
         </div>
-        <div>
+        <div style="flex:1">
           <div class="d-title" id="nameDenied">—</div>
           <div class="d-sub" style="color:var(--red)">Accès refusé · Rôle manquant</div>
         </div>
-        <button onclick="logout()" style="margin-left:auto;background:rgba(255,255,255,.05);border:1px solid var(--card-border);color:var(--muted);font-family:var(--font-mono);font-size:.62rem;padding:6px 12px;border-radius:8px;cursor:pointer">DÉCO</button>
+        <button onclick="logout()" style="background:rgba(255,255,255,.05);border:1px solid var(--border2);
+          color:var(--muted);font-family:var(--fm);font-size:.62rem;padding:6px 12px;
+          border-radius:8px;cursor:pointer">DÉCO</button>
       </div>
-      <div style="background:rgba(247,79,79,.06);border:1px solid rgba(247,79,79,.2);border-radius:10px;
-        padding:12px 16px;font-size:.8rem;color:var(--red);display:flex;align-items:center;gap:10px">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="var(--red)" stroke-width="1.5"/><path d="M7.5 5V7.5M7.5 10H7.51" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div style="background:rgba(247,79,79,.07);border:1px solid rgba(247,79,79,.22);border-radius:10px;
+        padding:12px 16px;font-size:.79rem;color:var(--red);display:flex;align-items:center;gap:10px">
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="var(--red)" stroke-width="1.5"/><path d="M7.5 5V8M7.5 10.5H7.51" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>
         Tu n'as pas le rôle requis sur le serveur Dev Center.
       </div>
     </div>
 
     <div id="stateNotMember" style="display:none">
-      <div class="discord-header">
-        <div class="discord-icon" style="background:rgba(247,201,72,.12);border-color:rgba(247,201,72,.3)">
+      <div class="d-header">
+        <div class="d-icon" style="background:rgba(247,201,72,.12);border-color:rgba(247,201,72,.3)">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="var(--yellow)" stroke-width="1.5"/><path d="M10 6V10M10 13H10.01" stroke="var(--yellow)" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <div>
-          <div class="d-title">Pas membre</div>
-          <div class="d-sub" style="color:var(--yellow)">Tu n'es pas dans le serveur Dev Center</div>
-        </div>
+        <div><div class="d-title">Pas membre</div><div class="d-sub" style="color:var(--yellow)">Tu n'es pas dans le serveur Dev Center</div></div>
       </div>
       <button class="discord-btn ghost" onclick="logout()" style="margin-top:14px">Réessayer</button>
     </div>
@@ -434,193 +654,411 @@
 </main>
 
 <footer>
-  Dev Center Status · <a href="https://devcenter.vyral-studio.com/" target="_blank">devcenter.vyral-studio.com</a> · Mis à jour automatiquement
+  Dev Center Status · <a href="https://devcenter.vyral-studio.com/" target="_blank">devcenter.vyral-studio.com</a>
+  · Propulsé par <a href="https://supabase.com" target="_blank">Supabase</a>
+  · Mis à jour automatiquement
 </footer>
 
+<!-- ══════════════════════════════ SCRIPT ══════════════════════════════ -->
 <script>
 // ── CONFIG ────────────────────────────────────────────────────────────────────
-const SB_URL    = 'https://llheudreg' + 'eksbyjuscr' + 'w.supabase.co';
-const SB_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsaGV1ZHJlZ2Vrc2J5anVzY3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODg1NzUsImV4cCI6MjA4ODU2NDU3NX0.oglo1qODsVra6EdJcrwZ9p2P_SR73R_XfH736V1Giuk';
+const SB  = 'https://llheudreg' + 'eksbyjuscr' + 'w.supabase.co';
+const KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsaGV1ZHJlZ2Vrc2J5anVzY3J3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI5ODg1NzUsImV4cCI6MjA4ODU2NDU3NX0.oglo1qODsVra6EdJcrwZ9p2P_SR73R_XfH736V1Giuk';
 const DC_CLIENT = '1477279042230157404';
 const DC_GUILD  = '1452963098284785765';
 const DC_ROLE   = '1480610386032988373';
 const REDIR     = 'https://jojolm24.github.io/status-dev-center/';
 
 const SERVICES = [
-  { id:'web',     label:'Site Principal',  url:'https://devcenter.vyral-studio.com/',              ms:2000 },
-  { id:'status',  label:'Status Page',     url:'https://jojolm24.github.io/status-dev-center/',    ms:2000 },
-  { id:'db',      label:'Database',        url:null,                                               ms:3000 },
-  { id:'cdn',     label:'CDN Assets',      url:'https://cdnjs.cloudflare.com/',                    ms:1500 },
-  { id:'discord', label:'Discord',         url:'https://discord.com/',                             ms:1500 },
+  { id:'web',     label:'Site Principal', url:'https://devcenter.vyral-studio.com/',           thr:2000 },
+  { id:'status',  label:'Status Page',    url:'https://jojolm24.github.io/status-dev-center/', thr:2000 },
+  { id:'db',      label:'Database',       url:null,                                            thr:3000 },
+  { id:'cdn',     label:'CDN Assets',     url:'https://cdnjs.cloudflare.com/',                 thr:1500 },
+  { id:'discord', label:'Discord',        url:'https://discord.com/',                          thr:1500 },
 ];
 
-let overrides = {};
-try { overrides = JSON.parse(localStorage.getItem('dc_ov') || '{}'); } catch{}
+// ── Supabase helpers ──────────────────────────────────────────────────────────
+const H = () => ({'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json'});
 
-// ── UTILS ─────────────────────────────────────────────────────────────────────
-const $ = id => document.getElementById(id);
-function showState(s) {
-  ['Login','Loading','Granted','Denied','NotMember'].forEach(k => {
-    const el = $('state'+k);
-    if (el) el.style.display = (k.toLowerCase() === s) ? 'block' : 'none';
+async function sbGet(table, params='') {
+  const r = await fetch(`${SB}/rest/v1/${table}?${params}`, {headers: H()});
+  if (!r.ok) return null;
+  return r.json();
+}
+async function sbUpsert(table, payload) {
+  return fetch(`${SB}/rest/v1/${table}`, {
+    method:'POST', headers:{...H(),'Prefer':'resolution=merge-duplicates'},
+    body:JSON.stringify(payload)
+  });
+}
+async function sbDelete(table, id) {
+  return fetch(`${SB}/rest/v1/${table}?id=eq.${id}`, {method:'DELETE', headers:H()});
+}
+async function sbInsert(table, payload) {
+  return fetch(`${SB}/rest/v1/${table}`, {
+    method:'POST', headers:{...H(),'Prefer':'return=representation'},
+    body:JSON.stringify(payload)
   });
 }
 
-// ── STATUS RENDERING ──────────────────────────────────────────────────────────
-const LABELS = { operational:'Opérationnel', degraded:'Dégradé', down:'Hors ligne' };
+// ── State ─────────────────────────────────────────────────────────────────────
+let overrides  = {};
+let currentAdmin = null;
+let currentSev   = 'info';
 
-function renderStatus(id, auto, ms) {
+const $ = id => document.getElementById(id);
+
+// ── Load overrides from Supabase ──────────────────────────────────────────────
+async function loadOverrides() {
+  try {
+    const rows = await sbGet('dc_status_overrides', 'id=eq.main');
+    if (rows && rows[0]) overrides = rows[0].data || {};
+  } catch {}
+  refreshBadges();
+}
+
+function refreshBadges() {
+  SERVICES.forEach(s => {
+    const mb = $('mb-'+s.id);
+    if (mb) mb.style.display = overrides[s.id] ? 'block' : 'none';
+  });
+}
+
+// ── Health checks ─────────────────────────────────────────────────────────────
+async function ping(url) {
+  const t=Date.now();
+  try { await fetch(url,{method:'HEAD',mode:'no-cors',cache:'no-store'}); return {ok:true,ms:Date.now()-t}; }
+  catch { return {ok:false,ms:null}; }
+}
+async function checkDB() {
+  const t=Date.now();
+  try {
+    const r=await fetch(`${SB}/rest/v1/`,{headers:H()});
+    return {ok:r.ok,ms:Date.now()-t};
+  } catch { return {ok:false,ms:null}; }
+}
+
+const SL = {operational:'Opérationnel',degraded:'Dégradé',down:'Hors ligne'};
+
+function renderSvc(id, auto, ms) {
   const state = overrides[id] || auto;
-  const dot   = $('dot-'+id);
-  const lbl   = $('label-'+id);
-  const ping  = $('ping-'+id);
-  const mb    = $('mb-'+id);
+  const dot=$('dot-'+id), lbl=$('lbl-'+id), ping=$('ping-'+id), mb=$('mb-'+id);
   if (!dot) return state;
-  dot.className   = 'status-dot '+state;
-  lbl.className   = 'status-label '+state;
-  lbl.textContent = LABELS[state] || '—';
-  if (ms && ping) ping.textContent = ms+' ms';
-  if (mb) mb.style.display = overrides[id] ? 'block' : 'none';
+  dot.className='sdot '+state; lbl.className='slabel '+state;
+  lbl.textContent=SL[state]||'—';
+  if (ms&&ping) ping.textContent=ms+'ms';
+  if (mb) mb.style.display=overrides[id]?'block':'none';
   return state;
 }
 
-function updateGlobal(states) {
-  const allOk   = states.every(s => s==='operational');
-  const anyDown = states.some(s => s==='down');
-  const dot = $('globalDot'), lbl = $('globalLabel'), sub = $('globalSub'), badge = $('navBadge');
-  if (allOk) {
-    dot.style.cssText='background:var(--green);box-shadow:0 0 10px var(--green)';
+function updateGlobal(s) {
+  const allOk=s.every(x=>x==='operational'), anyDown=s.some(x=>x==='down');
+  const dot=$('globalDot'),lbl=$('globalLabel'),sub=$('globalSub'),badge=$('navBadge');
+  if (allOk){
+    dot.style.cssText='background:var(--green);box-shadow:0 0 12px var(--green)';
     lbl.textContent='Tous les systèmes opérationnels'; sub.textContent='5 services · aucun incident';
     badge.textContent='● Opérationnel'; badge.style.cssText='color:var(--green);background:rgba(34,215,126,.12);border-color:rgba(34,215,126,.3)';
-  } else if (anyDown) {
-    dot.style.cssText='background:var(--red);box-shadow:0 0 10px var(--red)';
+  } else if (anyDown){
+    dot.style.cssText='background:var(--red);box-shadow:0 0 12px var(--red)';
     lbl.textContent='Incident en cours'; sub.textContent='Un ou plusieurs services sont hors ligne';
     badge.textContent='● Incident'; badge.style.cssText='color:var(--red);background:rgba(247,79,79,.12);border-color:rgba(247,79,79,.3)';
   } else {
-    dot.style.cssText='background:var(--yellow);box-shadow:0 0 10px var(--yellow)';
+    dot.style.cssText='background:var(--yellow);box-shadow:0 0 12px var(--yellow)';
     lbl.textContent='Performances dégradées'; sub.textContent='Certains services sont lents';
     badge.textContent='● Dégradé'; badge.style.cssText='color:var(--yellow);background:rgba(247,201,72,.12);border-color:rgba(247,201,72,.3)';
   }
 }
 
-// ── HEALTH CHECKS ─────────────────────────────────────────────────────────────
-async function ping(url) {
-  const t = Date.now();
-  try { await fetch(url, {method:'HEAD',mode:'no-cors',cache:'no-store'}); return {ok:true,ms:Date.now()-t}; }
-  catch { return {ok:false,ms:null}; }
-}
-async function checkDB() {
-  const t = Date.now();
-  try {
-    const r = await fetch(SB_URL+'/rest/v1/', {headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY}});
-    return {ok:r.ok,ms:Date.now()-t};
-  } catch { return {ok:false,ms:null}; }
-}
-
 async function runChecks() {
-  $('lastCheck').textContent = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-  const results = [];
-
-  const w  = await ping('https://devcenter.vyral-studio.com/');
-  results.push(renderStatus('web',     w.ok?(w.ms>2000?'degraded':'operational'):'down', w.ms));
-
-  const sp = await ping('https://jojolm24.github.io/status-dev-center/');
-  results.push(renderStatus('status',  sp.ok?(sp.ms>2000?'degraded':'operational'):'down', sp.ms));
-
-  const db = await checkDB();
-  results.push(renderStatus('db',      db.ok?(db.ms>3000?'degraded':'operational'):'down', db.ms));
-
-  const cdn= await ping('https://cdnjs.cloudflare.com/');
-  results.push(renderStatus('cdn',     cdn.ok?(cdn.ms>1500?'degraded':'operational'):'down', cdn.ms));
-
-  const dc = await ping('https://discord.com/');
-  results.push(renderStatus('discord', dc.ok?'operational':'down', dc.ms));
-
-  updateGlobal(results);
+  $('lastCheck').textContent=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  const s=[];
+  const w =await ping('https://devcenter.vyral-studio.com/');
+  s.push(renderSvc('web',    w.ok ?(w.ms >2000?'degraded':'operational'):'down', w.ms));
+  const sp=await ping('https://jojolm24.github.io/status-dev-center/');
+  s.push(renderSvc('status', sp.ok?(sp.ms>2000?'degraded':'operational'):'down', sp.ms));
+  const db=await checkDB();
+  s.push(renderSvc('db',     db.ok?(db.ms>3000?'degraded':'operational'):'down', db.ms));
+  const cdn=await ping('https://cdnjs.cloudflare.com/');
+  s.push(renderSvc('cdn',    cdn.ok?(cdn.ms>1500?'degraded':'operational'):'down', cdn.ms));
+  const dc=await ping('https://discord.com/');
+  s.push(renderSvc('discord',dc.ok?'operational':'down', dc.ms));
+  updateGlobal(s);
 }
 
-// ── UPTIME BAR ────────────────────────────────────────────────────────────────
+// ── Uptime bar ────────────────────────────────────────────────────────────────
 function buildUptimeBar() {
-  const bar = $('uptimeBar'); let down = 0;
-  for (let i=0;i<60;i++) {
-    const d = document.createElement('div');
-    d.className='uptime-day';
+  const bar=$('uptimeBar'); let down=0;
+  for(let i=0;i<60;i++){
+    const d=document.createElement('div'); d.className='uptime-day';
     const r=Math.random();
-    if (r<.02){d.classList.add('down');down++;}
-    else if(r<.05) d.classList.add('partial');
-    d.title=`Jour ${60-i}`;
-    bar.appendChild(d);
+    if(r<.018){d.classList.add('down');down++;}else if(r<.045)d.classList.add('partial');
+    d.title=`Jour ${60-i}`; bar.appendChild(d);
   }
   $('uptimePct').textContent=(((60-down)/60)*100).toFixed(2)+' %';
 }
 
-// ── ADMIN PANEL ───────────────────────────────────────────────────────────────
-function buildAdminGrid() {
-  const grid = $('adminGrid'); grid.innerHTML='';
-  SERVICES.forEach(svc => {
-    const cur = overrides[svc.id] || 'auto';
-    const row = document.createElement('div');
-    row.className='admin-row';
+// ── Public incidents ──────────────────────────────────────────────────────────
+async function loadPublicIncidents() {
+  try {
+    const rows=await sbGet('dc_incidents','order=created_at.desc&limit=5');
+    const el=$('publicIncList'); el.innerHTML='';
+    if (!rows||!rows.length){el.innerHTML='';return;}
+    rows.forEach(inc=>{
+      const div=document.createElement('div');
+      div.className='inc-item'; div.style.marginBottom='8px';
+      const sev=inc.severity||'info';
+      const sevLabels={info:'Info',warn:'Avertissement',crit:'Critique',ok:'Résolu'};
+      div.innerHTML=`
+        <div class="inc-item-header">
+          <span class="inc-badge ${sev}">${sevLabels[sev]||sev}</span>
+          <div class="inc-title">${esc(inc.title)}</div>
+          <div class="inc-time">${timeAgo(inc.created_at)}</div>
+        </div>
+        <div class="inc-msg">${esc(inc.message)}</div>`;
+      el.appendChild(div);
+    });
+  } catch{}
+}
+
+// ── ADMIN: Status tab ─────────────────────────────────────────────────────────
+function buildStatusGrid() {
+  const grid=$('statusGrid'); grid.innerHTML='';
+  SERVICES.forEach(svc=>{
+    const cur=overrides[svc.id]||'auto';
+    const row=document.createElement('div'); row.className='arow';
     row.innerHTML=`
-      <div class="admin-row-name">${svc.label}</div>
-      <select class="admin-select" id="as-${svc.id}">
-        <option value="auto"${cur==='auto'?' selected':''}>🔄 Automatique</option>
-        <option value="operational"${cur==='operational'?' selected':''}>🟢 Opérationnel</option>
-        <option value="degraded"${cur==='degraded'?' selected':''}>🟡 Dégradé</option>
-        <option value="down"${cur==='down'?' selected':''}>🔴 Hors ligne</option>
+      <div style="flex:1">
+        <div class="arow-name">${svc.label}</div>
+        <div class="arow-desc">${svc.url||'Supabase REST'}</div>
+      </div>
+      <select class="asel" id="sel-${svc.id}">
+        <option value="auto"        ${cur==='auto'        ?'selected':''}>🔄 Automatique</option>
+        <option value="operational" ${cur==='operational' ?'selected':''}>🟢 Opérationnel</option>
+        <option value="degraded"    ${cur==='degraded'    ?'selected':''}>🟡 Dégradé</option>
+        <option value="down"        ${cur==='down'        ?'selected':''}>🔴 Hors ligne</option>
       </select>`;
     grid.appendChild(row);
   });
 }
 
-async function saveOverrides() {
-  const btn=$('adminSaveBtn'), toast=$('adminToast');
+async function saveStatuses() {
+  const btn=$('btnSaveStatus');
   btn.disabled=true; btn.textContent='Enregistrement…';
   const newOv={};
-  SERVICES.forEach(s=>{const v=$('as-'+s.id).value; if(v!=='auto') newOv[s.id]=v;});
+  SERVICES.forEach(s=>{const v=$('sel-'+s.id).value; if(v!=='auto') newOv[s.id]=v;});
   overrides=newOv;
-  localStorage.setItem('dc_ov',JSON.stringify(overrides));
 
-  // Try Supabase
-  try {
-    await fetch(SB_URL+'/rest/v1/service_overrides', {
-      method:'POST',
-      headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'resolution=merge-duplicates'},
-      body:JSON.stringify({id:'main',data:overrides,updated_at:new Date().toISOString()})
-    });
-  } catch{}
-
-  // Re-render cards immediately
+  await sbUpsert('dc_status_overrides', {
+    id:'main', data:overrides,
+    updated_at:new Date().toISOString(),
+    updated_by:currentAdmin?.name||'admin'
+  });
+  await addLog(`Statuts mis à jour: ${Object.entries(overrides).map(([k,v])=>k+'=>'+v).join(', ')||'reset auto'}`);
   await runChecks();
-  toast.className='admin-toast'; toast.textContent='✓ Statuts mis à jour avec succès'; toast.style.display='block';
-  setTimeout(()=>toast.style.display='none',4000);
+  showToast('toastStatus','✓ Statuts enregistrés dans Supabase');
   btn.disabled=false;
-  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Enregistrer les modifications';
+  btn.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Enregistrer les statuts';
 }
 
-// ── DISCORD OAUTH ─────────────────────────────────────────────────────────────
+// ── ADMIN: Incidents tab ──────────────────────────────────────────────────────
+function setSev(s) {
+  currentSev=s;
+  ['info','warn','crit','ok'].forEach(k=>{
+    const btn=$('sev-'+k);
+    btn.className='sev-btn'+(k===s?' active-'+k:'');
+  });
+}
+
+async function publishIncident() {
+  const title=$('incTitle').value.trim();
+  const msg=$('incMsg').value.trim();
+  if(!title||!msg){showToast('toastInc','⚠ Titre et message requis',true);return;}
+  await sbInsert('dc_incidents',{
+    title, message:msg, severity:currentSev,
+    created_at:new Date().toISOString(),
+    created_by:currentAdmin?.name||'admin'
+  });
+  await addLog(`Incident publié [${currentSev}]: ${title}`);
+  $('incTitle').value=''; $('incMsg').value=''; setSev('info');
+  showToast('toastInc','✓ Incident publié');
+  await loadAdminIncidents();
+  await loadPublicIncidents();
+}
+
+async function loadAdminIncidents() {
+  const el=$('adminIncList'); el.innerHTML='<div class="empty">Chargement…</div>';
+  try {
+    const rows=await sbGet('dc_incidents','order=created_at.desc&limit=20');
+    el.innerHTML='';
+    if(!rows||!rows.length){el.innerHTML='<div class="empty">Aucun incident</div>';return;}
+    const sevL={info:'Info',warn:'Avertissement',crit:'Critique',ok:'Résolu'};
+    rows.forEach(inc=>{
+      const div=document.createElement('div'); div.className='inc-item';
+      const sev=inc.severity||'info';
+      div.innerHTML=`
+        <div class="inc-item-header">
+          <span class="inc-badge ${sev}">${sevL[sev]||sev}</span>
+          <div class="inc-title">${esc(inc.title)}</div>
+          <div class="inc-time">${timeAgo(inc.created_at)}</div>
+          <button class="inc-delete" onclick="deleteIncident('${inc.id}')">✕</button>
+        </div>
+        <div class="inc-msg">${esc(inc.message)}</div>
+        <div style="font-family:var(--fm);font-size:.6rem;color:var(--muted);margin-top:6px">par ${esc(inc.created_by||'—')}</div>`;
+      el.appendChild(div);
+    });
+  } catch { el.innerHTML='<div class="empty">Erreur de chargement</div>'; }
+}
+
+async function deleteIncident(id) {
+  if(!confirm('Supprimer cet incident ?')) return;
+  await sbDelete('dc_incidents',id);
+  await addLog('Incident supprimé: '+id);
+  await loadAdminIncidents();
+  await loadPublicIncidents();
+}
+
+// ── ADMIN: Maintenance tab ────────────────────────────────────────────────────
+async function publishMaintenance() {
+  const title=$('maintTitle').value.trim();
+  const msg=$('maintMsg').value.trim();
+  const start=$('maintStart').value;
+  const end=$('maintEnd').value;
+  if(!title||!start){showToast('toastMaint','⚠ Titre et date de début requis',true);return;}
+  await sbInsert('dc_maintenances',{
+    title, message:msg,
+    starts_at:start?new Date(start).toISOString():null,
+    ends_at:end?new Date(end).toISOString():null,
+    created_at:new Date().toISOString(),
+    created_by:currentAdmin?.name||'admin'
+  });
+  await addLog(`Maintenance planifiée: ${title}`);
+  $('maintTitle').value=''; $('maintMsg').value=''; $('maintStart').value=''; $('maintEnd').value='';
+  showToast('toastMaint','✓ Maintenance planifiée');
+  await loadAdminMaintenances();
+}
+
+async function loadAdminMaintenances() {
+  const el=$('adminMaintList'); el.innerHTML='<div class="empty">Chargement…</div>';
+  try {
+    const rows=await sbGet('dc_maintenances','order=starts_at.desc&limit=10');
+    el.innerHTML='';
+    if(!rows||!rows.length){el.innerHTML='<div class="empty">Aucune maintenance</div>';return;}
+    rows.forEach(m=>{
+      const div=document.createElement('div'); div.className='maint-item';
+      const s=m.starts_at?new Date(m.starts_at).toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'short'}):'—';
+      const e=m.ends_at?new Date(m.ends_at).toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'short'}):'—';
+      div.innerHTML=`
+        <button class="maint-delete" onclick="deleteMaintenance('${m.id}')">✕</button>
+        <div class="maint-badge"><svg width="9" height="9" viewBox="0 0 9 9" fill="none"><circle cx="4.5" cy="4.5" r="3.5" stroke="currentColor" stroke-width="1.2"/><path d="M4.5 2V4.5L6 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>Planifiée</div>
+        <div class="maint-title">${esc(m.title)}</div>
+        <div class="maint-meta">Du ${s} au ${e} · par ${esc(m.created_by||'—')}</div>
+        ${m.message?`<div style="font-size:.75rem;color:var(--text2);margin-top:6px;line-height:1.5">${esc(m.message)}</div>`:''}`;
+      el.appendChild(div);
+    });
+  } catch { el.innerHTML='<div class="empty">Erreur de chargement</div>'; }
+}
+
+async function deleteMaintenance(id) {
+  if(!confirm('Supprimer cette maintenance ?')) return;
+  await sbDelete('dc_maintenances',id);
+  await addLog('Maintenance supprimée: '+id);
+  await loadAdminMaintenances();
+}
+
+// ── ADMIN: Logs tab ───────────────────────────────────────────────────────────
+async function addLog(msg) {
+  try {
+    await sbInsert('dc_admin_logs',{
+      message:msg,
+      admin:currentAdmin?.name||'admin',
+      created_at:new Date().toISOString()
+    });
+  } catch{}
+}
+
+async function loadLogs() {
+  const el=$('logsList'); el.innerHTML='<div class="empty">Chargement…</div>';
+  try {
+    const rows=await sbGet('dc_admin_logs','order=created_at.desc&limit=40');
+    el.innerHTML='';
+    if(!rows||!rows.length){el.innerHTML='<div class="empty">Aucun log</div>';return;}
+    rows.forEach(l=>{
+      const div=document.createElement('div'); div.className='log-row';
+      const t=new Date(l.created_at).toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'medium'});
+      div.innerHTML=`
+        <div class="log-time">${t}</div>
+        <div class="log-dot" style="background:var(--blue)"></div>
+        <div class="log-msg">${esc(l.message)}</div>
+        <div class="log-by">${esc(l.admin||'—')}</div>`;
+      el.appendChild(div);
+    });
+  } catch { el.innerHTML='<div class="empty">Erreur de chargement</div>'; }
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+function switchTab(name, btn) {
+  document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.atab-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  $('tab-'+name).classList.add('active');
+  if(name==='incident') loadAdminIncidents();
+  if(name==='maintenance') loadAdminMaintenances();
+  if(name==='logs') loadLogs();
+}
+
+// ── UI helpers ─────────────────────────────────────────────────────────────────
+function showToast(id, msg, err=false) {
+  const el=$(id);
+  el.className='toast'+(err?' err':'');
+  el.textContent=msg; el.style.display='block';
+  setTimeout(()=>el.style.display='none',4000);
+}
+
+function showState(s) {
+  ['Login','Loading','Granted','Denied','NotMember'].forEach(k=>{
+    const el=$('state'+k);
+    if(el) el.style.display=(k.toLowerCase()===s?'block':'none');
+  });
+}
+
+function esc(str) {
+  if(!str) return '';
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function timeAgo(iso) {
+  if(!iso) return '—';
+  const diff=(Date.now()-new Date(iso))/1000;
+  if(diff<60) return 'À l\'instant';
+  if(diff<3600) return Math.floor(diff/60)+'m';
+  if(diff<86400) return Math.floor(diff/3600)+'h';
+  return Math.floor(diff/86400)+'j';
+}
+
+// ── Discord OAuth ─────────────────────────────────────────────────────────────
 function startDiscordLogin() {
   const state=crypto.randomUUID(); sessionStorage.setItem('dcstate',state);
-  const p=new URLSearchParams({client_id:DC_CLIENT,redirect_uri:REDIR,response_type:'token',
-    scope:'identify guilds guilds.members.read',state});
+  const p=new URLSearchParams({client_id:DC_CLIENT,redirect_uri:REDIR,
+    response_type:'token',scope:'identify guilds guilds.members.read',state});
   location.href='https://discord.com/oauth2/authorize?'+p;
 }
 
 function logout() {
   sessionStorage.removeItem('dc_tok');
+  currentAdmin=null;
   $('adminPanel').style.display='none';
+  const nu=$('navUser'); nu.style.display='none';
   showState('login');
 }
 
 async function handleCallback() {
   const hash=location.hash.substring(1);
-  if (!hash.includes('access_token')) return false;
-  const p=new URLSearchParams(hash);
-  const tok=p.get('access_token'); const st=p.get('state');
+  if(!hash.includes('access_token')) return false;
+  const p=new URLSearchParams(hash); const tok=p.get('access_token'); const st=p.get('state');
   history.replaceState(null,'',location.pathname);
-  if (!tok) return false;
+  if(!tok) return false;
   const saved=sessionStorage.getItem('dcstate');
-  if (st&&saved&&st!==saved) return false;
+  if(st&&saved&&st!==saved) return false;
   sessionStorage.removeItem('dcstate');
   sessionStorage.setItem('dc_tok',tok);
   await verifyAccess(tok); return true;
@@ -633,23 +1071,27 @@ async function verifyAccess(tok) {
     if(!ur.ok) throw 0;
     const user=await ur.json();
     const mr=await fetch(`https://discord.com/api/users/@me/guilds/${DC_GUILD}/member`,{headers:{Authorization:'Bearer '+tok}});
-
     const av=user.avatar
       ?`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=64`
       :`https://cdn.discordapp.com/embed/avatars/${parseInt(user.discriminator||'0')%5}.png`;
     const name=user.global_name||user.username;
 
-    if (mr.status===404||mr.status===403){showState('notMember');return;}
-    if (!mr.ok) throw 0;
+    if(mr.status===404||mr.status===403){showState('notMember');return;}
+    if(!mr.ok) throw 0;
     const member=await mr.json();
 
-    if ((member.roles||[]).includes(DC_ROLE)) {
-      // Admin granted
-      $('adminUserName').textContent = name;
-      buildAdminGrid();
+    if((member.roles||[]).includes(DC_ROLE)){
+      currentAdmin={name,avatar:av,id:user.id};
+      // Nav user
+      const nu=$('navUser'); nu.style.display='flex';
+      $('navAvatar').src=av; $('navName').textContent=name;
+      // Admin panel
+      $('adminUserName').textContent=name;
+      buildStatusGrid();
       $('adminPanel').style.display='block';
       showState('granted');
-      setTimeout(()=>$('adminPanel').scrollIntoView({behavior:'smooth',block:'nearest'}),150);
+      await addLog(`Connexion admin: ${name}`);
+      setTimeout(()=>$('adminPanel').scrollIntoView({behavior:'smooth',block:'nearest'}),200);
     } else {
       $('avatarDenied').src=av; $('nameDenied').textContent=name;
       showState('denied');
@@ -660,15 +1102,75 @@ async function verifyAccess(tok) {
 // ── INIT ──────────────────────────────────────────────────────────────────────
 (async()=>{
   buildUptimeBar();
+  await loadOverrides();
+  await loadPublicIncidents();
   runChecks();
   setInterval(runChecks,60000);
+  setInterval(loadPublicIncidents,30000);
+
   const done=await handleCallback();
   if(!done){
     const tok=sessionStorage.getItem('dc_tok');
-    if(tok) await verifyAccess(tok);
-    else showState('login');
+    if(tok) await verifyAccess(tok); else showState('login');
   }
 })();
 </script>
+
+<!-- ══ SQL SETUP COMMENT ══
+Pour initialiser Supabase, exécute ce SQL dans l'éditeur SQL de ton projet :
+
+-- 1. Overrides de statut
+CREATE TABLE IF NOT EXISTS dc_status_overrides (
+  id TEXT PRIMARY KEY,
+  data JSONB NOT NULL DEFAULT '{}',
+  updated_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_by TEXT
+);
+INSERT INTO dc_status_overrides (id, data) VALUES ('main', '{}') ON CONFLICT DO NOTHING;
+
+-- 2. Incidents
+CREATE TABLE IF NOT EXISTS dc_incidents (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  message TEXT,
+  severity TEXT DEFAULT 'info', -- info | warn | crit | ok
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  created_by TEXT
+);
+
+-- 3. Maintenances
+CREATE TABLE IF NOT EXISTS dc_maintenances (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  message TEXT,
+  starts_at TIMESTAMPTZ,
+  ends_at TIMESTAMPTZ,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  created_by TEXT
+);
+
+-- 4. Logs admin
+CREATE TABLE IF NOT EXISTS dc_admin_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  message TEXT NOT NULL,
+  admin TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 5. RLS : accès public en lecture, sans restriction pour anon (ajuste selon tes besoins)
+ALTER TABLE dc_status_overrides ENABLE ROW LEVEL SECURITY;
+ALTER TABLE dc_incidents         ENABLE ROW LEVEL SECURITY;
+ALTER TABLE dc_maintenances      ENABLE ROW LEVEL SECURITY;
+ALTER TABLE dc_admin_logs        ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "public read" ON dc_status_overrides FOR SELECT USING (true);
+CREATE POLICY "public read" ON dc_incidents         FOR SELECT USING (true);
+CREATE POLICY "public read" ON dc_maintenances      FOR SELECT USING (true);
+CREATE POLICY "anon write"  ON dc_status_overrides  FOR ALL    USING (true) WITH CHECK (true);
+CREATE POLICY "anon write"  ON dc_incidents         FOR ALL    USING (true) WITH CHECK (true);
+CREATE POLICY "anon write"  ON dc_maintenances      FOR ALL    USING (true) WITH CHECK (true);
+CREATE POLICY "anon write"  ON dc_admin_logs        FOR ALL    USING (true) WITH CHECK (true);
+══ FIN SQL ══ -->
+
 </body>
 </html>
