@@ -861,19 +861,18 @@ function buildMaintCard(m, forBanner=false){
   </div>`;
 }
 async function loadPublicMaintenances(){
-  const banner=$('maintBanners'), pub=$('publicMaintList');
-  banner.innerHTML=''; if(pub) pub.innerHTML='';
+  const banner=$('maintBanners');
+  banner.innerHTML='';
   try{
     const now=new Date().toISOString();
     const rows=await sbGet('dc_maintenances',`ends_at=gte.${now}&order=starts_at.asc`);
     if(!rows||!rows.length){
-      if(pub) pub.innerHTML=`<div class="empty-state-wrap"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 12V20L24 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p>Aucune maintenance planifiée</p></div>`;
+      if(false) pub.innerHTML=`<div class="empty-state-wrap"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 12V20L24 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p>Aucune maintenance planifiée</p></div>`;
       return;
     }
     rows.forEach(m=>{
       const html=buildMaintCard(m);
       banner.insertAdjacentHTML('beforeend',html);
-      if(pub) pub.insertAdjacentHTML('beforeend',html);
     });
   }catch{}
 }
@@ -930,7 +929,7 @@ function switchMainTab(name,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active'); $('main-'+name).classList.add('active');
   if(name==='incidents') loadPublicIncidents();
-  if(name==='maintenance'){ loadPublicMaintenances(); renderPublicMaintTab(); }
+  if(name==='maintenance') renderPublicMaintTab();
 }
 function switchAdminTab(name,btn){
   document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
