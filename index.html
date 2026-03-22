@@ -4,6 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dev Center — Status</title>
+<link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1480160021605126321/1485317052695843058/file_00000000ebbc72469b2d4fe7f6936224.png?ex=69c16ccd&is=69c01b4d&hm=1ced7efea7ccb1f07e3be62ca388f7da2ae542c27762338de3f41560849e1ad2&=&format=webp&quality=lossless&width=495&height=495">
+<link rel="apple-touch-icon" href="https://media.discordapp.net/attachments/1480160021605126321/1485317052695843058/file_00000000ebbc72469b2d4fe7f6936224.png?ex=69c16ccd&is=69c01b4d&hm=1ced7efea7ccb1f07e3be62ca388f7da2ae542c27762338de3f41560849e1ad2&=&format=webp&quality=lossless&width=495&height=495">
+
+<!-- Discord / Open Graph embed -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://devcenter24.github.io/status-dev-center/">
+<meta property="og:site_name" content="Dev Center">
+<meta property="og:title" content="Dev Center — Status">
+<meta property="og:description" content="Surveillance en temps réel des services Dev Center. Vérifiez l'état des services, incidents et maintenances planifiées.">
+<meta property="og:image" content="https://media.discordapp.net/attachments/1480160021605126321/1485317052695843058/file_00000000ebbc72469b2d4fe7f6936224.png?ex=69c16ccd&is=69c01b4d&hm=1ced7efea7ccb1f07e3be62ca388f7da2ae542c27762338de3f41560849e1ad2&=&format=webp&quality=lossless&width=495&height=495">
+<meta property="og:image:width" content="495">
+<meta property="og:image:height" content="495">
+<meta property="og:color" content="#5a9cf8">
+<meta name="theme-color" content="#000000">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dev Center — Status">
+<meta name="twitter:description" content="Surveillance en temps réel des services Dev Center.">
+<meta name="twitter:image" content="https://media.discordapp.net/attachments/1480160021605126321/1485317052695843058/file_00000000ebbc72469b2d4fe7f6936224.png?ex=69c16ccd&is=69c01b4d&hm=1ced7efea7ccb1f07e3be62ca388f7da2ae542c27762338de3f41560849e1ad2&=&format=webp&quality=lossless&width=495&height=495">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -390,6 +410,12 @@ body{
 .empty-state-wrap svg{opacity:.3;margin-bottom:12px}
 .empty-state-wrap p{color:var(--text3);font-size:.85rem}
 
+
+.maint-section-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;
+  letter-spacing:.1em;margin:20px 0 10px;font-weight:600}
+.maint-section-title:first-child{margin-top:0}
+.maint-pill.past{background:rgba(99,104,128,.15);color:var(--text3);border:1px solid rgba(99,104,128,.25)}
+.maint-card.past::before{background:var(--text3)}
 </style>
 </head>
 <body>
@@ -757,6 +783,62 @@ function buildUptimeBar(){
   $('uptimePct').textContent=(((60-down)/60)*100).toFixed(2)+'% uptime';
 }
 
+// ── Public: Maintenances tab (all, including past) ────────────
+async function renderPublicMaintTab(){
+  const el=$('publicMaintList'); if(!el) return;
+  el.innerHTML='<div class="empty" style="padding:20px 0">Chargement…</div>';
+  try{
+    // Load all maintenances sorted by start date desc
+    const rows=await sbGet('dc_maintenances','order=starts_at.desc&limit=50');
+    el.innerHTML='';
+    if(!rows||!rows.length){
+      el.innerHTML=`<div class="empty-state-wrap">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 12V20L24 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <p>Aucune maintenance planifiée</p></div>`;
+      return;
+    }
+    const now=new Date();
+    // Group: ongoing, upcoming, past
+    const ongoing=rows.filter(m=>m.starts_at&&new Date(m.starts_at)<=now&&(!m.ends_at||new Date(m.ends_at)>now));
+    const upcoming=rows.filter(m=>m.starts_at&&new Date(m.starts_at)>now);
+    const past=rows.filter(m=>m.ends_at&&new Date(m.ends_at)<=now);
+    
+    if(ongoing.length){
+      el.insertAdjacentHTML('beforeend','<div class="maint-section-title">En cours</div>');
+      ongoing.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m)));
+    }
+    if(upcoming.length){
+      el.insertAdjacentHTML('beforeend','<div class="maint-section-title">À venir</div>');
+      upcoming.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m)));
+    }
+    if(past.length){
+      el.insertAdjacentHTML('beforeend','<div class="maint-section-title">Historique</div>');
+      past.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCardPast(m)));
+    }
+  }catch(e){el.innerHTML='<div class="empty">Erreur de chargement</div>';}
+}
+
+function buildMaintCardPast(m){
+  const starts=m.starts_at?new Date(m.starts_at):null;
+  const ends=m.ends_at?new Date(m.ends_at):null;
+  const sF={day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'};
+  const dur=starts&&ends?Math.round((ends-starts)/60000):null;
+  const durStr=dur?dur>=60?Math.floor(dur/60)+'h'+(dur%60?''+dur%60+'m':''):dur+'m':null;
+  return `<div class="maint-card past" style="opacity:.65">
+    <div class="maint-card-hd">
+      <span class="maint-pill past"><span style="width:6px;height:6px;border-radius:50%;background:var(--text3)"></span>Terminée</span>
+      <span class="maint-card-title">${esc(m.title)}</span>
+    </div>
+    ${m.message?`<div class="maint-card-msg">${esc(m.message)}</div>`:''}
+    <div class="maint-card-dates">
+      ${starts?`<div class="maint-date-item"><span>Début</span><span>${starts.toLocaleString('fr-FR',sF)}</span></div>`:''}
+      ${starts&&ends?'<span class="maint-date-sep">→</span>':''}
+      ${ends?`<div class="maint-date-item"><span>Fin</span><span>${ends.toLocaleString('fr-FR',sF)}</span></div>`:''}
+      ${durStr?`<div class="maint-date-item" style="margin-left:auto"><span>Durée</span><span>${durStr}</span></div>`:''}
+    </div>
+  </div>`;
+}
+
 // ── Public: Maintenances ──────────────────────────────────────
 function buildMaintCard(m, forBanner=false){
   const starts=m.starts_at?new Date(m.starts_at):null;
@@ -848,7 +930,7 @@ function switchMainTab(name,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active'); $('main-'+name).classList.add('active');
   if(name==='incidents') loadPublicIncidents();
-  if(name==='maintenance') loadPublicMaintenances();
+  if(name==='maintenance'){ loadPublicMaintenances(); renderPublicMaintTab(); }
 }
 function switchAdminTab(name,btn){
   document.querySelectorAll('.atab').forEach(b=>b.classList.remove('active'));
