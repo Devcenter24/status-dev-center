@@ -4,26 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dev Center — Status</title>
-<link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/l4Kt1AlZopS-j_n5qAdqYCGuhDIPQkcSy4BrQgn6hAw/https/cdn.discordapp.com/avatars/1486398705551806636/9c1b14d1e68930e00e17c033956ef335.webp?format=webp&width=85&height=85">
-<link rel="apple-touch-icon" href="https://images-ext-1.discordapp.net/external/l4Kt1AlZopS-j_n5qAdqYCGuhDIPQkcSy4BrQgn6hAw/https/cdn.discordapp.com/avatars/1486398705551806636/9c1b14d1e68930e00e17c033956ef335.webp?format=webp&width=85&height=85">
 
-<!-- Discord / Open Graph embed -->
+<!-- Favicon + Apple -->
+<link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/S_Z8gqs11xrmMb5i0JYkIjqB7GtZTCEgpXoqC03YDO8/%3Fsize%3D256/https/cdn.discordapp.com/icons/1452963098284785765/4255d99dd972ab407c31044fe9a899b0.png?format=webp&quality=lossless">
+<link rel="apple-touch-icon" href="https://images-ext-1.discordapp.net/external/S_Z8gqs11xrmMb5i0JYkIjqB7GtZTCEgpXoqC03YDO8/%3Fsize%3D256/https/cdn.discordapp.com/icons/1452963098284785765/4255d99dd972ab407c31044fe9a899b0.png?format=webp&quality=lossless">
+
+<!-- Discord / OG embed -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://devcenter24.github.io/status-dev-center/">
 <meta property="og:site_name" content="Dev Center">
 <meta property="og:title" content="Dev Center — Status">
 <meta property="og:description" content="Surveillance en temps réel des services Dev Center. Vérifiez l'état des services, incidents et maintenances planifiées.">
-<meta property="og:image" content="https://images-ext-1.discordapp.net/external/l4Kt1AlZopS-j_n5qAdqYCGuhDIPQkcSy4BrQgn6hAw/https/cdn.discordapp.com/avatars/1486398705551806636/9c1b14d1e68930e00e17c033956ef335.webp?format=webp&width=85&height=85">
-<meta property="og:image:width" content="495">
-<meta property="og:image:height" content="495">
-<meta property="og:color" content="#5a9cf8">
+<meta property="og:image" content="https://images-ext-1.discordapp.net/external/S_Z8gqs11xrmMb5i0JYkIjqB7GtZTCEgpXoqC03YDO8/%3Fsize%3D256/https/cdn.discordapp.com/icons/1452963098284785765/4255d99dd972ab407c31044fe9a899b0.png?format=webp&quality=lossless">
+<meta property="og:image:width" content="256">
+<meta property="og:image:height" content="256">
 <meta name="theme-color" content="#000000">
-
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dev Center — Status">
 <meta name="twitter:description" content="Surveillance en temps réel des services Dev Center.">
-<meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/l4Kt1AlZopS-j_n5qAdqYCGuhDIPQkcSy4BrQgn6hAw/https/cdn.discordapp.com/avatars/1486398705551806636/9c1b14d1e68930e00e17c033956ef335.webp?format=webp&width=85&height=85">
+<meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/S_Z8gqs11xrmMb5i0JYkIjqB7GtZTCEgpXoqC03YDO8/%3Fsize%3D256/https/cdn.discordapp.com/icons/1452963098284785765/4255d99dd972ab407c31044fe9a899b0.png?format=webp&quality=lossless">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -36,318 +36,151 @@ html{scroll-behavior:smooth}
   --green-bg:rgba(62,207,142,.1);--yellow-bg:rgba(245,200,66,.1);--red-bg:rgba(232,93,93,.1);
   --r:8px;--r2:12px;
 }
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;font-size:15px;line-height:1.6}
-
-/* Stars */
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;font-size:15px;line-height:1.6;
+  background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:60px 60px}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:
-    radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.4) 0%,transparent 100%),
-    radial-gradient(1px 1px at 35% 68%,rgba(255,255,255,.3) 0%,transparent 100%),
-    radial-gradient(1px 1px at 58% 12%,rgba(255,255,255,.35) 0%,transparent 100%),
-    radial-gradient(1px 1px at 78% 82%,rgba(255,255,255,.25) 0%,transparent 100%),
-    radial-gradient(1px 1px at 92% 44%,rgba(255,255,255,.4) 0%,transparent 100%),
-    radial-gradient(1px 1px at 18% 88%,rgba(255,255,255,.3) 0%,transparent 100%),
-    radial-gradient(1px 1px at 86% 18%,rgba(255,255,255,.35) 0%,transparent 100%),
-    radial-gradient(1px 1px at 47% 47%,rgba(255,255,255,.2) 0%,transparent 100%),
-    radial-gradient(1.5px 1.5px at 64% 28%,rgba(255,255,255,.3) 0%,transparent 100%),
-    radial-gradient(1px 1px at 26% 74%,rgba(255,255,255,.35) 0%,transparent 100%),
-    radial-gradient(1px 1px at 54% 92%,rgba(255,255,255,.2) 0%,transparent 100%),
-    radial-gradient(1px 1px at 82% 58%,rgba(255,255,255,.28) 0%,transparent 100%),
-    radial-gradient(1.5px 1.5px at 7% 52%,rgba(255,255,255,.35) 0%,transparent 100%),
-    radial-gradient(1px 1px at 71% 8%,rgba(255,255,255,.28) 0%,transparent 100%),
-    radial-gradient(1px 1px at 42% 38%,rgba(255,255,255,.22) 0%,transparent 100%)}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-  padding:0 32px;height:58px;background:rgba(0,0,0,.95);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1rem;color:var(--text);text-decoration:none}
-.nav-logo svg{flex-shrink:0}
-.nav-right{display:flex;align-items:center;gap:10px}
-#navUser{display:none;align-items:center;gap:8px}
-#navUser img{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue)}
-#navUser span{font-size:.78rem;color:var(--text2)}
-
-/* MAIN */
-main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px 100px}
-
-/* HERO STATUS */
-.hero{text-align:center;padding:56px 0 48px}
-.hero-icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;flex-shrink:0}
-.hero-icon.ok{background:var(--green-bg);border:1.5px solid rgba(62,207,142,.3)}
-.hero-icon.warn{background:var(--yellow-bg);border:1.5px solid rgba(245,200,66,.3)}
-.hero-icon.down{background:var(--red-bg);border:1.5px solid rgba(232,93,93,.3)}
-.hero h1{font-size:1.75rem;font-weight:700;color:var(--text);margin-bottom:8px}
-.hero-sub{font-size:.85rem;color:var(--text2)}
-
-/* TABS */
-.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:32px}
-.tab{padding:10px 18px;font-size:.88rem;font-weight:500;color:var(--text2);background:none;
-  border:none;border-bottom:2px solid transparent;cursor:pointer;
-  transition:color .15s,border-color .15s;margin-bottom:-1px}
-.tab:hover{color:var(--text)}
-.tab.active{color:var(--text);border-bottom-color:var(--text)}
-.tab-panel{display:none}
-.tab-panel.active{display:block}
-
-/* MAINTENANCE BANNER */
-.maint-banner{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;
-  border-radius:var(--r2);border:1px solid rgba(167,139,250,.25);
-  background:rgba(167,139,250,.07);margin-bottom:14px}
-.maint-banner-body{flex:1}
-.maint-banner-title{font-weight:600;font-size:.9rem;color:var(--purple);margin-bottom:3px}
-.maint-banner-msg{font-size:.82rem;color:var(--text2);line-height:1.55}
-.maint-banner-dates{font-size:.75rem;color:var(--text3);margin-top:5px;font-family:monospace}
-
-/* SERVICE CARDS */
-.services-wrap{display:flex;flex-direction:column;gap:1px;
-  border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-bottom:32px;transition:border-color .3s}
-.services-wrap:hover{border-color:rgba(90,156,248,.2)}
-.svc-row{display:flex;align-items:center;gap:16px;padding:16px 20px;
-  background:var(--bg2);transition:background .15s}
-.svc-row:hover{background:var(--bg3)}
-.svc-row+.svc-row{border-top:1px solid var(--border)}
-.svc-icon{width:36px;height:36px;border-radius:9px;background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.svc-info{flex:1;min-width:0}
-.svc-name{font-weight:600;font-size:.9rem;color:var(--text)}
-.svc-desc{font-size:.76rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.svc-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
-.svc-badge{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:500;
-  padding:3px 10px;border-radius:20px;white-space:nowrap}
-.svc-badge.operational{background:var(--green-bg);color:var(--green)}
-.svc-badge.degraded{background:var(--yellow-bg);color:var(--yellow)}
-.svc-badge.down{background:var(--red-bg);color:var(--red)}
-.svc-badge.loading{background:rgba(255,255,255,.05);color:var(--text3)}
-.svc-badge .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.svc-badge.operational .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
-.svc-badge.degraded .dot{background:var(--yellow);box-shadow:0 0 6px var(--yellow)}
-.svc-badge.down .dot{background:var(--red);box-shadow:0 0 6px var(--red)}
-.svc-badge.loading .dot{background:var(--text3)}
-.svc-ping{font-size:.72rem;color:var(--text3);font-family:monospace}
-.manual-pill{font-size:.66rem;color:var(--blue);background:rgba(90,156,248,.12);
-  border:1px solid rgba(90,156,248,.25);padding:1px 7px;border-radius:10px;display:none}
-
-/* INCIDENTS */
-.inc-item{padding:18px 0;border-bottom:1px solid var(--border)}
-.inc-item:last-child{border-bottom:none}
-.inc-item-hd{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-.inc-badge{font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:20px;letter-spacing:.02em}
-.inc-badge.info{background:rgba(90,156,248,.15);color:var(--blue)}
-.inc-badge.warn{background:var(--yellow-bg);color:var(--yellow)}
-.inc-badge.crit{background:var(--red-bg);color:var(--red)}
-.inc-badge.ok{background:var(--green-bg);color:var(--green)}
-.inc-title{font-weight:600;font-size:.9rem;flex:1}
-.inc-time{font-size:.74rem;color:var(--text3)}
-.inc-msg{font-size:.82rem;color:var(--text2);line-height:1.6}
-.empty-state{text-align:center;padding:40px 20px;color:var(--text3);font-size:.85rem}
-
-/* UPTIME BAR */
-.uptime-wrap{margin-bottom:32px}
-.uptime-label-row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text3);margin-bottom:8px}
-.uptime-bar{display:flex;gap:2px;height:24px}
-.uday{flex:1;border-radius:3px;background:rgba(62,207,142,.55);cursor:pointer;transition:opacity .15s}
-.uday:hover{opacity:.8}
-.uday.down{background:rgba(232,93,93,.6)}
-.uday.partial{background:rgba(245,200,66,.55)}
-
-/* LOGIN SECTION */
-.login-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:28px;margin-top:12px}
-.login-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.login-icon{width:40px;height:40px;border-radius:10px;background:rgba(88,101,242,.18);
-  border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.login-title{font-weight:700;font-size:.95rem}
-.login-sub{font-size:.76rem;color:var(--text2);margin-top:1px}
-
-/* DISCORD BUTTON */
-.dc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  background:#5865F2;color:#fff;font-weight:600;font-size:.87rem;
-  padding:11px 20px;border-radius:var(--r);width:100%;border:none;cursor:pointer;
-  transition:background .15s,transform .15s;text-decoration:none}
-.dc-btn:hover{background:#4752C4;transform:translateY(-1px)}
-.dc-btn.ghost{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--text2)}
-.dc-btn.ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-1px)}
-
-/* STATUS STATES */
-#stateLoading{text-align:center;padding:20px}
-#stateLoading svg{animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.status-ok{background:var(--green-bg);border:1px solid rgba(62,207,142,.25);
-  border-radius:var(--r);padding:12px 16px;font-size:.83rem;color:var(--green);display:flex;align-items:center;gap:10px}
-.status-err{background:var(--red-bg);border:1px solid rgba(232,93,93,.25);
-  border-radius:var(--r);padding:12px 16px;font-size:.83rem;color:var(--red);display:flex;align-items:center;gap:10px}
-.status-warn2{background:var(--yellow-bg);border:1px solid rgba(245,200,66,.25);
-  border-radius:var(--r);padding:12px 16px;font-size:.83rem;color:var(--yellow);display:flex;align-items:center;gap:10px}
-
-/* ADMIN PANEL */
-.admin-panel{background:var(--bg2);border:1px solid rgba(90,156,248,.2);border-radius:var(--r2);
-  overflow:hidden;margin-top:12px;display:none}
-.admin-bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border)}
-.admin-bar-title{font-weight:700;font-size:.92rem;flex:1}
-.admin-bar-sub{font-size:.74rem;color:var(--text2)}
-.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:rgba(0,0,0,.15)}
-.atab{flex:1;padding:11px 6px;font-size:.78rem;font-weight:500;color:var(--text2);background:none;
-  border:none;border-bottom:2px solid transparent;cursor:pointer;
-  transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
-.atab:hover{color:var(--text)}
-.atab.active{color:var(--blue);border-bottom-color:var(--blue)}
-.atab-content{display:none;padding:20px}
-.atab-content.active{display:block}
-
-/* Admin forms */
-.field-lbl{font-size:.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
-.ainput,.atextarea{width:100%;background:var(--bg3);border:1px solid var(--border2);
-  color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;
-  padding:9px 13px;border-radius:var(--r);outline:none;transition:border-color .15s}
-.ainput:focus,.atextarea:focus{border-color:rgba(90,156,248,.6)}
-.ainput[type=number]{-moz-appearance:textfield}
-.ainput[type=number]::-webkit-outer-spin-button,.ainput[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
-.ainput[type=datetime-local]{color-scheme:dark}
-.atextarea{resize:vertical;min-height:80px;line-height:1.55}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.field-wrap{display:flex;flex-direction:column;gap:5px}
-
-/* Admin rows */
-.arow{display:flex;align-items:center;gap:12px;background:var(--bg3);
-  border:1px solid var(--border);border-radius:var(--r);padding:12px 15px;margin-bottom:8px;transition:border-color .15s}
-.arow:hover{border-color:var(--border2)}
-.arow-name{font-weight:600;font-size:.84rem;flex:1}
-.arow-sub{font-size:.72rem;color:var(--text3);margin-top:2px}
-.asel{background:var(--bg2);border:1px solid var(--border2);color:var(--text);
-  font-size:.76rem;padding:7px 26px 7px 10px;border-radius:var(--r);cursor:pointer;outline:none;
-  appearance:none;-webkit-appearance:none;min-width:148px;font-family:'Inter',sans-serif;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23636880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 8px center;transition:border-color .15s}
-.asel option{background:#1a1d24}
-.asel:focus{border-color:rgba(90,156,248,.5)}
-
-/* Sev buttons */
-.sev-row{display:flex;gap:8px}
-.sev-btn{flex:1;padding:8px 4px;border-radius:var(--r);border:1px solid var(--border2);
-  background:var(--bg3);color:var(--text2);font-size:.76rem;font-weight:500;cursor:pointer;transition:all .15s;text-align:center;font-family:'Inter',sans-serif}
-.sev-btn:hover{background:rgba(255,255,255,.07)}
-.sev-btn.active-info{background:rgba(90,156,248,.15);border-color:rgba(90,156,248,.4);color:var(--blue)}
-.sev-btn.active-warn{background:var(--yellow-bg);border-color:rgba(245,200,66,.35);color:var(--yellow)}
-.sev-btn.active-crit{background:var(--red-bg);border-color:rgba(232,93,93,.35);color:var(--red)}
-.sev-btn.active-ok{background:var(--green-bg);border-color:rgba(62,207,142,.35);color:var(--green)}
-
-/* Buttons */
-.btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;
-  border-radius:var(--r);font-weight:600;font-size:.83rem;border:none;cursor:pointer;
-  transition:background .15s,transform .15s;font-family:'Inter',sans-serif;width:100%}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:#4a8de8;transform:translateY(-1px)}
-.btn-blue:disabled{opacity:.45;cursor:not-allowed;transform:none}
-.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--text2)}
-.btn-ghost:hover{background:rgba(255,255,255,.09)}
-.btn-sm{padding:5px 12px;font-size:.74rem;border-radius:6px;font-family:'Inter',sans-serif;
-  font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border2);
-  background:rgba(255,255,255,.04);color:var(--text2)}
-.btn-sm:hover{background:rgba(255,255,255,.08)}
-.btn-sm.edit{color:var(--blue);border-color:rgba(90,156,248,.3);background:rgba(90,156,248,.08)}
-.btn-sm.del{color:var(--red);border-color:rgba(232,93,93,.3);background:rgba(232,93,93,.08)}
-
-/* Toast */
-.toast{display:none;margin-top:10px;padding:10px 14px;border-radius:var(--r);
-  font-size:.78rem;text-align:center;
-  background:var(--green-bg);border:1px solid rgba(62,207,142,.3);color:var(--green)}
-.toast.err{background:var(--red-bg);border-color:rgba(232,93,93,.3);color:var(--red)}
-
-/* List items */
-.list-wrap{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto;margin-top:14px}
-.list-wrap::-webkit-scrollbar{width:4px}
-.list-wrap::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
-.litem{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px}
-.litem-hd{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px}
-.litem-title{font-weight:600;font-size:.84rem;flex:1}
-.litem-time{font-size:.71rem;color:var(--text3);white-space:nowrap;padding-top:2px}
-.litem-msg{font-size:.79rem;color:var(--text2);line-height:1.5}
-.litem-by{font-size:.7rem;color:var(--text3);margin-top:5px}
-.litem-actions{display:flex;gap:6px;margin-top:8px}
-
-/* Log row */
-.log-row{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;
-  background:var(--bg3);border:1px solid var(--border);border-radius:6px}
-.log-time{font-family:monospace;font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
-.log-msg{font-size:.79rem;color:var(--text2);flex:1;line-height:1.45}
-.log-by{font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
-
-/* Modal */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);
-  backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center}
-.modal-overlay.open{display:flex}
-.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);
-  padding:24px;max-width:500px;width:calc(100% - 40px);
-  box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.modal-title{font-weight:700;font-size:1rem;margin-bottom:18px;display:flex;align-items:center;gap:9px}
-.modal-fields{display:flex;flex-direction:column;gap:13px}
-.modal-actions{display:flex;gap:10px;margin-top:18px}
-.modal-actions .btn{flex:2}
-.modal-cancel{flex:1;padding:10px;border-radius:var(--r);background:rgba(255,255,255,.04);
-  color:var(--text2);font-weight:600;font-size:.83rem;border:1px solid var(--border2);
-  cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
-.modal-cancel:hover{background:rgba(255,255,255,.09)}
-
-/* Misc */
-.sec-title{font-size:.75rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
-.empty{font-size:.82rem;color:var(--text3);padding:14px 0;text-align:center}
-footer{position:relative;z-index:1;text-align:center;padding:28px;
-  font-size:.74rem;color:var(--text3);border-top:1px solid var(--border)}
-footer a{color:var(--text2);text-decoration:none}
-footer a:hover{color:var(--text)}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+    radial-gradient(1px 1px at 12% 22%,rgba(255,255,255,.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 35% 68%,rgba(255,255,255,.25) 0%,transparent 100%),
+    radial-gradient(1px 1px at 58% 12%,rgba(255,255,255,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 78% 82%,rgba(255,255,255,.2) 0%,transparent 100%),
+    radial-gradient(1px 1px at 92% 44%,rgba(255,255,255,.35) 0%,transparent 100%),
+    radial-gradient(1px 1px at 18% 88%,rgba(255,255,255,.25) 0%,transparent 100%),
+    radial-gradient(1px 1px at 86% 18%,rgba(255,255,255,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 47% 47%,rgba(255,255,255,.18) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 64% 28%,rgba(255,255,255,.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 26% 74%,rgba(255,255,255,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 7% 52%,rgba(255,255,255,.3) 0%,transparent 100%),
+    radial-gradient(1px 1px at 71% 8%,rgba(255,255,255,.25) 0%,transparent 100%)}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(62,207,142,.15)}50%{box-shadow:0 0 40px rgba(62,207,142,.3)}}
 @keyframes glowRed{0%,100%{box-shadow:0 0 20px rgba(232,93,93,.15)}50%{box-shadow:0 0 40px rgba(232,93,93,.3)}}
 @keyframes glowYellow{0%,100%{box-shadow:0 0 20px rgba(245,200,66,.12)}50%{box-shadow:0 0 35px rgba(245,200,66,.28)}}
-@keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes spin{to{transform:rotate(360deg)}}
 @keyframes incSlideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
 
-.hero{animation:fadeInUp .7s ease forwards}
-.hero-icon.ok{animation:glow 3s ease-in-out infinite}
-.hero-icon.down{animation:glowRed 2s ease-in-out infinite}
-.hero-icon.warn{animation:glowYellow 2.5s ease-in-out infinite}
+/* ── GRADIENT TOP BAR ── */
+.top-bar{height:2px;background:linear-gradient(90deg,#5a9cf8,#a78bfa,#3ecf8e,#f5c842,#5a9cf8);
+  background-size:200% 100%;animation:shimmer 5s linear infinite}
 
-/* Scanline effect on hero */
-.hero::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(62,207,142,.3),transparent);
-  animation:scanline 4s linear infinite;pointer-events:none}
-.hero{position:relative}
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;height:58px;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;
+  color:var(--text);text-decoration:none}
+.nav-logo img{width:30px;height:30px;border-radius:8px;object-fit:cover}
+.nav-right{display:flex;align-items:center;gap:10px}
+#navUser{display:none;align-items:center;gap:8px}
+#navUser img{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue)}
+#navUser span{font-size:.78rem;color:var(--text2)}
 
-/* Dynamic grid bg */
-body{
-  background-image:
-    linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
-  background-size:60px 60px;
-}
+/* ── MAIN ── */
+main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px 100px}
 
-/* Glow on active services */
-.svc-badge.operational{box-shadow:0 0 12px rgba(62,207,142,.2)}
-.svc-badge.degraded{box-shadow:0 0 12px rgba(245,200,66,.2)}
-.svc-badge.down{box-shadow:0 0 12px rgba(232,93,93,.2)}
+/* ── HERO ── */
+.hero{text-align:center;padding:56px 0 48px;position:relative;animation:fadeInUp .7s ease forwards}
+.hero::after{content:'';position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(62,207,142,.25),transparent);
+  animation:scanline 5s linear infinite;pointer-events:none}
+.hero-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+.hero-icon.ok{background:var(--green-bg);border:1.5px solid rgba(62,207,142,.3);animation:glow 3s ease-in-out infinite}
+.hero-icon.warn{background:var(--yellow-bg);border:1.5px solid rgba(245,200,66,.3);animation:glowYellow 2.5s ease-in-out infinite}
+.hero-icon.down{background:var(--red-bg);border:1.5px solid rgba(232,93,93,.3);animation:glowRed 2s ease-in-out infinite}
+.hero h1{font-size:1.9rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.hero-sub{font-size:.84rem;color:var(--text3)}
 
-/* Service row hover glow */
-.svc-row{transition:background .15s,border-color .2s}
-.svc-row:hover{border-left:2px solid rgba(90,156,248,.4);padding-left:18px}
+/* ── TABS ── */
+.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:32px}
+.tab{padding:11px 20px;font-size:.88rem;font-weight:500;color:var(--text2);background:none;
+  border:none;border-bottom:2px solid transparent;cursor:pointer;
+  transition:color .15s,border-color .15s;margin-bottom:-1px;font-family:'Inter',sans-serif}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--text);border-bottom-color:var(--text)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-/* ── INCIDENT CARDS (beautiful) ── */
-.inc-card{
-  position:relative;overflow:hidden;
-  border-radius:14px;padding:20px 22px;margin-bottom:12px;
-  border:1px solid;
-  animation:incSlideIn .4s ease forwards;
-  transition:transform .2s,box-shadow .2s;
-  backdrop-filter:blur(8px);
-}
+/* ── SERVICE CARDS ── */
+.services-wrap{border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;
+  margin-bottom:32px;transition:border-color .3s}
+.services-wrap:hover{border-color:rgba(90,156,248,.2)}
+.svc-row{display:flex;align-items:center;gap:16px;padding:16px 20px;
+  background:var(--bg2);transition:background .15s,padding-left .15s}
+.svc-row+.svc-row{border-top:1px solid var(--border)}
+.svc-row:hover{background:var(--bg3);padding-left:22px}
+.svc-icon{width:36px;height:36px;border-radius:9px;background:var(--bg3);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-info{flex:1;min-width:0}
+.svc-name{font-weight:600;font-size:.9rem}
+.svc-desc{font-size:.76rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.svc-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0}
+.svc-badge{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:500;
+  padding:4px 11px;border-radius:20px;white-space:nowrap}
+.svc-badge .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.svc-badge.operational{background:var(--green-bg);color:var(--green);box-shadow:0 0 10px rgba(62,207,142,.18)}
+.svc-badge.operational .dot{background:var(--green);box-shadow:0 0 5px var(--green)}
+.svc-badge.degraded{background:var(--yellow-bg);color:var(--yellow);box-shadow:0 0 10px rgba(245,200,66,.18)}
+.svc-badge.degraded .dot{background:var(--yellow)}
+.svc-badge.down{background:var(--red-bg);color:var(--red);box-shadow:0 0 10px rgba(232,93,93,.18)}
+.svc-badge.down .dot{background:var(--red)}
+.svc-badge.loading{background:rgba(255,255,255,.05);color:var(--text3)}
+.svc-badge.loading .dot{background:var(--text3)}
+.svc-ping{font-size:.72rem;color:var(--text3);font-family:monospace}
+.manual-pill{font-size:.66rem;color:var(--blue);background:rgba(90,156,248,.1);
+  border:1px solid rgba(90,156,248,.2);padding:1px 7px;border-radius:10px;display:none}
+
+/* ── UPTIME ── */
+.uptime-wrap{margin-bottom:32px}
+.uptime-label-row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text3);margin-bottom:8px}
+.uptime-bar{display:flex;gap:2px;height:24px}
+.uday{flex:1;border-radius:3px;background:rgba(62,207,142,.5);cursor:pointer;transition:opacity .15s,transform .1s}
+.uday:hover{opacity:.75;transform:scaleY(1.15)}
+.uday.down{background:rgba(232,93,93,.55)}
+.uday.partial{background:rgba(245,200,66,.5)}
+
+/* ── MAINTENANCE CARDS ── */
+.maint-section-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;
+  letter-spacing:.1em;margin:22px 0 10px;font-weight:600}
+.maint-section-title:first-child{margin-top:0}
+.maint-card{position:relative;overflow:hidden;border-radius:var(--r2);padding:20px 22px;
+  margin-bottom:10px;border:1px solid;animation:fadeInUp .4s ease forwards;
+  transition:transform .2s,box-shadow .2s}
+.maint-card:hover{transform:translateY(-2px)}
+.maint-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+.maint-card.scheduled{border-color:rgba(167,139,250,.2);background:rgba(167,139,250,.05)}
+.maint-card.scheduled::before{background:var(--purple)}
+.maint-card.scheduled:hover{box-shadow:0 8px 32px rgba(167,139,250,.1)}
+.maint-card.ongoing{border-color:rgba(245,200,66,.22);background:rgba(245,200,66,.05)}
+.maint-card.ongoing::before{background:var(--yellow)}
+.maint-card.ongoing:hover{box-shadow:0 8px 32px rgba(245,200,66,.1)}
+.maint-card.past{border-color:var(--border);background:var(--bg2);opacity:.65}
+.maint-card.past::before{background:var(--text3)}
+.maint-card-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.maint-pill{font-size:.7rem;font-weight:700;padding:4px 11px;border-radius:20px;
+  letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:5px}
+.maint-pill.scheduled{background:rgba(167,139,250,.2);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
+.maint-pill.ongoing{background:rgba(245,200,66,.18);color:var(--yellow);border:1px solid rgba(245,200,66,.3)}
+.maint-pill.past{background:rgba(99,104,128,.15);color:var(--text3);border:1px solid rgba(99,104,128,.25)}
+.maint-pill .blink{width:6px;height:6px;border-radius:50%;animation:pulse 1.2s ease-in-out infinite}
+.maint-pill.scheduled .blink{background:var(--purple)}
+.maint-pill.ongoing .blink{background:var(--yellow)}
+.maint-card-title{font-weight:700;font-size:.95rem;flex:1}
+.maint-card-msg{font-size:.84rem;color:var(--text2);line-height:1.65;margin:0 0 10px 4px}
+.maint-card-dates{display:flex;align-items:center;gap:12px;margin-top:10px;
+  padding-top:10px;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap}
+.maint-date-item{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--text2)}
+.maint-date-item span:first-child{font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em}
+.maint-date-sep{color:var(--text3)}
+
+/* ── INCIDENT CARDS ── */
+.inc-card{position:relative;overflow:hidden;border-radius:var(--r2);padding:20px 22px;
+  margin-bottom:10px;border:1px solid;transition:transform .2s,box-shadow .2s;animation:incSlideIn .4s ease forwards}
 .inc-card:hover{transform:translateY(-2px)}
 .inc-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
 .inc-card.info{background:rgba(90,156,248,.06);border-color:rgba(90,156,248,.18)}
@@ -363,68 +196,158 @@ body{
 .inc-card.ok::before{background:var(--green)}
 .inc-card.ok:hover{box-shadow:0 8px 32px rgba(62,207,142,.12)}
 .inc-card-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.inc-card-badge{font-size:.7rem;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:5px}
+.inc-card-badge{font-size:.7rem;font-weight:700;padding:4px 11px;border-radius:20px;
+  letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:5px}
 .inc-card-badge.info{background:rgba(90,156,248,.2);color:var(--blue);border:1px solid rgba(90,156,248,.3)}
 .inc-card-badge.warn{background:rgba(245,200,66,.18);color:var(--yellow);border:1px solid rgba(245,200,66,.3)}
 .inc-card-badge.crit{background:rgba(232,93,93,.18);color:var(--red);border:1px solid rgba(232,93,93,.3)}
 .inc-card-badge.ok{background:rgba(62,207,142,.18);color:var(--green);border:1px solid rgba(62,207,142,.3)}
-.inc-card-title{font-weight:700;font-size:.95rem;flex:1;color:var(--text)}
+.inc-card-title{font-weight:700;font-size:.95rem;flex:1}
 .inc-card-time{font-size:.72rem;color:var(--text3);font-family:monospace;white-space:nowrap}
 .inc-card-msg{font-size:.84rem;color:var(--text2);line-height:1.65;margin-left:4px}
-.inc-card-footer{display:flex;align-items:center;gap:8px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06)}
+.inc-card-footer{display:flex;align-items:center;gap:8px;margin-top:12px;
+  padding-top:10px;border-top:1px solid rgba(255,255,255,.06)}
 .inc-card-author{font-size:.72rem;color:var(--text3)}
 
-/* ── MAINTENANCE CARDS (beautiful) ── */
-.maint-card{
-  position:relative;overflow:hidden;border-radius:14px;padding:20px 22px;margin-bottom:12px;
-  border:1px solid rgba(167,139,250,.2);
-  background:rgba(167,139,250,.05);
-  animation:fadeInUp .5s ease forwards;
-  transition:transform .2s,box-shadow .2s;
-}
-.maint-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(167,139,250,.1)}
-.maint-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px;background:var(--purple)}
-.maint-card.ongoing{border-color:rgba(245,200,66,.25);background:rgba(245,200,66,.05)}
-.maint-card.ongoing::before{background:var(--yellow)}
-.maint-card.ongoing:hover{box-shadow:0 8px 32px rgba(245,200,66,.1)}
-.maint-card-hd{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.maint-pill{font-size:.7rem;font-weight:700;padding:4px 11px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:5px}
-.maint-pill.scheduled{background:rgba(167,139,250,.2);color:var(--purple);border:1px solid rgba(167,139,250,.3)}
-.maint-pill.ongoing{background:rgba(245,200,66,.18);color:var(--yellow);border:1px solid rgba(245,200,66,.3)}
-.maint-pill .blink{width:6px;height:6px;border-radius:50%;animation:blink 1.2s ease-in-out infinite}
-.maint-pill.scheduled .blink{background:var(--purple)}
-.maint-pill.ongoing .blink{background:var(--yellow)}
-.maint-card-title{font-weight:700;font-size:.95rem;flex:1;color:var(--text)}
-.maint-card-msg{font-size:.84rem;color:var(--text2);line-height:1.65;margin:0 0 10px 4px}
-.maint-card-dates{display:flex;align-items:center;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06)}
-.maint-date-item{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--text2)}
-.maint-date-item span:first-child{font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em}
-.maint-date-sep{color:var(--text3);font-size:.9rem}
-
-/* Tabs indicator */
-.tab{position:relative}
-.tab.active::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--text);border-radius:2px 2px 0 0}
-
-/* Empty state improved */
+/* ── EMPTY STATE ── */
 .empty-state-wrap{text-align:center;padding:48px 20px}
-.empty-state-wrap svg{opacity:.3;margin-bottom:12px}
+.empty-state-wrap svg{opacity:.25;margin-bottom:12px;color:var(--text3)}
 .empty-state-wrap p{color:var(--text3);font-size:.85rem}
 
+/* ── ADMIN PANEL ── */
+.admin-panel{background:var(--bg2);border:1px solid rgba(90,156,248,.2);border-radius:var(--r2);
+  overflow:hidden;margin-top:12px;display:none}
+.admin-bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border)}
+.admin-bar-title{font-weight:700;font-size:.92rem;flex:1}
+.admin-bar-sub{font-size:.74rem;color:var(--text2)}
+.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:rgba(0,0,0,.15)}
+.atab{flex:1;padding:11px 4px;font-size:.76rem;font-weight:500;color:var(--text2);background:none;
+  border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Inter',sans-serif;
+  transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.atab:hover{color:var(--text)}
+.atab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.atab-content{display:none;padding:20px}
+.atab-content.active{display:block}
+.field-lbl{font-size:.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
+.ainput,.atextarea{width:100%;background:var(--bg3);border:1px solid var(--border2);
+  color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;
+  padding:9px 13px;border-radius:var(--r);outline:none;transition:border-color .15s}
+.ainput:focus,.atextarea:focus{border-color:rgba(90,156,248,.5)}
+.ainput[type=number]{-moz-appearance:textfield}
+.ainput[type=number]::-webkit-outer-spin-button,.ainput[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.ainput[type=datetime-local]{color-scheme:dark}
+.atextarea{resize:vertical;min-height:80px;line-height:1.55}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field-wrap{display:flex;flex-direction:column;gap:5px}
+.arow{display:flex;align-items:center;gap:12px;background:var(--bg3);
+  border:1px solid var(--border);border-radius:var(--r);padding:12px 15px;margin-bottom:8px}
+.arow:hover{border-color:var(--border2)}
+.arow-name{font-weight:600;font-size:.84rem;flex:1}
+.arow-sub{font-size:.72rem;color:var(--text3);margin-top:2px}
+.asel{background:var(--bg2);border:1px solid var(--border2);color:var(--text);
+  font-size:.76rem;padding:7px 26px 7px 10px;border-radius:var(--r);cursor:pointer;outline:none;
+  appearance:none;-webkit-appearance:none;min-width:148px;font-family:'Inter',sans-serif;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23636880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;transition:border-color .15s}
+.asel option{background:#111}
+.asel:focus{border-color:rgba(90,156,248,.5)}
+.sev-row{display:flex;gap:8px}
+.sev-btn{flex:1;padding:8px 4px;border-radius:var(--r);border:1px solid var(--border2);
+  background:var(--bg3);color:var(--text2);font-size:.75rem;font-weight:500;
+  cursor:pointer;transition:all .15s;text-align:center;font-family:'Inter',sans-serif}
+.sev-btn:hover{background:rgba(255,255,255,.07)}
+.sev-btn.active-info{background:rgba(90,156,248,.15);border-color:rgba(90,156,248,.4);color:var(--blue)}
+.sev-btn.active-warn{background:var(--yellow-bg);border-color:rgba(245,200,66,.35);color:var(--yellow)}
+.sev-btn.active-crit{background:var(--red-bg);border-color:rgba(232,93,93,.35);color:var(--red)}
+.sev-btn.active-ok{background:var(--green-bg);border-color:rgba(62,207,142,.35);color:var(--green)}
+.btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;
+  border-radius:var(--r);font-weight:600;font-size:.83rem;border:none;cursor:pointer;
+  transition:background .15s,transform .15s;font-family:'Inter',sans-serif;width:100%}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#4a8de8;transform:translateY(-1px)}
+.btn-blue:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--text2)}
+.btn-ghost:hover{background:rgba(255,255,255,.09)}
+.btn-sm{padding:5px 12px;font-size:.74rem;border-radius:6px;font-family:'Inter',sans-serif;
+  font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border2);
+  background:rgba(255,255,255,.04);color:var(--text2)}
+.btn-sm:hover{background:rgba(255,255,255,.08)}
+.btn-sm.edit{color:var(--blue);border-color:rgba(90,156,248,.3);background:rgba(90,156,248,.08)}
+.btn-sm.del{color:var(--red);border-color:rgba(232,93,93,.3);background:rgba(232,93,93,.08)}
+.toast{display:none;margin-top:10px;padding:10px 14px;border-radius:var(--r);
+  font-size:.78rem;text-align:center;background:var(--green-bg);
+  border:1px solid rgba(62,207,142,.3);color:var(--green)}
+.toast.err{background:var(--red-bg);border-color:rgba(232,93,93,.3);color:var(--red)}
+.list-wrap{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto;margin-top:14px}
+.list-wrap::-webkit-scrollbar{width:4px}
+.list-wrap::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+.litem{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px}
+.litem-hd{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px}
+.litem-title{font-weight:600;font-size:.84rem;flex:1}
+.litem-time{font-size:.71rem;color:var(--text3);white-space:nowrap;padding-top:2px}
+.litem-msg{font-size:.79rem;color:var(--text2);line-height:1.5}
+.litem-by{font-size:.7rem;color:var(--text3);margin-top:5px}
+.litem-actions{display:flex;gap:6px;margin-top:8px}
+.log-row{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;
+  background:var(--bg3);border:1px solid var(--border);border-radius:6px}
+.log-time{font-family:monospace;font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
+.log-msg{font-size:.79rem;color:var(--text2);flex:1;line-height:1.45}
+.log-by{font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
+.sec-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
 
-.maint-section-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;
-  letter-spacing:.1em;margin:20px 0 10px;font-weight:600}
-.maint-section-title:first-child{margin-top:0}
-.maint-pill.past{background:rgba(99,104,128,.15);color:var(--text3);border:1px solid rgba(99,104,128,.25)}
-.maint-card.past::before{background:var(--text3)}
+/* ── LOGIN BOX ── */
+.login-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);
+  padding:28px;margin-top:12px}
+.login-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.login-icon{width:40px;height:40px;border-radius:10px;background:rgba(88,101,242,.18);
+  border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.login-title{font-weight:700;font-size:.95rem}
+.login-sub{font-size:.76rem;color:var(--text2);margin-top:1px}
+.dc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:#5865F2;color:#fff;font-weight:600;font-size:.87rem;padding:11px 20px;
+  border-radius:var(--r);width:100%;border:none;cursor:pointer;
+  transition:background .15s,transform .15s;font-family:'Inter',sans-serif}
+.dc-btn:hover{background:#4752C4;transform:translateY(-1px)}
+.dc-btn.ghost{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--text2)}
+.dc-btn.ghost:hover{background:rgba(255,255,255,.09)}
+.status-ok{background:var(--green-bg);border:1px solid rgba(62,207,142,.25);border-radius:var(--r);
+  padding:12px 16px;font-size:.83rem;color:var(--green);display:flex;align-items:center;gap:10px}
+.status-err{background:var(--red-bg);border:1px solid rgba(232,93,93,.25);border-radius:var(--r);
+  padding:12px 16px;font-size:.83rem;color:var(--red);display:flex;align-items:center;gap:10px}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+  backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);
+  padding:24px;max-width:500px;width:calc(100% - 40px);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.modal-title{font-weight:700;font-size:1rem;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.modal-fields{display:flex;flex-direction:column;gap:13px}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.modal-actions .btn{flex:2}
+.modal-cancel{flex:1;padding:10px;border-radius:var(--r);background:rgba(255,255,255,.04);
+  color:var(--text2);font-weight:600;font-size:.83rem;border:1px solid var(--border2);
+  cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+.modal-cancel:hover{background:rgba(255,255,255,.09)}
+
+footer{position:relative;z-index:1;text-align:center;padding:28px;
+  font-size:.74rem;color:var(--text3);border-top:1px solid var(--border)}
+footer a{color:var(--text2);text-decoration:none}
+footer a:hover{color:var(--text)}
+
+#stateLoading{text-align:center;padding:20px}
+#stateLoading svg{animation:spin 1s linear infinite}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<div style="height:2px;background:linear-gradient(90deg,#5a9cf8,#a78bfa,#3ecf8e,#5a9cf8);background-size:200% 100%;animation:shimmer 4s linear infinite"></div>
+<div class="top-bar"></div>
+
 <nav>
   <a class="nav-logo" href="https://devcenter.vyral-studio.com/" target="_blank">
-<img src="https://media.discordapp.net/attachments/1480160021605126321/1485317052695843058/file_00000000ebbc72469b2d4fe7f6936224.png?ex=69c16ccd&is=69c01b4d&hm=1ced7efea7ccb1f07e3be62ca388f7da2ae542c27762338de3f41560849e1ad2&=&format=webp&quality=lossless&width=495&height=495" width="30" height="30" style="border-radius:8px;object-fit:cover" alt="Dev Center"/>
+    <img src="https://images-ext-1.discordapp.net/external/S_Z8gqs11xrmMb5i0JYkIjqB7GtZTCEgpXoqC03YDO8/%3Fsize%3D256/https/cdn.discordapp.com/icons/1452963098284785765/4255d99dd972ab407c31044fe9a899b0.png?format=webp&quality=lossless" alt="Dev Center"/>
     Dev Center
   </a>
   <div class="nav-right">
@@ -437,8 +360,8 @@ body{
   <!-- HERO -->
   <div class="hero">
     <div class="hero-icon ok" id="heroIcon">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" id="heroSvg">
-        <path d="M5 13L10.5 18.5L21 8" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" id="heroSvg">
+        <path d="M6 14L11.5 19.5L22 9" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
     <h1 id="heroTitle">Vérification…</h1>
@@ -467,7 +390,7 @@ body{
     <div id="publicMaintList"></div>
   </div>
 
-  <!-- TAB: INCIDENTS PASSÉS -->
+  <!-- TAB: INCIDENTS -->
   <div class="tab-panel" id="main-incidents">
     <div id="publicIncList"></div>
   </div>
@@ -475,7 +398,7 @@ body{
   <!-- ADMIN PANEL -->
   <div class="admin-panel" id="adminPanel">
     <div class="admin-bar">
-      <div>
+      <div style="flex:1">
         <div class="admin-bar-title">Administration</div>
         <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--text)">—</span></div>
       </div>
@@ -489,27 +412,19 @@ body{
       <button class="atab" onclick="switchAdminTab('logs',this)">Logs</button>
     </div>
 
-    <!-- Admin: Statuts -->
     <div class="atab-content active" id="atab-status">
+      <p style="font-size:.78rem;color:var(--text2);margin-bottom:14px;line-height:1.6">Forcer manuellement le statut. <strong style="color:var(--text)">Automatique</strong> = basé sur le ping réel.</p>
       <div id="statusGrid" style="margin-bottom:12px"></div>
-      <button class="btn btn-blue" id="btnSaveStatus" onclick="saveStatuses()">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 6.5L5 9.5L11 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Enregistrer
-      </button>
+      <button class="btn btn-blue" id="btnSaveStatus" onclick="saveStatuses()">Enregistrer</button>
       <div class="toast" id="toastStatus"></div>
     </div>
 
-    <!-- Admin: Services -->
     <div class="atab-content" id="atab-services">
-      <button class="btn btn-blue" onclick="openSvcModal()" style="margin-bottom:14px">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2V11M2 6.5H11" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-        Ajouter un service
-      </button>
-      <div id="adminSvcList"><div class="empty">Chargement…</div></div>
+      <button class="btn btn-blue" onclick="openSvcModal()" style="margin-bottom:14px">+ Ajouter un service</button>
+      <div id="adminSvcList"><div class="sec-title" style="padding:10px 0">Chargement…</div></div>
       <div class="toast" id="toastSvc"></div>
     </div>
 
-    <!-- Admin: Incidents -->
     <div class="atab-content" id="atab-incident">
       <div style="display:flex;flex-direction:column;gap:13px;margin-bottom:14px">
         <div class="field-wrap"><div class="field-lbl">Titre</div><input class="ainput" id="incTitle" type="text" placeholder="Ex: Latence élevée sur la Database"/></div>
@@ -523,14 +438,13 @@ body{
             <button class="sev-btn" id="sev-ok" onclick="setSev('ok')">✓ Résolu</button>
           </div>
         </div>
-        <button class="btn btn-blue" onclick="publishIncident()">Publier</button>
+        <button class="btn btn-blue" onclick="publishIncident()">Publier l'incident</button>
         <div class="toast" id="toastInc"></div>
       </div>
       <div class="sec-title">Incidents publiés</div>
-      <div class="list-wrap" id="adminIncList"><div class="empty">Chargement…</div></div>
+      <div class="list-wrap" id="adminIncList"><div style="color:var(--text3);font-size:.8rem;padding:8px 0">Chargement…</div></div>
     </div>
 
-    <!-- Admin: Maintenance -->
     <div class="atab-content" id="atab-maintenance">
       <div style="display:flex;flex-direction:column;gap:13px;margin-bottom:14px">
         <div class="field-wrap"><div class="field-lbl">Titre</div><input class="ainput" id="maintTitle" type="text" placeholder="Ex: Mise à jour base de données"/></div>
@@ -543,20 +457,19 @@ body{
         <div class="toast" id="toastMaint"></div>
       </div>
       <div class="sec-title">Planifiées</div>
-      <div class="list-wrap" id="adminMaintList"><div class="empty">Chargement…</div></div>
+      <div class="list-wrap" id="adminMaintList"><div style="color:var(--text3);font-size:.8rem;padding:8px 0">Chargement…</div></div>
     </div>
 
-    <!-- Admin: Logs -->
     <div class="atab-content" id="atab-logs">
       <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
-        <button class="btn-ghost btn" style="width:auto;padding:7px 14px;font-size:.78rem" onclick="loadLogs()">↻ Actualiser</button>
+        <button onclick="loadLogs()" style="background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--text2);font-size:.76rem;padding:7px 14px;border-radius:var(--r);cursor:pointer;font-family:'Inter',sans-serif">↻ Actualiser</button>
       </div>
-      <div class="list-wrap" id="logsList"><div class="empty">Chargement…</div></div>
+      <div class="list-wrap" id="logsList"></div>
     </div>
   </div>
 
   <!-- DISCORD LOGIN -->
-  <div class="login-box" id="discordSection">
+  <div class="login-box">
     <div id="stateLogin">
       <div class="login-hd">
         <div class="login-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/></svg></div>
@@ -568,7 +481,7 @@ body{
         Se connecter avec Discord
       </button>
     </div>
-    <div id="stateLoading" style="display:none">
+    <div id="stateLoading" style="display:none;text-align:center;padding:20px">
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="rgba(90,156,248,.2)" stroke-width="3"/><path d="M16 3 A13 13 0 0 1 29 16" stroke="#5a9cf8" stroke-width="3" stroke-linecap="round"/></svg>
       <p style="font-size:.8rem;color:var(--text2);margin-top:10px">Vérification Discord…</p>
     </div>
@@ -597,10 +510,7 @@ body{
 <!-- SERVICE MODAL -->
 <div class="modal-overlay" id="svcModal">
   <div class="modal">
-    <div class="modal-title">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="#5a9cf8" stroke-width="1.5"/><path d="M8 5V11M5 8H11" stroke="#5a9cf8" stroke-width="1.5" stroke-linecap="round"/></svg>
-      <span id="modalTitle">Ajouter un service</span>
-    </div>
+    <div class="modal-title"><span id="modalTitle">Ajouter un service</span></div>
     <div class="modal-fields">
       <input type="hidden" id="modalSvcId"/>
       <div class="field-wrap"><div class="field-lbl">Nom</div><input class="ainput" id="modalName" type="text" placeholder="Ex: API Backend"/></div>
@@ -610,7 +520,7 @@ body{
         <div class="field-wrap"><div class="field-lbl">Seuil dégradé (ms)</div><input class="ainput" id="modalThrDeg" type="number" min="100" placeholder="2000"/></div>
         <div class="field-wrap"><div class="field-lbl">Seuil hors ligne (ms)</div><input class="ainput" id="modalThrDown" type="number" min="100" placeholder="5000"/></div>
       </div>
-      <div class="field-wrap"><div class="field-lbl">Ordre</div><input class="ainput" id="modalOrder" type="number" min="0" placeholder="0"/></div>
+      <div class="field-wrap"><div class="field-lbl">Ordre d'affichage</div><input class="ainput" id="modalOrder" type="number" min="0" placeholder="0"/></div>
     </div>
     <div class="modal-actions">
       <button class="modal-cancel" onclick="closeSvcModal()">Annuler</button>
@@ -620,23 +530,21 @@ body{
 </div>
 
 <footer>
-  <a href="https://devcenter.vyral-studio.com/" target="_blank">devcenter.vyral-studio.com</a>
-  · Status page · <span id="lastCheck">—</span>
+  <a href="https://devcenter.vyral-studio.com/" target="_blank">Dev Center</a> · Status Page · <span id="lastCheck">—</span>
 </footer>
 
 <script>
-// Protection source
+// ── Source protection ─────────────────────────────────────────
 document.addEventListener('keydown',function(e){
   if((e.ctrlKey&&e.key==='u')||(e.ctrlKey&&e.key==='s')||
-     (e.ctrlKey&&e.shiftKey&&['i','j','c','k'].includes(e.key.toLowerCase()))||
-     e.key==='F12'){e.preventDefault();return false;}
+     (e.ctrlKey&&e.shiftKey&&['i','j','c','k'].includes(e.key.toLowerCase()))||e.key==='F12')
+  {e.preventDefault();return false;}
 });
 document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
 document.addEventListener('selectstart',function(e){e.preventDefault();return false;});
 (function(){const t=160;setInterval(function(){
-  if(window.outerWidth-window.innerWidth>t||window.outerHeight-window.innerHeight>t){
-    document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#13151a;color:#e85d5d;font-family:monospace;font-size:1.1rem">⛔ Accès non autorisé</div>';
-  }
+  if(window.outerWidth-window.innerWidth>t||window.outerHeight-window.innerHeight>t)
+    document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#000;color:#e85d5d;font-family:monospace;font-size:1.1rem">⛔ Accès non autorisé</div>';
 },1000);})();
 
 // ── CONFIG ────────────────────────────────────────────────────
@@ -648,11 +556,11 @@ const DC_ROLE   = '1492905695643832465';
 const REDIR     = 'https://devcenter24.github.io/status-dev-center/';
 
 const DEFAULT_SERVICES=[
-  {id:'web',    label:'Site Principal', description:'devcenter.vyral-studio.com',            url:'https://devcenter.vyral-studio.com/',               thr_deg:2000,thr_down:5000,sort_order:0},
-  {id:'status', label:'Status Page',   description:'devcenter24.github.io/status-dev-center',url:'https://devcenter24.github.io/status-dev-center/', thr_deg:2000,thr_down:5000,sort_order:1},
-  {id:'db',     label:'Database',      description:'Supabase PostgreSQL',                    url:null,                                               thr_deg:3000,thr_down:8000,sort_order:2},
-  {id:'cdn',    label:'CDN Assets',    description:'Distribution de ressources statiques',   url:'https://cdnjs.cloudflare.com/',                    thr_deg:1500,thr_down:4000,sort_order:3},
-  {id:'discord',label:'Discord',       description:'API Discord · discord.com',              url:'https://discord.com/',                             thr_deg:1500,thr_down:4000,sort_order:4},
+  {id:'web',    label:'Site Principal', description:'devcenter.vyral-studio.com',              url:'https://devcenter.vyral-studio.com/',              thr_deg:2000,thr_down:5000,sort_order:0},
+  {id:'status', label:'Status Page',   description:'devcenter24.github.io/status-dev-center', url:'https://devcenter24.github.io/status-dev-center/', thr_deg:2000,thr_down:5000,sort_order:1},
+  {id:'db',     label:'Database',      description:'Supabase PostgreSQL',                      url:null,                                              thr_deg:3000,thr_down:8000,sort_order:2},
+  {id:'cdn',    label:'CDN Assets',    description:'Distribution de ressources statiques',     url:'https://cdnjs.cloudflare.com/',                   thr_deg:1500,thr_down:4000,sort_order:3},
+  {id:'discord',label:'Discord',       description:'API Discord · discord.com',                url:'https://discord.com/',                            thr_deg:1500,thr_down:4000,sort_order:4},
 ];
 
 let SERVICES=[],overrides={},currentAdmin=null,currentSev='info';
@@ -666,7 +574,6 @@ async function sbInsert(t,p){return fetch(`${SB}/rest/v1/${t}`,{method:'POST',he
 async function sbUpdate(t,id,p){return fetch(`${SB}/rest/v1/${t}?id=eq.${encodeURIComponent(id)}`,{method:'PATCH',headers:H(),body:JSON.stringify(p)});}
 async function sbDelete(t,id){return fetch(`${SB}/rest/v1/${t}?id=eq.${encodeURIComponent(id)}`,{method:'DELETE',headers:H()});}
 
-// ── Load services ─────────────────────────────────────────────
 async function loadServices(){
   const rows=await sbGet('dc_services','order=sort_order.asc,created_at.asc');
   if(rows&&rows.length>0){SERVICES=rows;return;}
@@ -680,7 +587,7 @@ async function loadOverrides(){
   if(rows&&rows[0]) overrides=rows[0].data||{};
 }
 
-// ── Render service rows ───────────────────────────────────────
+// ── Service icons ─────────────────────────────────────────────
 const ICONS={
   web:`<svg width="18" height="18" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#5a9cf8" stroke-width="1.5"/><path d="M11 2C11 2 7 7 7 11C7 15 11 20 11 20" stroke="#5a9cf8" stroke-width="1.5"/><path d="M11 2C11 2 15 7 15 11C15 15 11 20 11 20" stroke="#5a9cf8" stroke-width="1.5"/><path d="M2 11H20" stroke="#5a9cf8" stroke-width="1.5"/></svg>`,
   status:`<svg width="18" height="18" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3" stroke="#5a9cf8" stroke-width="1.5"/><path d="M7 14L9.5 11L12 13L15 9" stroke="#5a9cf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
@@ -693,9 +600,9 @@ const SL={operational:'Opérationnel',degraded:'Dégradé',down:'Hors ligne'};
 function buildServiceCards(){
   const g=$('servicesGrid'); g.innerHTML='';
   SERVICES.forEach((svc,i)=>{
-    const row=document.createElement('div'); row.className='svc-row'; row.id='svcrow-'+svc.id;
-    row.style.animationDelay=(i*0.08)+'s';
-    row.style.animation='fadeInUp .5s ease both';
+    const row=document.createElement('div');
+    row.className='svc-row'; row.id='svcrow-'+svc.id;
+    row.style.cssText=`animation:fadeInUp .5s ease both;animation-delay:${i*.08}s`;
     row.innerHTML=`
       <div class="svc-icon">${ICONS[svc.id]||ICONS.web}</div>
       <div class="svc-info"><div class="svc-name">${esc(svc.label)}</div><div class="svc-desc">${esc(svc.description||svc.url||'')}</div></div>
@@ -725,19 +632,19 @@ function updateHero(states){
   const now=new Date().toLocaleString('fr-FR',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
   if(allOk){
     icon.className='hero-icon ok';
-    svg.innerHTML='<path d="M5 13L10.5 18.5L21 8" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
-    title.textContent='Tous les services sont opérationnels';
-    sub.textContent='Dernière mise à jour le '+now;
+    svg.innerHTML='<path d="M6 14L11.5 19.5L22 9" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
+    title.textContent='All services are online';
+    sub.textContent='Last updated on '+now;
   }else if(anyDown){
     icon.className='hero-icon down';
-    svg.innerHTML='<path d="M8 8L16 16M16 8L8 16" stroke="#e85d5d" stroke-width="2.5" stroke-linecap="round"/>';
-    title.textContent='Incident en cours';
-    sub.textContent='Certains services sont hors ligne · '+now;
+    svg.innerHTML='<path d="M9 9L19 19M19 9L9 19" stroke="#e85d5d" stroke-width="2.5" stroke-linecap="round"/>';
+    title.textContent='Some services are down';
+    sub.textContent='Last updated on '+now;
   }else{
     icon.className='hero-icon warn';
-    svg.innerHTML='<path d="M13 3L22 20H3L13 3Z" stroke="#f5c842" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M13 9V13M13 17H13.01" stroke="#f5c842" stroke-width="2" stroke-linecap="round"/>';
-    title.textContent='Performances dégradées';
-    sub.textContent='Certains services sont lents · '+now;
+    svg.innerHTML='<path d="M14 4L23 21H5L14 4Z" stroke="#f5c842" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M14 10V15M14 18H14.01" stroke="#f5c842" stroke-width="2" stroke-linecap="round"/>';
+    title.textContent='Some services are degraded';
+    sub.textContent='Last updated on '+now;
   }
 }
 
@@ -752,21 +659,18 @@ async function checkDB(){
   try{const r=await fetch(`${SB}/rest/v1/dc_status_overrides?id=eq.main&select=id`,{headers:H()});return{ok:r.ok||r.status<400,ms:Date.now()-t};}
   catch{return{ok:false,ms:null};}
 }
-
 async function runChecks(){
-  $('lastCheck').textContent='Mis à jour à '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  $('lastCheck').textContent='Updated '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
   const states=[];
   for(const svc of SERVICES){
-    let result;
-    if(svc.id==='db'||!svc.url) result=await checkDB();
-    else result=await pingUrl(svc.url);
-    const tDeg=svc.thr_deg||2000,tDown=svc.thr_down||5000;
+    const res=svc.id==='db'||!svc.url?await checkDB():await pingUrl(svc.url);
+    const tD=svc.thr_deg||2000,tDw=svc.thr_down||5000;
     let auto;
-    if(!result.ok) auto='down';
-    else if(result.ms>tDown) auto='down';
-    else if(result.ms>tDeg) auto='degraded';
+    if(!res.ok) auto='down';
+    else if(res.ms>tDw) auto='down';
+    else if(res.ms>tD) auto='degraded';
     else auto='operational';
-    states.push(setSvcStatus(svc,auto,result.ms));
+    states.push(setSvcStatus(svc,auto,res.ms));
   }
   updateHero(states);
 }
@@ -783,118 +687,80 @@ function buildUptimeBar(){
   $('uptimePct').textContent=(((60-down)/60)*100).toFixed(2)+'% uptime';
 }
 
-// ── Public: Maintenances tab (all, including past) ────────────
-async function renderPublicMaintTab(){
-  const el=$('publicMaintList'); if(!el) return;
-  el.innerHTML='<div class="empty" style="padding:20px 0">Chargement…</div>';
-  try{
-    // Load all maintenances sorted by start date desc
-    const rows=await sbGet('dc_maintenances','order=starts_at.desc&limit=50');
-    el.innerHTML='';
-    if(!rows||!rows.length){
-      el.innerHTML=`<div class="empty-state-wrap">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 12V20L24 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <p>Aucune maintenance planifiée</p></div>`;
-      return;
-    }
-    const now=new Date();
-    // Group: ongoing, upcoming, past
-    const ongoing=rows.filter(m=>m.starts_at&&new Date(m.starts_at)<=now&&(!m.ends_at||new Date(m.ends_at)>now));
-    const upcoming=rows.filter(m=>m.starts_at&&new Date(m.starts_at)>now);
-    const past=rows.filter(m=>m.ends_at&&new Date(m.ends_at)<=now);
-    
-    if(ongoing.length){
-      el.insertAdjacentHTML('beforeend','<div class="maint-section-title">En cours</div>');
-      ongoing.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m)));
-    }
-    if(upcoming.length){
-      el.insertAdjacentHTML('beforeend','<div class="maint-section-title">À venir</div>');
-      upcoming.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m)));
-    }
-    if(past.length){
-      el.insertAdjacentHTML('beforeend','<div class="maint-section-title">Historique</div>');
-      past.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCardPast(m)));
-    }
-  }catch(e){el.innerHTML='<div class="empty">Erreur de chargement</div>';}
-}
-
-function buildMaintCardPast(m){
+// ── Maintenance cards ─────────────────────────────────────────
+function buildMaintCard(m,cls='scheduled'){
   const starts=m.starts_at?new Date(m.starts_at):null;
   const ends=m.ends_at?new Date(m.ends_at):null;
+  const now=new Date();
+  const ongoing=starts&&starts<=now&&(!ends||ends>now);
+  const cardCls=ongoing?'ongoing':cls;
+  const pillCls=ongoing?'ongoing':cls;
+  const pillLabel=ongoing?'En cours':(cls==='past'?'Terminée':'Planifiée');
   const sF={day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'};
   const dur=starts&&ends?Math.round((ends-starts)/60000):null;
-  const durStr=dur?dur>=60?Math.floor(dur/60)+'h'+(dur%60?''+dur%60+'m':''):dur+'m':null;
-  return `<div class="maint-card past" style="opacity:.65">
+  const durStr=dur?dur>=60?Math.floor(dur/60)+'h'+(dur%60?dur%60+'m':''):dur+'m':null;
+  return `<div class="maint-card ${cardCls}">
     <div class="maint-card-hd">
-      <span class="maint-pill past"><span style="width:6px;height:6px;border-radius:50%;background:var(--text3)"></span>Terminée</span>
+      <span class="maint-pill ${pillCls}"><span class="blink"></span>${pillLabel}</span>
       <span class="maint-card-title">${esc(m.title)}</span>
     </div>
     ${m.message?`<div class="maint-card-msg">${esc(m.message)}</div>`:''}
     <div class="maint-card-dates">
       ${starts?`<div class="maint-date-item"><span>Début</span><span>${starts.toLocaleString('fr-FR',sF)}</span></div>`:''}
       ${starts&&ends?'<span class="maint-date-sep">→</span>':''}
-      ${ends?`<div class="maint-date-item"><span>Fin</span><span>${ends.toLocaleString('fr-FR',sF)}</span></div>`:''}
-      ${durStr?`<div class="maint-date-item" style="margin-left:auto"><span>Durée</span><span>${durStr}</span></div>`:''}
+      ${ends?`<div class="maint-date-item"><span>Fin${cls==='past'?'':' est.'}</span><span>${ends.toLocaleString('fr-FR',sF)}</span></div>`:''}
+      ${durStr&&cls==='past'?`<div class="maint-date-item" style="margin-left:auto"><span>Durée</span><span>${durStr}</span></div>`:''}
     </div>
   </div>`;
 }
 
-// ── Public: Maintenances ──────────────────────────────────────
-function buildMaintCard(m, forBanner=false){
-  const starts=m.starts_at?new Date(m.starts_at):null;
-  const ends=m.ends_at?new Date(m.ends_at):null;
-  const ongoing=starts&&starts<=new Date()&&(!m.ends_at||ends>new Date());
-  const sF={day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'};
-  const pillClass=ongoing?'ongoing':'scheduled';
-  const pillLabel=ongoing?'En cours':'Planifiée';
-  return `<div class="maint-card ${ongoing?'ongoing':''}">
-    <div class="maint-card-hd">
-      <span class="maint-pill ${pillClass}"><span class="blink"></span>${pillLabel}</span>
-      <span class="maint-card-title">${esc(m.title)}</span>
-    </div>
-    ${m.message?`<div class="maint-card-msg">${esc(m.message)}</div>`:''}
-    <div class="maint-card-dates">
-      ${starts?`<div class="maint-date-item"><span>Début</span><span>${starts.toLocaleString('fr-FR',sF)}</span></div>`:''}
-      ${starts&&ends?'<span class="maint-date-sep">→</span>':''}
-      ${ends?`<div class="maint-date-item"><span>Fin estimée</span><span>${ends.toLocaleString('fr-FR',sF)}</span></div>`:''}
-    </div>
-  </div>`;
-}
 async function loadPublicMaintenances(){
-  const banner=$('maintBanners');
-  banner.innerHTML='';
+  // Only fills the status tab banner (ongoing/upcoming only)
+  const banner=$('maintBanners'); banner.innerHTML='';
   try{
     const now=new Date().toISOString();
     const rows=await sbGet('dc_maintenances',`ends_at=gte.${now}&order=starts_at.asc`);
-    if(!rows||!rows.length){
-      if(false) pub.innerHTML=`<div class="empty-state-wrap"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 12V20L24 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p>Aucune maintenance planifiée</p></div>`;
-      return;
-    }
-    rows.forEach(m=>{
-      const html=buildMaintCard(m);
-      banner.insertAdjacentHTML('beforeend',html);
-    });
+    if(!rows||!rows.length) return;
+    rows.forEach(m=>banner.insertAdjacentHTML('beforeend',buildMaintCard(m)));
   }catch{}
 }
 
-// ── Public: Incidents ─────────────────────────────────────────
-async function loadPublicIncidents(){
-  const el=$('publicIncList'); if(!el) return;
+async function renderPublicMaintTab(){
+  const el=$('publicMaintList'); if(!el) return;
+  el.innerHTML='<div style="color:var(--text3);font-size:.82rem;padding:16px 0">Chargement…</div>';
   try{
-    const rows=await sbGet('dc_incidents','order=created_at.desc&limit=20');
+    const rows=await sbGet('dc_maintenances','order=starts_at.desc&limit=50');
     el.innerHTML='';
     if(!rows||!rows.length){
-      el.innerHTML=`<div class="empty-state-wrap">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 6L36 32H4L20 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 16V24M20 28H20.02" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <p>Aucun incident récent — tout fonctionne normalement !</p></div>`;
+      el.innerHTML=`<div class="empty-state-wrap"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M20 12V20L24 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p>Aucune maintenance planifiée</p></div>`;
+      return;
+    }
+    const now=new Date();
+    const ongoing=rows.filter(m=>m.starts_at&&new Date(m.starts_at)<=now&&(!m.ends_at||new Date(m.ends_at)>now));
+    const upcoming=rows.filter(m=>m.starts_at&&new Date(m.starts_at)>now);
+    const past=rows.filter(m=>m.ends_at&&new Date(m.ends_at)<=now);
+    if(ongoing.length){el.insertAdjacentHTML('beforeend','<div class="maint-section-title">En cours</div>');ongoing.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m,'ongoing')));}
+    if(upcoming.length){el.insertAdjacentHTML('beforeend','<div class="maint-section-title">À venir</div>');upcoming.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m,'scheduled')));}
+    if(past.length){el.insertAdjacentHTML('beforeend','<div class="maint-section-title">Historique</div>');past.forEach(m=>el.insertAdjacentHTML('beforeend',buildMaintCard(m,'past')));}
+  }catch{el.innerHTML='<div class="empty-state-wrap"><p>Erreur de chargement</p></div>';}
+}
+
+// ── Public incidents ──────────────────────────────────────────
+async function loadPublicIncidents(){
+  const el=$('publicIncList'); if(!el) return;
+  el.innerHTML='';
+  try{
+    const rows=await sbGet('dc_incidents','order=created_at.desc&limit=20');
+    if(!rows||!rows.length){
+      el.innerHTML=`<div class="empty-state-wrap"><svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 6L36 32H4L20 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M20 16V24M20 28H20.02" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><p>Aucun incident récent — tout fonctionne normalement !</p></div>`;
       return;
     }
     const sevL={info:'Info',warn:'Avertissement',crit:'Critique',ok:'Résolu'};
     const sevIcons={
-      info:'<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="var(--blue)" stroke-width="1.5"/><path d="M7 6V10M7 4.5H7.01" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round"/></svg>',
-      warn:'<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2L13 11H1L7 2Z" stroke="var(--yellow)" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 6V8.5M7 10H7.01" stroke="var(--yellow)" stroke-width="1.5" stroke-linecap="round"/></svg>',
-      crit:'<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="var(--red)" stroke-width="1.5"/><path d="M5 5L9 9M9 5L5 9" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>',
-      ok:'<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="var(--green)" stroke-width="1.5"/><path d="M4 7L6 9L10 5" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      info:'<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M6.5 5.5V9M6.5 4H6.51" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>',
+      warn:'<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 2L12 10.5H1L6.5 2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 5.5V8M6.5 9.5H6.51" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>',
+      crit:'<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 4.5L8.5 8.5M8.5 4.5L4.5 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>',
+      ok:'<svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M4 6.5L5.8 8.5L9.5 4.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     };
     rows.forEach((inc,i)=>{
       const sev=inc.severity||'info';
@@ -903,8 +769,7 @@ async function loadPublicIncidents(){
       const timeStr=d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
       const div=document.createElement('div');
       div.className=`inc-card ${sev}`;
-      div.style.animationDelay=(i*0.07)+'s';
-      div.style.opacity='0';
+      div.style.cssText=`animation-delay:${i*.07}s;opacity:0`;
       div.innerHTML=`
         <div class="inc-card-hd">
           <span class="inc-card-badge ${sev}">${sevIcons[sev]||''} ${sevL[sev]||sev}</span>
@@ -913,12 +778,10 @@ async function loadPublicIncidents(){
         </div>
         ${inc.message?`<div class="inc-card-msg">${esc(inc.message)}</div>`:''}
         <div class="inc-card-footer">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2" opacity=".5"/><path d="M6 3.5V6L7.5 7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".5"/></svg>
           <span class="inc-card-author">${dateStr} à ${timeStr}${inc.created_by?' · par '+esc(inc.created_by):''}</span>
         </div>`;
       el.appendChild(div);
-      // Trigger animation
-      requestAnimationFrame(()=>setTimeout(()=>div.style.opacity='',10+i*70));
+      setTimeout(()=>div.style.opacity='',10+i*70);
     });
   }catch{}
 }
@@ -950,10 +813,10 @@ function buildStatusGrid(){
     row.innerHTML=`
       <div style="flex:1"><div class="arow-name">${esc(svc.label)}</div><div class="arow-sub">Seuils : dégradé >${svc.thr_deg||2000}ms · hors ligne >${svc.thr_down||5000}ms</div></div>
       <select class="asel" id="sel-${svc.id}">
-        <option value="auto"        ${cur==='auto'        ?'selected':''}>🔄 Automatique</option>
-        <option value="operational" ${cur==='operational' ?'selected':''}>🟢 Opérationnel</option>
-        <option value="degraded"    ${cur==='degraded'    ?'selected':''}>🟡 Dégradé</option>
-        <option value="down"        ${cur==='down'        ?'selected':''}>🔴 Hors ligne</option>
+        <option value="auto" ${cur==='auto'?'selected':''}>🔄 Auto</option>
+        <option value="operational" ${cur==='operational'?'selected':''}>🟢 Opérationnel</option>
+        <option value="degraded" ${cur==='degraded'?'selected':''}>🟡 Dégradé</option>
+        <option value="down" ${cur==='down'?'selected':''}>🔴 Hors ligne</option>
       </select>`;
     g.appendChild(row);
   });
@@ -984,10 +847,9 @@ function openSvcModal(svc=null){
 }
 function closeSvcModal(){$('svcModal').classList.remove('open');}
 async function saveSvcModal(){
-  const id=$('modalSvcId').value;
-  const label=$('modalName').value.trim(),description=$('modalDesc').value.trim();
-  const url=$('modalUrl').value.trim();
-  const thr_deg=parseInt($('modalThrDeg').value)||2000,thr_down=parseInt($('modalThrDown').value)||5000;
+  const id=$('modalSvcId').value, label=$('modalName').value.trim();
+  const description=$('modalDesc').value.trim(), url=$('modalUrl').value.trim();
+  const thr_deg=parseInt($('modalThrDeg').value)||2000, thr_down=parseInt($('modalThrDown').value)||5000;
   const sort_order=parseInt($('modalOrder').value)||0;
   if(!label){alert('Nom requis');return;}
   if(id){
@@ -1004,14 +866,13 @@ async function saveSvcModal(){
 }
 async function deleteSvc(id,label){
   if(!confirm(`Supprimer "${label}" ?`)) return;
-  await sbDelete('dc_services',id);
-  await addLog(`Service supprimé: ${label}`);
+  await sbDelete('dc_services',id); await addLog(`Service supprimé: ${label}`);
   await loadServices(); buildServiceCards(); buildStatusGrid(); await runChecks(); renderAdminSvcList();
-  showToast('toastSvc','✓ Service supprimé');
+  showToast('toastSvc','✓ Supprimé');
 }
 function renderAdminSvcList(){
   const el=$('adminSvcList'); el.innerHTML='';
-  if(!SERVICES.length){el.innerHTML='<div class="empty">Aucun service</div>';return;}
+  if(!SERVICES.length){el.innerHTML='<div style="color:var(--text3);font-size:.8rem;padding:8px 0">Aucun service</div>';return;}
   SERVICES.forEach(svc=>{
     const row=document.createElement('div'); row.className='arow';
     row.innerHTML=`
@@ -1025,89 +886,62 @@ function renderAdminSvcList(){
 }
 
 // ── Admin: Incidents ──────────────────────────────────────────
-function setSev(s){
-  currentSev=s;
-  ['info','warn','crit','ok'].forEach(k=>$('sev-'+k).className='sev-btn'+(k===s?' active-'+k:''));
-}
+function setSev(s){currentSev=s;['info','warn','crit','ok'].forEach(k=>$('sev-'+k).className='sev-btn'+(k===s?' active-'+k:''));}
 async function publishIncident(){
-  const title=$('incTitle').value.trim(),msg=$('incMsg').value.trim();
+  const title=$('incTitle').value.trim(), msg=$('incMsg').value.trim();
   if(!title||!msg){showToast('toastInc','⚠ Titre et message requis',true);return;}
   await sbInsert('dc_incidents',{title,message:msg,severity:currentSev,created_at:new Date().toISOString(),created_by:currentAdmin?.name||'admin'});
   await addLog(`Incident [${currentSev}]: ${title}`);
   $('incTitle').value=''; $('incMsg').value=''; setSev('info');
-  showToast('toastInc','✓ Incident publié');
-  await loadAdminIncidents();
+  showToast('toastInc','✓ Publié'); await loadAdminIncidents();
 }
 async function loadAdminIncidents(){
-  const el=$('adminIncList'); el.innerHTML='<div class="empty">Chargement…</div>';
+  const el=$('adminIncList'); el.innerHTML='';
   const rows=await sbGet('dc_incidents','order=created_at.desc&limit=20');
-  el.innerHTML='';
-  if(!rows||!rows.length){el.innerHTML='<div class="empty">Aucun incident</div>';return;}
+  if(!rows||!rows.length){el.innerHTML='<div style="color:var(--text3);font-size:.8rem;padding:8px 0">Aucun incident</div>';return;}
   const sevL={info:'Info',warn:'Avertissement',crit:'Critique',ok:'Résolu'};
   rows.forEach(inc=>{
     const sev=inc.severity||'info';
     const div=document.createElement('div'); div.className='litem';
-    div.innerHTML=`
-      <div class="litem-hd"><span class="inc-badge ${sev}">${sevL[sev]}</span><div class="litem-title">${esc(inc.title)}</div><div class="litem-time">${timeAgo(inc.created_at)}</div></div>
-      <div class="litem-msg">${esc(inc.message||'')}</div>
-      <div class="litem-by">par ${esc(inc.created_by||'—')}</div>
-      <div class="litem-actions"><button class="btn-sm del" onclick="deleteInc('${inc.id}')">Supprimer</button></div>`;
+    div.innerHTML=`<div class="litem-hd"><span class="inc-card-badge ${sev}" style="font-size:.66rem;padding:3px 8px">${sevL[sev]}</span><div class="litem-title">${esc(inc.title)}</div><div class="litem-time">${timeAgo(inc.created_at)}</div></div><div class="litem-msg">${esc(inc.message||'')}</div><div class="litem-by">par ${esc(inc.created_by||'—')}</div><div class="litem-actions"><button class="btn-sm del" onclick="deleteInc('${inc.id}')">Supprimer</button></div>`;
     el.appendChild(div);
   });
 }
-async function deleteInc(id){
-  if(!confirm('Supprimer ?')) return;
-  await sbDelete('dc_incidents',id);
-  await addLog('Incident supprimé');
-  await loadAdminIncidents();
-}
+async function deleteInc(id){if(!confirm('Supprimer ?')) return; await sbDelete('dc_incidents',id); await addLog('Incident supprimé'); await loadAdminIncidents();}
 
 // ── Admin: Maintenance ────────────────────────────────────────
 async function publishMaintenance(){
-  const title=$('maintTitle').value.trim(),msg=$('maintMsg').value.trim();
-  const start=$('maintStart').value,end=$('maintEnd').value;
+  const title=$('maintTitle').value.trim(), msg=$('maintMsg').value.trim();
+  const start=$('maintStart').value, end=$('maintEnd').value;
   if(!title||!start){showToast('toastMaint','⚠ Titre et début requis',true);return;}
   await sbInsert('dc_maintenances',{title,message:msg,starts_at:new Date(start).toISOString(),ends_at:end?new Date(end).toISOString():null,created_at:new Date().toISOString(),created_by:currentAdmin?.name||'admin'});
   await addLog(`Maintenance: ${title}`);
   $('maintTitle').value=''; $('maintMsg').value=''; $('maintStart').value=''; $('maintEnd').value='';
-  showToast('toastMaint','✓ Maintenance planifiée');
-  await loadAdminMaintenances(); await loadPublicMaintenances();
+  showToast('toastMaint','✓ Planifiée'); await loadAdminMaintenances(); await loadPublicMaintenances();
 }
 async function loadAdminMaintenances(){
-  const el=$('adminMaintList'); el.innerHTML='<div class="empty">Chargement…</div>';
+  const el=$('adminMaintList'); el.innerHTML='';
   const rows=await sbGet('dc_maintenances','order=starts_at.desc&limit=15');
-  el.innerHTML='';
-  if(!rows||!rows.length){el.innerHTML='<div class="empty">Aucune maintenance</div>';return;}
+  if(!rows||!rows.length){el.innerHTML='<div style="color:var(--text3);font-size:.8rem;padding:8px 0">Aucune maintenance</div>';return;}
   rows.forEach(m=>{
     const sF={dateStyle:'short',timeStyle:'short'};
     const s=m.starts_at?new Date(m.starts_at).toLocaleString('fr-FR',sF):'—';
     const e=m.ends_at?new Date(m.ends_at).toLocaleString('fr-FR',sF):'—';
-    const ongoing=m.starts_at&&new Date(m.starts_at)<=new Date()&&(!m.ends_at||new Date(m.ends_at)>new Date());
+    const now=new Date();
+    const ongoing=m.starts_at&&new Date(m.starts_at)<=now&&(!m.ends_at||new Date(m.ends_at)>now);
     const div=document.createElement('div'); div.className='litem';
-    div.innerHTML=`
-      <div class="litem-hd"><span class="inc-badge ${ongoing?'warn':'info'}">${ongoing?'En cours':'Planifiée'}</span><div class="litem-title">${esc(m.title)}</div><div class="litem-time">${timeAgo(m.created_at)}</div></div>
-      ${m.message?`<div class="litem-msg">${esc(m.message)}</div>`:''}
-      <div class="litem-by">${s} → ${e} · par ${esc(m.created_by||'—')}</div>
-      <div class="litem-actions"><button class="btn-sm del" onclick="deleteMaint('${m.id}')">Supprimer</button></div>`;
+    div.innerHTML=`<div class="litem-hd"><span class="inc-card-badge ${ongoing?'warn':'info'}" style="font-size:.66rem;padding:3px 8px">${ongoing?'En cours':'Planifiée'}</span><div class="litem-title">${esc(m.title)}</div><div class="litem-time">${timeAgo(m.created_at)}</div></div>${m.message?`<div class="litem-msg">${esc(m.message)}</div>`:''}<div class="litem-by">${s} → ${e} · par ${esc(m.created_by||'—')}</div><div class="litem-actions"><button class="btn-sm del" onclick="deleteMaint('${m.id}')">Supprimer</button></div>`;
     el.appendChild(div);
   });
 }
-async function deleteMaint(id){
-  if(!confirm('Supprimer ?')) return;
-  await sbDelete('dc_maintenances',id);
-  await addLog('Maintenance supprimée');
-  await loadAdminMaintenances(); await loadPublicMaintenances();
-}
+async function deleteMaint(id){if(!confirm('Supprimer ?')) return; await sbDelete('dc_maintenances',id); await addLog('Maintenance supprimée'); await loadAdminMaintenances(); await loadPublicMaintenances();}
 
 // ── Admin: Logs ───────────────────────────────────────────────
-async function addLog(msg){
-  try{await sbInsert('dc_admin_logs',{message:msg,admin:currentAdmin?.name||'admin',created_at:new Date().toISOString()});}catch{}
-}
+async function addLog(msg){try{await sbInsert('dc_admin_logs',{message:msg,admin:currentAdmin?.name||'admin',created_at:new Date().toISOString()});}catch{}}
 async function loadLogs(){
-  const el=$('logsList'); el.innerHTML='<div class="empty">Chargement…</div>';
+  const el=$('logsList'); el.innerHTML='';
   const rows=await sbGet('dc_admin_logs','order=created_at.desc&limit=40');
-  el.innerHTML='';
-  if(!rows||!rows.length){el.innerHTML='<div class="empty">Aucun log</div>';return;}
+  if(!rows||!rows.length){el.innerHTML='<div style="color:var(--text3);font-size:.8rem;padding:8px 0">Aucun log</div>';return;}
   rows.forEach(l=>{
     const t=new Date(l.created_at).toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'medium'});
     const div=document.createElement('div'); div.className='log-row';
@@ -1116,29 +950,11 @@ async function loadLogs(){
   });
 }
 
-// ── UI helpers ────────────────────────────────────────────────
-function showToast(id,msg,err=false){
-  const el=$(id); el.className='toast'+(err?' err':'');
-  el.textContent=msg; el.style.display='block';
-  setTimeout(()=>el.style.display='none',4000);
-}
-function showLoginState(s){
-  ['Login','Loading','Granted','Denied','NotMember'].forEach(k=>{
-    const el=$('state'+k); if(el) el.style.display=(k.toLowerCase()===s?'block':'none');
-  });
-}
-function esc(str){
-  if(!str) return '';
-  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function timeAgo(iso){
-  if(!iso) return '—';
-  const d=(Date.now()-new Date(iso))/1000;
-  if(d<60) return 'À l\'instant';
-  if(d<3600) return Math.floor(d/60)+'m';
-  if(d<86400) return Math.floor(d/3600)+'h';
-  return Math.floor(d/86400)+'j';
-}
+// ── Helpers ───────────────────────────────────────────────────
+function showToast(id,msg,err=false){const el=$(id);el.className='toast'+(err?' err':'');el.textContent=msg;el.style.display='block';setTimeout(()=>el.style.display='none',4000);}
+function showLoginState(s){['Login','Loading','Granted','Denied','NotMember'].forEach(k=>{const el=$('state'+k);if(el)el.style.display=(k.toLowerCase()===s?'block':'none');});}
+function esc(str){if(!str)return '';return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function timeAgo(iso){if(!iso)return '—';const d=(Date.now()-new Date(iso))/1000;if(d<60)return 'À l\'instant';if(d<3600)return Math.floor(d/60)+'m';if(d<86400)return Math.floor(d/3600)+'h';return Math.floor(d/86400)+'j';}
 $('svcModal').addEventListener('click',e=>{if(e.target===$('svcModal'))closeSvcModal();});
 
 // ── Discord OAuth ─────────────────────────────────────────────
@@ -1147,22 +963,13 @@ function startDiscordLogin(){
   const p=new URLSearchParams({client_id:DC_CLIENT,redirect_uri:REDIR,response_type:'token',scope:'identify guilds guilds.members.read',state});
   location.href='https://discord.com/oauth2/authorize?'+p;
 }
-function logout(){
-  sessionStorage.removeItem('dc_tok'); currentAdmin=null;
-  $('adminPanel').style.display='none';
-  $('navUser').style.display='none';
-  showLoginState('login');
-}
+function logout(){sessionStorage.removeItem('dc_tok');currentAdmin=null;$('adminPanel').style.display='none';$('navUser').style.display='none';showLoginState('login');}
 async function handleCallback(){
-  const hash=location.hash.substring(1);
-  if(!hash.includes('access_token')) return false;
-  const p=new URLSearchParams(hash); const tok=p.get('access_token'); const st=p.get('state');
-  history.replaceState(null,'',location.pathname);
-  if(!tok) return false;
-  const saved=sessionStorage.getItem('dcstate');
-  if(st&&saved&&st!==saved) return false;
-  sessionStorage.removeItem('dcstate');
-  sessionStorage.setItem('dc_tok',tok);
+  const hash=location.hash.substring(1); if(!hash.includes('access_token')) return false;
+  const p=new URLSearchParams(hash),tok=p.get('access_token'),st=p.get('state');
+  history.replaceState(null,'',location.pathname); if(!tok) return false;
+  const saved=sessionStorage.getItem('dcstate'); if(st&&saved&&st!==saved) return false;
+  sessionStorage.removeItem('dcstate'); sessionStorage.setItem('dc_tok',tok);
   await verifyAccess(tok); return true;
 }
 async function verifyAccess(tok){
@@ -1181,15 +988,11 @@ async function verifyAccess(tok){
       currentAdmin={name,avatar:av,id:user.id};
       $('navUser').style.display='flex'; $('navAvatar').src=av; $('navName').textContent=name;
       $('adminUserName').textContent=name;
-      buildStatusGrid();
-      $('adminPanel').style.display='block';
+      buildStatusGrid(); $('adminPanel').style.display='block';
       showLoginState('granted');
       await addLog(`Connexion: ${name}`);
       setTimeout(()=>$('adminPanel').scrollIntoView({behavior:'smooth',block:'nearest'}),200);
-    }else{
-      $('avatarDenied').src=av; $('nameDenied').textContent=name;
-      showLoginState('denied');
-    }
+    }else{$('avatarDenied').src=av;$('nameDenied').textContent=name;showLoginState('denied');}
   }catch{showLoginState('login');}
 }
 
@@ -1204,10 +1007,7 @@ async function verifyAccess(tok){
   setInterval(runChecks,60000);
   setInterval(loadPublicMaintenances,30000);
   const done=await handleCallback();
-  if(!done){
-    const tok=sessionStorage.getItem('dc_tok');
-    if(tok) await verifyAccess(tok); else showLoginState('login');
-  }
+  if(!done){const tok=sessionStorage.getItem('dc_tok');if(tok)await verifyAccess(tok);else showLoginState('login');}
 })();
 </script>
 </body>
