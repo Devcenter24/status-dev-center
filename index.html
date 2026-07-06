@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devcenter — Status</title>
 
-<!-- Favicon + Apple -->
 <link rel="icon" type="image/png" href="https://images-ext-1.discordapp.net/external/NS4JUvkfST4XlWEGbaAFV12lDQnF8UkS6IOCwTtLgQg/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1452963098284785765/27bfa54de893009c84f974d273d43ec5.png?format=webp&quality=lossless&width=599&height=599">
 <link rel="apple-touch-icon" href="https://images-ext-1.discordapp.net/external/NS4JUvkfST4XlWEGbaAFV12lDQnF8UkS6IOCwTtLgQg/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1452963098284785765/27bfa54de893009c84f974d273d43ec5.png?format=webp&quality=lossless&width=599&height=599">
 
-<!-- Discord / OG embed -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://devcenter24.github.io/status-dev-center/">
 <meta property="og:site_name" content="Dev Center">
@@ -65,11 +63,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 @keyframes incSlideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
 @keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
 
-/* ── GRADIENT TOP BAR ── */
 .top-bar{height:2px;background:linear-gradient(90deg,#5a9cf8,#a78bfa,#3ecf8e,#f5c842,#5a9cf8);
   background-size:200% 100%;animation:shimmer 5s linear infinite}
 
-/* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
   padding:0 32px;height:58px;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border)}
@@ -81,10 +77,8 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 #navUser img{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue)}
 #navUser span{font-size:.78rem;color:var(--text2)}
 
-/* ── MAIN ── */
 main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px 100px}
 
-/* ── HERO ── */
 .hero{text-align:center;padding:56px 0 48px;position:relative;animation:fadeInUp .7s ease forwards}
 .hero::after{content:'';position:absolute;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,rgba(62,207,142,.25),transparent);
@@ -96,7 +90,6 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .hero h1{font-size:1.9rem;font-weight:700;color:var(--text);margin-bottom:10px}
 .hero-sub{font-size:.84rem;color:var(--text3)}
 
-/* ── TABS ── */
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:32px}
 .tab{padding:11px 20px;font-size:.88rem;font-weight:500;color:var(--text2);background:none;
   border:none;border-bottom:2px solid transparent;cursor:pointer;
@@ -106,7 +99,6 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .tab-panel{display:none}
 .tab-panel.active{display:block}
 
-/* ── SERVICE CARDS ── */
 .services-wrap{border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;
   margin-bottom:32px;transition:border-color .3s}
 .services-wrap:hover{border-color:rgba(90,156,248,.2)}
@@ -135,7 +127,6 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .manual-pill{font-size:.66rem;color:var(--blue);background:rgba(90,156,248,.1);
   border:1px solid rgba(90,156,248,.2);padding:1px 7px;border-radius:10px;display:none}
 
-/* ── UPTIME ── */
 .uptime-wrap{margin-bottom:32px}
 .uptime-label-row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text3);margin-bottom:8px}
 .uptime-bar{display:flex;gap:2px;height:24px}
@@ -144,7 +135,6 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .uday.down{background:rgba(232,93,93,.55)}
 .uday.partial{background:rgba(245,200,66,.5)}
 
-/* ── MAINTENANCE CARDS ── */
 .maint-section-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;
   letter-spacing:.1em;margin:22px 0 10px;font-weight:600}
 .maint-section-title:first-child{margin-top:0}
