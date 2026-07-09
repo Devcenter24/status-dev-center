@@ -32,11 +32,23 @@ html{scroll-behavior:smooth}
   --text:#101a2e;--text2:#5b6b85;--text3:#8695ac;
   --green:#1fa872;--yellow:#c98a0a;--red:#dc4646;--blue:#3b7de0;--purple:#8b6ce8;
   --green-bg:rgba(31,168,114,.1);--yellow-bg:rgba(201,138,10,.1);--red-bg:rgba(220,70,70,.1);
+  --nav-bg:rgba(255,255,255,.82);
+  --surface-faint:rgba(16,26,46,.04);--surface-hover:rgba(16,26,46,.05);
+  --surface-hover-strong:rgba(16,26,46,.09);--hairline:rgba(16,26,46,.06);
   --r:8px;--r2:12px;
 }
+html.dark{
+  --bg:#0a0d18;--bg2:#111729;--bg3:#161d33;
+  --border:#242c48;--border2:#2f395c;
+  --text:#f1f3fb;--text2:#9aa4c2;--text3:#606a8c;
+  --green:#34d399;--yellow:#f0c04b;--red:#f2716f;--blue:#6fa4f8;--purple:#b09cf9;
+  --green-bg:rgba(52,211,153,.12);--yellow-bg:rgba(240,192,75,.12);--red-bg:rgba(242,113,111,.12);
+  --nav-bg:rgba(10,13,24,.82);
+  --surface-faint:rgba(255,255,255,.045);--surface-hover:rgba(255,255,255,.06);
+  --surface-hover-strong:rgba(255,255,255,.1);--hairline:rgba(255,255,255,.08);
+}
 body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;font-size:15px;line-height:1.6;
-  background-image:linear-gradient(rgba(16,26,46,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(16,26,46,.025) 1px,transparent 1px);
-  background-size:60px 60px}
+  transition:background .25s ease,color .25s ease}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:
     radial-gradient(600px 400px at 50% -10%,rgba(59,125,224,.10) 0%,transparent 60%),
@@ -53,6 +65,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
     radial-gradient(1.5px 1.5px at 7% 52%,rgba(59,125,224,.24) 0%,transparent 100%),
     radial-gradient(1.5px 1.5px at 71% 8%,rgba(59,125,224,.2) 0%,transparent 100%)}
 
+
+
 /* ── ANIMATIONS ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(62,207,142,.15)}50%{box-shadow:0 0 40px rgba(62,207,142,.3)}}
@@ -68,7 +82,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-size:200% 100%;animation:shimmer 5s linear infinite}
 
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-  padding:0 32px;height:58px;background:rgba(255,255,255,.82);backdrop-filter:blur(20px);
+  padding:0 32px;height:58px;background:var(--nav-bg);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border)}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;
   color:var(--text);text-decoration:none}
@@ -78,6 +92,11 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .nav-status-dot.warn{background:var(--yellow);box-shadow:0 0 8px var(--yellow)}
 .nav-status-dot.down{background:var(--red);box-shadow:0 0 8px var(--red)}
 .nav-right{display:flex;align-items:center;gap:10px}
+.theme-toggle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);cursor:pointer;
+  transition:background .15s,color .15s,transform .15s;flex-shrink:0}
+.theme-toggle:hover{background:var(--surface-hover-strong);color:var(--text);transform:translateY(-1px)}
+.theme-toggle svg{width:16px;height:16px}
 #navUser{display:none;align-items:center;gap:8px}
 #navUser img{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue)}
 #navUser span{font-size:.78rem;color:var(--text2)}
@@ -141,7 +160,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .svc-badge.degraded .dot{background:var(--yellow)}
 .svc-badge.down{background:var(--red-bg);color:var(--red);box-shadow:0 0 10px rgba(232,93,93,.18)}
 .svc-badge.down .dot{background:var(--red)}
-.svc-badge.loading{background:rgba(16,26,46,.05);color:var(--text3)}
+.svc-badge.loading{background:var(--surface-hover);color:var(--text3)}
 .svc-badge.loading .dot{background:var(--text3)}
 .svc-ping{font-size:.72rem;color:var(--text3);font-family:monospace}
 .manual-pill{font-size:.66rem;color:var(--blue);background:rgba(59,125,224,.1);
@@ -183,7 +202,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .maint-card-title{font-weight:700;font-size:.95rem;flex:1}
 .maint-card-msg{font-size:.84rem;color:var(--text2);line-height:1.65;margin:0 0 10px 4px}
 .maint-card-dates{display:flex;align-items:center;gap:12px;margin-top:10px;
-  padding-top:10px;border-top:1px solid rgba(16,26,46,.06);flex-wrap:wrap}
+  padding-top:10px;border-top:1px solid var(--hairline);flex-wrap:wrap}
 .maint-date-item{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--text2)}
 .maint-date-item span:first-child{font-size:.68rem;color:var(--text3);text-transform:uppercase;letter-spacing:.06em}
 .maint-date-sep{color:var(--text3)}
@@ -216,7 +235,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .inc-card-time{font-size:.72rem;color:var(--text3);font-family:monospace;white-space:nowrap}
 .inc-card-msg{font-size:.84rem;color:var(--text2);line-height:1.65;margin-left:4px}
 .inc-card-footer{display:flex;align-items:center;gap:8px;margin-top:12px;
-  padding-top:10px;border-top:1px solid rgba(16,26,46,.06)}
+  padding-top:10px;border-top:1px solid var(--hairline)}
 .inc-card-author{font-size:.72rem;color:var(--text3)}
 
 /* ── EMPTY STATE ── */
@@ -229,7 +248,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .admin-bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border)}
 .admin-bar-title{font-weight:700;font-size:.92rem;flex:1}
 .admin-bar-sub{font-size:.74rem;color:var(--text2)}
-.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:rgba(16,26,46,.04)}
+.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--surface-faint)}
 .atab{flex:1;padding:11px 4px;font-size:.76rem;font-weight:500;color:var(--text2);background:none;
   border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
   transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
@@ -245,6 +264,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .ainput[type=number]{-moz-appearance:textfield}
 .ainput[type=number]::-webkit-outer-spin-button,.ainput[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .ainput[type=datetime-local]{color-scheme:light}
+html.dark .ainput[type=datetime-local]{color-scheme:dark}
 .atextarea{resize:vertical;min-height:80px;line-height:1.55}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field-wrap{display:flex;flex-direction:column;gap:5px}
@@ -259,12 +279,13 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23636880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 8px center;transition:border-color .15s}
 .asel option{background:#fff}
+html.dark .asel option{background:#161d33}
 .asel:focus{border-color:rgba(59,125,224,.5)}
 .sev-row{display:flex;gap:8px}
 .sev-btn{flex:1;padding:8px 4px;border-radius:var(--r);border:1px solid var(--border2);
   background:var(--bg3);color:var(--text2);font-size:.75rem;font-weight:500;
   cursor:pointer;transition:all .15s;text-align:center;font-family:'Plus Jakarta Sans',sans-serif}
-.sev-btn:hover{background:rgba(16,26,46,.07)}
+.sev-btn:hover{background:var(--surface-hover)}
 .sev-btn.active-info{background:rgba(59,125,224,.15);border-color:rgba(59,125,224,.4);color:var(--blue)}
 .sev-btn.active-warn{background:var(--yellow-bg);border-color:rgba(245,200,66,.35);color:var(--yellow)}
 .sev-btn.active-crit{background:var(--red-bg);border-color:rgba(232,93,93,.35);color:var(--red)}
@@ -275,12 +296,12 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:#4a8de8;transform:translateY(-1px)}
 .btn-blue:disabled{opacity:.45;cursor:not-allowed;transform:none}
-.btn-ghost{background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2)}
-.btn-ghost:hover{background:rgba(16,26,46,.09)}
+.btn-ghost{background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2)}
+.btn-ghost:hover{background:var(--surface-hover-strong)}
 .btn-sm{padding:5px 12px;font-size:.74rem;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;
   font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border2);
-  background:rgba(16,26,46,.04);color:var(--text2)}
-.btn-sm:hover{background:rgba(16,26,46,.08)}
+  background:var(--surface-faint);color:var(--text2)}
+.btn-sm:hover{background:var(--surface-hover-strong)}
 .btn-sm.edit{color:var(--blue);border-color:rgba(59,125,224,.3);background:rgba(59,125,224,.08)}
 .btn-sm.del{color:var(--red);border-color:rgba(232,93,93,.3);background:rgba(232,93,93,.08)}
 .toast{display:none;margin-top:10px;padding:10px 14px;border-radius:var(--r);
@@ -317,8 +338,8 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
   border-radius:var(--r);width:100%;border:none;cursor:pointer;
   transition:background .15s,transform .15s;font-family:'Plus Jakarta Sans',sans-serif}
 .dc-btn:hover{background:#4752C4;transform:translateY(-1px)}
-.dc-btn.ghost{background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2)}
-.dc-btn.ghost:hover{background:rgba(16,26,46,.09)}
+.dc-btn.ghost{background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2)}
+.dc-btn.ghost:hover{background:var(--surface-hover-strong)}
 .status-ok{background:var(--green-bg);border:1px solid rgba(62,207,142,.25);border-radius:var(--r);
   padding:12px 16px;font-size:.83rem;color:var(--green);display:flex;align-items:center;gap:10px}
 .status-err{background:var(--red-bg);border:1px solid rgba(232,93,93,.25);border-radius:var(--r);
@@ -334,10 +355,10 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .modal-fields{display:flex;flex-direction:column;gap:13px}
 .modal-actions{display:flex;gap:10px;margin-top:18px}
 .modal-actions .btn{flex:2}
-.modal-cancel{flex:1;padding:10px;border-radius:var(--r);background:rgba(16,26,46,.04);
+.modal-cancel{flex:1;padding:10px;border-radius:var(--r);background:var(--surface-faint);
   color:var(--text2);font-weight:600;font-size:.83rem;border:1px solid var(--border2);
   cursor:pointer;transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif}
-.modal-cancel:hover{background:rgba(16,26,46,.09)}
+.modal-cancel:hover{background:var(--surface-hover-strong)}
 
 footer{position:relative;z-index:1;text-align:center;padding:28px;
   font-size:.74rem;color:var(--text3);border-top:1px solid var(--border)}
@@ -360,6 +381,9 @@ footer a:hover{color:var(--text)}
     Dev Center
   </a>
   <div class="nav-right">
+    <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Basculer le thème" title="Mode sombre / clair">
+      <svg id="themeToggleIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5V4.5M12 19.5V21.5M4.2 4.2L5.6 5.6M18.4 18.4L19.8 19.8M2.5 12H4.5M19.5 12H21.5M4.2 19.8L5.6 18.4M18.4 5.6L19.8 4.2"/></svg>
+    </button>
     <div id="navUser"><img id="navAvatar" src="" alt=""/><span id="navName"></span></div>
   </div>
 </nav>
@@ -413,7 +437,7 @@ footer a:hover{color:var(--text)}
         <div class="admin-bar-title">Administration</div>
         <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--text)">—</span></div>
       </div>
-      <button onclick="logout()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déconnexion</button>
+      <button onclick="logout()" style="background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déconnexion</button>
     </div>
     <div class="admin-tabs">
       <button class="atab active" onclick="switchAdminTab('status',this)">Statuts</button>
@@ -473,7 +497,7 @@ footer a:hover{color:var(--text)}
 
     <div class="atab-content" id="atab-logs">
       <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
-        <button onclick="loadLogs()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.76rem;padding:7px 14px;border-radius:var(--r);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">↻ Actualiser</button>
+        <button onclick="loadLogs()" style="background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);font-size:.76rem;padding:7px 14px;border-radius:var(--r);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">↻ Actualiser</button>
       </div>
       <div class="list-wrap" id="logsList"></div>
     </div>
@@ -503,7 +527,7 @@ footer a:hover{color:var(--text)}
       <div class="login-hd">
         <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--red)"><img id="avatarDenied" src="" width="40" height="40" style="object-fit:cover;display:block" alt=""/></div>
         <div style="flex:1"><div class="login-title" id="nameDenied">—</div><div class="login-sub" style="color:var(--red)">Accès refusé · Rôle manquant</div></div>
-        <button onclick="logout()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déco</button>
+        <button onclick="logout()" style="background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déco</button>
       </div>
       <div class="status-err" style="margin-top:10px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="var(--red)" stroke-width="1.5"/><path d="M7 4.5V7M7 9.5H7.01" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>Tu n'as pas le rôle requis sur le serveur Dev Center.</div>
     </div>
@@ -1007,6 +1031,18 @@ async function verifyAccess(tok){
     }else{$('avatarDenied').src=av;$('nameDenied').textContent=name;showLoginState('denied');}
   }catch{showLoginState('login');}
 }
+
+// ── Theme toggle ──────────────────────────────────────────────
+const SUN_ICON='<circle cx="12" cy="12" r="4.5"/><path d="M12 2.5V4.5M12 19.5V21.5M4.2 4.2L5.6 5.6M18.4 18.4L19.8 19.8M2.5 12H4.5M19.5 12H21.5M4.2 19.8L5.6 18.4M18.4 5.6L19.8 4.2"/>';
+const MOON_ICON='<path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/>';
+function applyTheme(dark){
+  document.documentElement.classList.toggle('dark',dark);
+  const icon=$('themeToggleIcon'); if(icon) icon.innerHTML=dark?MOON_ICON:SUN_ICON;
+  const meta=document.querySelector('meta[name="theme-color"]'); if(meta) meta.setAttribute('content',dark?'#0a0d18':'#eef3fb');
+}
+function toggleTheme(){applyTheme(!document.documentElement.classList.contains('dark'));}
+const prefersDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+applyTheme(prefersDark);
 
 // ── INIT ──────────────────────────────────────────────────────
 (async()=>{
