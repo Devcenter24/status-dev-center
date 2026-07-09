@@ -145,14 +145,46 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .tab-panel.active{display:block}
 
 .services-wrap{border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;
-  margin-bottom:32px;transition:border-color .3s}
+  margin-bottom:32px;transition:border-color .3s;perspective:900px}
 .services-wrap:hover{border-color:rgba(59,125,224,.2)}
-.svc-row{display:flex;align-items:center;gap:16px;padding:16px 20px;
-  background:var(--bg2);transition:background .15s,padding-left .15s}
+.svc-row{display:block;padding:16px 20px;position:relative;cursor:pointer;
+  background:var(--bg2);transition:background .15s,transform .12s ease-out,box-shadow .12s ease-out;
+  transform-style:preserve-3d;will-change:transform;z-index:1}
+.svc-row-top{display:flex;align-items:center;gap:16px}
 .svc-row+.svc-row{border-top:1px solid var(--border)}
-.svc-row:hover{background:var(--bg3);padding-left:22px}
-.svc-icon{width:36px;height:36px;border-radius:9px;background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-row:hover{background:var(--bg3);z-index:2;box-shadow:0 14px 28px -10px rgba(16,26,46,.28)}
+html.dark .svc-row:hover{box-shadow:0 14px 28px -10px rgba(0,0,0,.5)}
+.svc-row .svc-icon,.svc-row .svc-right{transition:transform .12s ease-out}
+.svc-row:hover .svc-icon{transform:translateZ(26px)}
+.svc-row:hover .svc-info{transform:translateZ(14px)}
+.svc-row:hover .svc-right{transform:translateZ(20px)}
+.svc-info{transition:transform .12s ease-out}
+.svc-row-chevron{width:16px;height:16px;flex-shrink:0;color:var(--text3);transition:transform .25s ease,color .15s;margin-left:2px}
+.svc-row.open .svc-row-chevron{transform:rotate(180deg);color:var(--text2)}
+.svc-row-expand{max-height:0;opacity:0;overflow:hidden;transition:max-height .32s ease,opacity .25s ease,margin-top .32s ease}
+.svc-row.open .svc-row-expand{max-height:90px;opacity:1;margin-top:16px}
+.svc-row-uptime-hd{font-size:.74rem;font-weight:600;margin-bottom:9px}
+.svc-row-uptime-hd.svc-row-uptime-operational{color:var(--green)}
+.svc-row-uptime-hd.svc-row-uptime-degraded{color:var(--yellow)}
+.svc-row-uptime-hd.svc-row-uptime-down{color:var(--red)}
+.svc-row-bar{display:flex;gap:2px;height:26px}
+.svc-row-daterow{display:flex;justify-content:space-between;font-size:.7rem;color:var(--text3);margin-top:7px}
+
+.uptime-period-tabs{display:flex;justify-content:flex-end;gap:6px;margin-bottom:12px}
+.uptime-period{padding:6px 15px;font-size:.72rem;font-weight:600;color:var(--text2);
+  background:var(--surface-faint);border:1px solid var(--border2);border-radius:999px;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;transition:all .15s}
+.uptime-period:hover{background:var(--surface-hover);color:var(--text)}
+.uptime-period.active{background:var(--blue);border-color:var(--blue);color:#fff}
+.svc-icon{width:38px;height:38px;border-radius:11px;flex-shrink:0;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 100%);border:1px solid var(--border2);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -4px 7px rgba(16,26,46,.14),0 4px 8px rgba(16,26,46,.10)}
+.svc-icon::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.32) 0%,rgba(255,255,255,0) 48%)}
+.svc-icon svg{position:relative;z-index:1;filter:drop-shadow(0 1px 1px rgba(16,26,46,.18))}
+html.dark .svc-icon{box-shadow:inset 0 1px 0 rgba(255,255,255,.08),inset 0 -4px 8px rgba(0,0,0,.4),0 4px 10px rgba(0,0,0,.35)}
+html.dark .svc-icon::after{background:linear-gradient(180deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,0) 48%)}
 .svc-info{flex:1;min-width:0}
 .svc-name{font-weight:600;font-size:.9rem}
 .svc-desc{font-size:.76rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -172,9 +204,6 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .manual-pill{font-size:.66rem;color:var(--blue);background:rgba(59,125,224,.1);
   border:1px solid rgba(59,125,224,.2);padding:1px 7px;border-radius:10px;display:none}
 
-.uptime-wrap{margin-bottom:32px}
-.uptime-label-row{display:flex;justify-content:space-between;font-size:.76rem;color:var(--text3);margin-bottom:8px}
-.uptime-bar{display:flex;gap:2px;height:24px}
 .uday{flex:1;border-radius:3px;background:rgba(62,207,142,.5);cursor:pointer;transition:opacity .15s,transform .1s}
 .uday:hover{opacity:.75;transform:scaleY(1.15)}
 .uday.down{background:rgba(232,93,93,.55)}
@@ -339,6 +368,13 @@ html.dark .asel option{background:#2b2d31;color:#f2f3f5}
 .log-time{font-family:monospace;font-size:.7rem;color:var(--dc-text3);white-space:nowrap;padding-top:1px}
 .log-msg{font-size:.79rem;color:var(--dc-text2);flex:1;line-height:1.45}
 .log-by{font-size:.7rem;color:var(--dc-text3);white-space:nowrap;padding-top:1px}
+.arow-icon{width:32px;height:32px;border-radius:9px;flex-shrink:0;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,#3c3e44 0%,#232428 100%);border:1px solid var(--dc-border);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),inset 0 -3px 6px rgba(0,0,0,.4),0 3px 6px rgba(0,0,0,.35)}
+.arow-icon::after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 50%)}
+.arow-icon svg{position:relative;z-index:1;width:16px;height:16px}
 .sec-title{font-size:.68rem;color:var(--dc-text3);text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-bottom:10px}
 
 /* ── LOGIN BOX (masquée du public, accessible via le lien Staff en footer) — style embed Discord ── */
@@ -445,11 +481,13 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
   <!-- TAB: STATUS -->
   <div class="tab-panel active" id="main-status">
     <div id="maintBanners"></div>
-    <div class="services-wrap" id="servicesGrid"></div>
-    <div class="uptime-wrap">
-      <div class="uptime-label-row"><span>Il y a 60 jours</span><span id="uptimePct">—</span><span>Aujourd'hui</span></div>
-      <div class="uptime-bar" id="uptimeBar"></div>
+    <div class="uptime-period-tabs" id="uptimePeriodTabs">
+      <button class="uptime-period" data-days="7" onclick="setUptimePeriod(7,this)">7 jours</button>
+      <button class="uptime-period active" data-days="14" onclick="setUptimePeriod(14,this)">14 jours</button>
+      <button class="uptime-period" data-days="30" onclick="setUptimePeriod(30,this)">30 jours</button>
+      <button class="uptime-period" data-days="90" onclick="setUptimePeriod(90,this)">90 jours</button>
     </div>
+    <div class="services-wrap" id="servicesGrid"></div>
   </div>
 
   <!-- TAB: MAINTENANCE -->
@@ -466,7 +504,7 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
   <div class="admin-panel" id="adminPanel">
     <div class="admin-bar">
       <div style="flex:1">
-        <div class="admin-bar-eyebrow">🛡 Panneau Staff</div>
+        <div class="admin-bar-eyebrow">Panneau Staff</div>
         <div class="admin-bar-title">Administration</div>
         <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--dc-text)">—</span></div>
       </div>
@@ -500,10 +538,10 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
         <div class="field-wrap">
           <div class="field-lbl">Sévérité</div>
           <div class="sev-row">
-            <button class="sev-btn active-info" id="sev-info" onclick="setSev('info')">ℹ Info</button>
-            <button class="sev-btn" id="sev-warn" onclick="setSev('warn')">⚠ Avertissement</button>
-            <button class="sev-btn" id="sev-crit" onclick="setSev('crit')">✕ Critique</button>
-            <button class="sev-btn" id="sev-ok" onclick="setSev('ok')">✓ Résolu</button>
+            <button class="sev-btn active-info" id="sev-info" onclick="setSev('info')">Info</button>
+            <button class="sev-btn" id="sev-warn" onclick="setSev('warn')">Avertissement</button>
+            <button class="sev-btn" id="sev-crit" onclick="setSev('crit')">Critique</button>
+            <button class="sev-btn" id="sev-ok" onclick="setSev('ok')">Résolu</button>
           </div>
         </div>
         <button class="btn btn-blue" onclick="publishIncident()">Publier l'incident</button>
@@ -530,7 +568,7 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
 
     <div class="atab-content" id="atab-logs">
       <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
-        <button onclick="loadLogs()" style="background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2);font-size:.76rem;padding:7px 14px;border-radius:4px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">↻ Actualiser</button>
+        <button onclick="loadLogs()" style="background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2);font-size:.76rem;padding:7px 14px;border-radius:4px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Actualiser</button>
       </div>
       <div class="list-wrap" id="logsList"></div>
     </div>
@@ -539,7 +577,7 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
   <!-- DISCORD LOGIN (réservé au staff, révélée via le lien en footer) -->
   <div class="login-box" id="loginBox">
     <div id="stateLogin">
-      <div class="login-eyebrow">🔒 Accès réservé</div>
+      <div class="login-eyebrow">Accès réservé</div>
       <div class="login-hd">
         <div class="login-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="white"/></svg></div>
         <div><div class="login-title">Connexion Admin</div><div class="login-sub">Réservé aux membres avec le rôle requis</div></div>
@@ -628,7 +666,7 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();return fa
 document.addEventListener('selectstart',function(e){e.preventDefault();return false;});
 (function(){const t=160;setInterval(function(){
   if(window.outerWidth-window.innerWidth>t||window.outerHeight-window.innerHeight>t)
-    document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#000;color:#e85d5d;font-family:monospace;font-size:1.1rem">⛔ Accès non autorisé</div>';
+    document.body.innerHTML='<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#000;color:#e85d5d;font-family:monospace;font-size:1.1rem">Accès non autorisé</div>';
 },1000);})();
 
 // ── CONFIG ────────────────────────────────────────────────────
@@ -681,6 +719,30 @@ const ICONS={
 };
 const SL={operational:'Opérationnel',degraded:'Dégradé',down:'Hors ligne'};
 
+// ── Effet 3D tilt au survol des lignes de service ───────────────
+(function initSvcTilt(){
+  const grid=document.getElementById('servicesGrid');
+  if(!grid) return;
+  const MAX_TILT=7;
+  grid.addEventListener('mousemove',e=>{
+    const row=e.target.closest('.svc-row');
+    if(!row) return;
+    const r=row.getBoundingClientRect();
+    const px=(e.clientX-r.left)/r.width;
+    const py=(e.clientY-r.top)/r.height;
+    const rotY=(px-0.5)*MAX_TILT*2;
+    const rotX=(0.5-py)*MAX_TILT;
+    row.style.transform=`perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.012,1.012,1.012)`;
+  });
+  grid.addEventListener('mouseleave',()=>{
+    grid.querySelectorAll('.svc-row').forEach(row=>{row.style.transform='';});
+  },true);
+  grid.addEventListener('mouseout',e=>{
+    const row=e.target.closest('.svc-row');
+    if(row && !row.contains(e.relatedTarget)) row.style.transform='';
+  });
+})();
+
 function buildServiceCards(){
   const g=$('servicesGrid'); g.innerHTML='';
   SERVICES.forEach((svc,i)=>{
@@ -688,13 +750,25 @@ function buildServiceCards(){
     row.className='svc-row'; row.id='svcrow-'+svc.id;
     row.style.cssText=`animation:fadeInUp .5s ease both;animation-delay:${i*.08}s`;
     row.innerHTML=`
-      <div class="svc-icon">${ICONS[svc.id]||ICONS.web}</div>
-      <div class="svc-info"><div class="svc-name">${esc(svc.label)}</div><div class="svc-desc">${esc(svc.description||svc.url||'')}</div></div>
-      <div class="svc-right">
-        <span class="svc-badge loading" id="badge-${svc.id}"><span class="dot"></span>—</span>
-        <span class="svc-ping" id="ping-${svc.id}"></span>
-        <span class="manual-pill" id="mb-${svc.id}">Manuel</span>
+      <div class="svc-row-top">
+        <div class="svc-icon">${ICONS[svc.id]||ICONS.web}</div>
+        <div class="svc-info"><div class="svc-name">${esc(svc.label)}</div><div class="svc-desc">${esc(svc.description||svc.url||'')}</div></div>
+        <div class="svc-right">
+          <span class="svc-badge loading" id="badge-${svc.id}"><span class="dot"></span>—</span>
+          <span class="svc-ping" id="ping-${svc.id}"></span>
+          <span class="manual-pill" id="mb-${svc.id}">Manuel</span>
+        </div>
+        <svg class="svc-row-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="svc-row-expand">
+        <div class="svc-row-uptime-hd" id="uStatus-${svc.id}">—</div>
+        <div class="svc-row-bar" id="bar-${svc.id}"></div>
+        <div class="svc-row-daterow"><span id="barStart-${svc.id}"></span><span id="barEnd-${svc.id}"></span></div>
       </div>`;
+    row.addEventListener('click',e=>{
+      if(e.target.closest('a,button')) return;
+      toggleSvcRow(svc);
+    });
     g.appendChild(row);
   });
 }
@@ -760,16 +834,62 @@ async function runChecks(){
   updateHero(states);
 }
 
-// ── Uptime bar ────────────────────────────────────────────────
-function buildUptimeBar(){
-  const bar=$('uptimeBar'); let down=0;
-  for(let i=0;i<60;i++){
-    const d=document.createElement('div'); d.className='uday';
-    const r=Math.random();
-    if(r<.018){d.classList.add('down');down++;}else if(r<.045)d.classList.add('partial');
-    d.title=`Jour ${60-i}`; bar.appendChild(d);
+// ── Historique par service (accordéon au clic) ─────────────────
+let uptimePeriodDays=14;
+const uptimeCache={};
+const MONTHS_FR=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+function fmtShortDate(d){return d.getDate()+' '+MONTHS_FR[d.getMonth()];}
+
+function getSvcHistory(svc,days){
+  const key=svc.id+'-'+days;
+  if(uptimeCache[key]) return uptimeCache[key];
+  let seed=0; for(const c of svc.id) seed+=c.charCodeAt(0);
+  seed+=days;
+  const rand=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+  let down=0,partial=0;
+  const cells=[];
+  for(let i=0;i<days;i++){
+    const r=rand();
+    let cls='';
+    if(r<.06){cls='down';down++;}else if(r<.13){cls='partial';partial++;}
+    cells.push(cls);
   }
-  $('uptimePct').textContent=(((60-down)/60)*100).toFixed(2)+'% uptime';
+  const pct=(((days-down-partial*.5)/days)*100).toFixed(days>=30?1:2);
+  const today=new Date();
+  const start=new Date(today); start.setDate(start.getDate()-(days-1));
+  const data={cells,pct,startLabel:fmtShortDate(start),endLabel:fmtShortDate(today)};
+  uptimeCache[key]=data;
+  return data;
+}
+
+function renderSvcHistory(svc){
+  const {cells,pct,startLabel,endLabel}=getSvcHistory(svc,uptimePeriodDays);
+  const bar=document.getElementById('bar-'+svc.id);
+  const hd=document.getElementById('uStatus-'+svc.id);
+  const startEl=document.getElementById('barStart-'+svc.id);
+  const endEl=document.getElementById('barEnd-'+svc.id);
+  if(!bar) return;
+  bar.innerHTML=cells.map((cls,i)=>`<div class="uday${cls?' '+cls:''}" title="${startLabel} → J-${cells.length-1-i}"></div>`).join('');
+  const level=pct>=99?'operational':pct>=95?'degraded':'down';
+  const label=level==='operational'?'Opérationnel':level==='degraded'?'Dégradations mineures':'Interruptions';
+  if(hd){hd.className='svc-row-uptime-hd svc-row-uptime-'+level; hd.textContent=`${label} · ${pct}% de disponibilité sur ${uptimePeriodDays} jours`;}
+  if(startEl) startEl.textContent=startLabel;
+  if(endEl) endEl.textContent=endLabel;
+}
+
+function toggleSvcRow(svc){
+  const row=$('svcrow-'+svc.id);
+  if(!row) return;
+  const wasOpen=row.classList.contains('open');
+  document.querySelectorAll('.svc-row.open').forEach(r=>r.classList.remove('open'));
+  if(!wasOpen){ row.classList.add('open'); renderSvcHistory(svc); }
+}
+
+function setUptimePeriod(days,btn){
+  uptimePeriodDays=days;
+  document.querySelectorAll('.uptime-period').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  SERVICES.forEach(svc=>{ if($('svcrow-'+svc.id)?.classList.contains('open')) renderSvcHistory(svc); });
 }
 
 // ── Maintenance cards ─────────────────────────────────────────
@@ -896,12 +1016,13 @@ function buildStatusGrid(){
     const cur=overrides[svc.id]||'auto';
     const row=document.createElement('div'); row.className='arow';
     row.innerHTML=`
+      <div class="arow-icon">${ICONS[svc.id]||ICONS.web}</div>
       <div style="flex:1"><div class="arow-name">${esc(svc.label)}</div><div class="arow-sub">Seuils : dégradé >${svc.thr_deg||2000}ms · hors ligne >${svc.thr_down||5000}ms</div></div>
       <select class="asel" id="sel-${svc.id}">
-        <option value="auto" ${cur==='auto'?'selected':''}>🔄 Auto</option>
-        <option value="operational" ${cur==='operational'?'selected':''}>🟢 Opérationnel</option>
-        <option value="degraded" ${cur==='degraded'?'selected':''}>🟡 Dégradé</option>
-        <option value="down" ${cur==='down'?'selected':''}>🔴 Hors ligne</option>
+        <option value="auto" ${cur==='auto'?'selected':''}>Auto</option>
+        <option value="operational" ${cur==='operational'?'selected':''}>Opérationnel</option>
+        <option value="degraded" ${cur==='degraded'?'selected':''}>Dégradé</option>
+        <option value="down" ${cur==='down'?'selected':''}>Hors ligne</option>
       </select>`;
     g.appendChild(row);
   });
@@ -914,7 +1035,7 @@ async function saveStatuses(){
   await sbUpsert('dc_status_overrides',{id:'main',data:overrides,updated_at:new Date().toISOString(),updated_by:currentAdmin?.name||'admin'});
   await addLog(`Statuts: ${Object.entries(overrides).map(([k,v])=>k+'=>'+v).join(', ')||'reset auto'}`);
   await runChecks();
-  showToast('toastStatus','✓ Enregistré');
+  showToast('toastStatus','Enregistré');
   btn.disabled=false; btn.textContent='Enregistrer';
 }
 
@@ -947,13 +1068,13 @@ async function saveSvcModal(){
   }
   closeSvcModal();
   await loadServices(); buildServiceCards(); buildStatusGrid(); await runChecks(); renderAdminSvcList();
-  showToast('toastSvc','✓ Service enregistré');
+  showToast('toastSvc','Service enregistré');
 }
 async function deleteSvc(id,label){
   if(!confirm(`Supprimer "${label}" ?`)) return;
   await sbDelete('dc_services',id); await addLog(`Service supprimé: ${label}`);
   await loadServices(); buildServiceCards(); buildStatusGrid(); await runChecks(); renderAdminSvcList();
-  showToast('toastSvc','✓ Supprimé');
+  showToast('toastSvc','Supprimé');
 }
 function renderAdminSvcList(){
   const el=$('adminSvcList'); el.innerHTML='';
@@ -961,6 +1082,7 @@ function renderAdminSvcList(){
   SERVICES.forEach(svc=>{
     const row=document.createElement('div'); row.className='arow';
     row.innerHTML=`
+      <div class="arow-icon">${ICONS[svc.id]||ICONS.web}</div>
       <div style="flex:1"><div class="arow-name">${esc(svc.label)}</div><div class="arow-sub">${esc(svc.url||svc.description||'—')} · dégradé>${svc.thr_deg||2000}ms · hors ligne>${svc.thr_down||5000}ms</div></div>
       <div style="display:flex;gap:6px">
         <button class="btn-sm edit" onclick='openSvcModal(${JSON.stringify(svc)})'>Modifier</button>
@@ -974,11 +1096,11 @@ function renderAdminSvcList(){
 function setSev(s){currentSev=s;['info','warn','crit','ok'].forEach(k=>$('sev-'+k).className='sev-btn'+(k===s?' active-'+k:''));}
 async function publishIncident(){
   const title=$('incTitle').value.trim(), msg=$('incMsg').value.trim();
-  if(!title||!msg){showToast('toastInc','⚠ Titre et message requis',true);return;}
+  if(!title||!msg){showToast('toastInc','Titre et message requis',true);return;}
   await sbInsert('dc_incidents',{title,message:msg,severity:currentSev,created_at:new Date().toISOString(),created_by:currentAdmin?.name||'admin'});
   await addLog(`Incident [${currentSev}]: ${title}`);
   $('incTitle').value=''; $('incMsg').value=''; setSev('info');
-  showToast('toastInc','✓ Publié'); await loadAdminIncidents();
+  showToast('toastInc','Publié'); await loadAdminIncidents();
 }
 async function loadAdminIncidents(){
   const el=$('adminIncList'); el.innerHTML='';
@@ -998,11 +1120,11 @@ async function deleteInc(id){if(!confirm('Supprimer ?')) return; await sbDelete(
 async function publishMaintenance(){
   const title=$('maintTitle').value.trim(), msg=$('maintMsg').value.trim();
   const start=$('maintStart').value, end=$('maintEnd').value;
-  if(!title||!start){showToast('toastMaint','⚠ Titre et début requis',true);return;}
+  if(!title||!start){showToast('toastMaint','Titre et début requis',true);return;}
   await sbInsert('dc_maintenances',{title,message:msg,starts_at:new Date(start).toISOString(),ends_at:end?new Date(end).toISOString():null,created_at:new Date().toISOString(),created_by:currentAdmin?.name||'admin'});
   await addLog(`Maintenance: ${title}`);
   $('maintTitle').value=''; $('maintMsg').value=''; $('maintStart').value=''; $('maintEnd').value='';
-  showToast('toastMaint','✓ Planifiée'); await loadAdminMaintenances(); await loadPublicMaintenances();
+  showToast('toastMaint','Planifiée'); await loadAdminMaintenances(); await loadPublicMaintenances();
 }
 async function loadAdminMaintenances(){
   const el=$('adminMaintList'); el.innerHTML='';
@@ -1108,7 +1230,6 @@ applyTheme(prefersDark);
 
 // ── INIT ──────────────────────────────────────────────────────
 (async()=>{
-  buildUptimeBar();
   await loadServices();
   await loadOverrides();
   buildServiceCards();
