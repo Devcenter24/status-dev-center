@@ -36,6 +36,10 @@ html{scroll-behavior:smooth}
   --surface-faint:rgba(16,26,46,.04);--surface-hover:rgba(16,26,46,.05);
   --surface-hover-strong:rgba(16,26,46,.09);--hairline:rgba(16,26,46,.06);
   --r:8px;--r2:12px;
+  --dc-bg:#313338;--dc-bg2:#2b2d31;--dc-bg3:#1e1f22;--dc-bg-hover:#3a3c42;
+  --dc-border:#3f4147;--dc-text:#f2f3f5;--dc-text2:#b5bac1;--dc-text3:#80848e;
+  --dc-blurple:#5865f2;--dc-blurple-h:#4752c4;--dc-green:#23a55a;--dc-red:#da373c;
+  --dc-red-h:#a12d2f;--dc-yellow:#f0b232;
 }
 html.dark{
   --bg:#0a0d18;--bg2:#111729;--bg3:#161d33;
@@ -245,123 +249,137 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .empty-state-wrap svg{opacity:.25;margin-bottom:12px;color:var(--text3)}
 .empty-state-wrap p{color:var(--text3);font-size:.85rem}
 
-.admin-panel{background:var(--bg2);border:1px solid rgba(59,125,224,.2);border-radius:var(--r2);
-  overflow:hidden;margin-top:12px;display:none}
-.admin-bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border)}
-.admin-bar-title{font-weight:700;font-size:.92rem;flex:1}
-.admin-bar-sub{font-size:.74rem;color:var(--text2)}
-.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--surface-faint)}
-.atab{flex:1;padding:11px 4px;font-size:.76rem;font-weight:500;color:var(--text2);background:none;
-  border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
-  transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
-.atab:hover{color:var(--text)}
-.atab.active{color:var(--blue);border-bottom-color:var(--blue)}
-.atab-content{display:none;padding:20px}
+.admin-panel{background:var(--dc-bg2);border:1px solid var(--dc-border);border-left:4px solid var(--dc-blurple);
+  border-radius:var(--r2);overflow:hidden;margin-top:12px;display:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.28);color:var(--dc-text)}
+.admin-bar{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--dc-border);
+  background:var(--dc-bg3)}
+.admin-bar-eyebrow{font-size:.64rem;font-weight:700;color:var(--dc-blurple);text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:2px;display:flex;align-items:center;gap:5px}
+.admin-bar-title{font-weight:700;font-size:.92rem;flex:1;color:var(--dc-text)}
+.admin-bar-sub{font-size:.74rem;color:var(--dc-text2)}
+.admin-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px;border-bottom:1px solid var(--dc-border);
+  background:var(--dc-bg2)}
+.atab{padding:7px 14px;font-size:.78rem;font-weight:600;color:var(--dc-text2);background:var(--dc-bg3);
+  border:1px solid transparent;border-radius:999px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  transition:background .15s,color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
+.atab:hover{color:var(--dc-text);background:var(--dc-bg-hover)}
+.atab.active{color:#fff;background:var(--dc-blurple)}
+.atab-content{display:none;padding:20px;background:var(--dc-bg2)}
 .atab-content.active{display:block}
-.field-lbl{font-size:.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
-.ainput,.atextarea{width:100%;background:var(--bg3);border:1px solid var(--border2);
-  color:var(--text);font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;
-  padding:9px 13px;border-radius:var(--r);outline:none;transition:border-color .15s}
-.ainput:focus,.atextarea:focus{border-color:rgba(59,125,224,.5)}
+.field-lbl{font-size:.68rem;color:var(--dc-text2);text-transform:uppercase;font-weight:700;letter-spacing:.03em;margin-bottom:6px}
+.ainput,.atextarea{width:100%;background:var(--dc-bg3);border:1px solid var(--dc-border);
+  color:var(--dc-text);font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;
+  padding:9px 13px;border-radius:3px;outline:none;transition:border-color .15s,background .15s}
+.ainput::placeholder,.atextarea::placeholder{color:var(--dc-text3)}
+.ainput:focus,.atextarea:focus{border-color:var(--dc-blurple);background:#1a1b1e}
 .ainput[type=number]{-moz-appearance:textfield}
 .ainput[type=number]::-webkit-outer-spin-button,.ainput[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
-.ainput[type=datetime-local]{color-scheme:light}
+.ainput[type=datetime-local]{color-scheme:dark}
 html.dark .ainput[type=datetime-local]{color-scheme:dark}
 .atextarea{resize:vertical;min-height:80px;line-height:1.55}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field-wrap{display:flex;flex-direction:column;gap:5px}
-.arow{display:flex;align-items:center;gap:12px;background:var(--bg3);
-  border:1px solid var(--border);border-radius:var(--r);padding:12px 15px;margin-bottom:8px}
-.arow:hover{border-color:var(--border2)}
-.arow-name{font-weight:600;font-size:.84rem;flex:1}
-.arow-sub{font-size:.72rem;color:var(--text3);margin-top:2px}
-.asel{background:var(--bg2);border:1px solid var(--border2);color:var(--text);
-  font-size:.76rem;padding:7px 26px 7px 10px;border-radius:var(--r);cursor:pointer;outline:none;
+.arow{display:flex;align-items:center;gap:12px;background:var(--dc-bg3);
+  border:1px solid var(--dc-border);border-radius:8px;padding:12px 15px;margin-bottom:8px;transition:border-color .15s}
+.arow:hover{border-color:var(--dc-blurple)}
+.arow-name{font-weight:600;font-size:.84rem;flex:1;color:var(--dc-text)}
+.arow-sub{font-size:.72rem;color:var(--dc-text3);margin-top:2px}
+.asel{background:var(--dc-bg3);border:1px solid var(--dc-border);color:var(--dc-text);
+  font-size:.76rem;font-weight:500;padding:8px 30px 8px 12px;border-radius:4px;cursor:pointer;outline:none;
   appearance:none;-webkit-appearance:none;min-width:148px;font-family:'Plus Jakarta Sans',sans-serif;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23636880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 8px center;transition:border-color .15s}
-.asel option{background:#fff}
-html.dark .asel option{background:#161d33}
-.asel:focus{border-color:rgba(59,125,224,.5)}
-.sev-row{display:flex;gap:8px}
-.sev-btn{flex:1;padding:8px 4px;border-radius:var(--r);border:1px solid var(--border2);
-  background:var(--bg3);color:var(--text2);font-size:.75rem;font-weight:500;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23b5bac1' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center;transition:border-color .15s,background-color .15s}
+.asel:hover{background-color:var(--dc-bg-hover)}
+.asel option{background:#2b2d31;color:#f2f3f5}
+html.dark .asel option{background:#2b2d31;color:#f2f3f5}
+.asel:focus{border-color:var(--dc-blurple)}
+.sev-row{display:flex;gap:8px;flex-wrap:wrap}
+.sev-btn{flex:1;min-width:110px;padding:9px 4px;border-radius:4px;border:1px solid var(--dc-border);
+  background:var(--dc-bg3);color:var(--dc-text2);font-size:.75rem;font-weight:600;
   cursor:pointer;transition:all .15s;text-align:center;font-family:'Plus Jakarta Sans',sans-serif}
-.sev-btn:hover{background:var(--surface-hover)}
-.sev-btn.active-info{background:rgba(59,125,224,.15);border-color:rgba(59,125,224,.4);color:var(--blue)}
-.sev-btn.active-warn{background:var(--yellow-bg);border-color:rgba(245,200,66,.35);color:var(--yellow)}
-.sev-btn.active-crit{background:var(--red-bg);border-color:rgba(232,93,93,.35);color:var(--red)}
-.sev-btn.active-ok{background:var(--green-bg);border-color:rgba(62,207,142,.35);color:var(--green)}
+.sev-btn:hover{background:var(--dc-bg-hover);color:var(--dc-text)}
+.sev-btn.active-info{background:var(--dc-blurple);border-color:var(--dc-blurple);color:#fff}
+.sev-btn.active-warn{background:var(--dc-yellow);border-color:var(--dc-yellow);color:#1e1f22}
+.sev-btn.active-crit{background:var(--dc-red);border-color:var(--dc-red);color:#fff}
+.sev-btn.active-ok{background:var(--dc-green);border-color:var(--dc-green);color:#fff}
 .btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;
-  border-radius:var(--r);font-weight:600;font-size:.83rem;border:none;cursor:pointer;
+  border-radius:4px;font-weight:600;font-size:.83rem;border:none;cursor:pointer;
   transition:background .15s,transform .15s;font-family:'Plus Jakarta Sans',sans-serif;width:100%}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:#4a8de8;transform:translateY(-1px)}
+.btn-blue{background:var(--dc-blurple);color:#fff}
+.btn-blue:hover{background:var(--dc-blurple-h);transform:translateY(-1px)}
 .btn-blue:disabled{opacity:.45;cursor:not-allowed;transform:none}
-.btn-ghost{background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2)}
-.btn-ghost:hover{background:var(--surface-hover-strong)}
-.btn-sm{padding:5px 12px;font-size:.74rem;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;
-  font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border2);
-  background:var(--surface-faint);color:var(--text2)}
-.btn-sm:hover{background:var(--surface-hover-strong)}
-.btn-sm.edit{color:var(--blue);border-color:rgba(59,125,224,.3);background:rgba(59,125,224,.08)}
-.btn-sm.del{color:var(--red);border-color:rgba(232,93,93,.3);background:rgba(232,93,93,.08)}
-.toast{display:none;margin-top:10px;padding:10px 14px;border-radius:var(--r);
-  font-size:.78rem;text-align:center;background:var(--green-bg);
-  border:1px solid rgba(62,207,142,.3);color:var(--green)}
-.toast.err{background:var(--red-bg);border-color:rgba(232,93,93,.3);color:var(--red)}
+.btn-ghost{background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2)}
+.btn-ghost:hover{background:#45474e;color:var(--dc-text)}
+.btn-sm{padding:6px 13px;font-size:.74rem;border-radius:4px;font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--dc-border);
+  background:var(--dc-bg-hover);color:var(--dc-text2)}
+.btn-sm:hover{background:#45474e;color:var(--dc-text)}
+.btn-sm.edit{color:#fff;border-color:var(--dc-blurple);background:var(--dc-blurple)}
+.btn-sm.edit:hover{background:var(--dc-blurple-h)}
+.btn-sm.del{color:#fff;border-color:var(--dc-red);background:var(--dc-red)}
+.btn-sm.del:hover{background:var(--dc-red-h)}
+.toast{display:none;margin-top:10px;padding:10px 14px;border-radius:4px;
+  font-size:.78rem;text-align:center;background:rgba(35,165,90,.15);
+  border:1px solid var(--dc-green);color:var(--dc-green)}
+.toast.err{background:rgba(218,55,60,.15);border-color:var(--dc-red);color:#ff6b6f}
 .list-wrap{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow-y:auto;margin-top:14px}
 .list-wrap::-webkit-scrollbar{width:4px}
-.list-wrap::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
-.litem{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px}
+.list-wrap::-webkit-scrollbar-thumb{background:var(--dc-border);border-radius:4px}
+.litem{background:var(--dc-bg3);border:1px solid var(--dc-border);border-left:3px solid var(--dc-blurple);
+  border-radius:6px;padding:13px 15px}
 .litem-hd{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px}
-.litem-title{font-weight:600;font-size:.84rem;flex:1}
-.litem-time{font-size:.71rem;color:var(--text3);white-space:nowrap;padding-top:2px}
-.litem-msg{font-size:.79rem;color:var(--text2);line-height:1.5}
-.litem-by{font-size:.7rem;color:var(--text3);margin-top:5px}
+.litem-title{font-weight:600;font-size:.84rem;flex:1;color:var(--dc-text)}
+.litem-time{font-size:.71rem;color:var(--dc-text3);white-space:nowrap;padding-top:2px}
+.litem-msg{font-size:.79rem;color:var(--dc-text2);line-height:1.5}
+.litem-by{font-size:.7rem;color:var(--dc-text3);margin-top:5px}
 .litem-actions{display:flex;gap:6px;margin-top:8px}
 .log-row{display:flex;align-items:flex-start;gap:10px;padding:8px 12px;
-  background:var(--bg3);border:1px solid var(--border);border-radius:6px}
-.log-time{font-family:monospace;font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
-.log-msg{font-size:.79rem;color:var(--text2);flex:1;line-height:1.45}
-.log-by{font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
-.sec-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  background:var(--dc-bg3);border:1px solid var(--dc-border);border-radius:6px}
+.log-time{font-family:monospace;font-size:.7rem;color:var(--dc-text3);white-space:nowrap;padding-top:1px}
+.log-msg{font-size:.79rem;color:var(--dc-text2);flex:1;line-height:1.45}
+.log-by{font-size:.7rem;color:var(--dc-text3);white-space:nowrap;padding-top:1px}
+.sec-title{font-size:.68rem;color:var(--dc-text3);text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-bottom:10px}
 
-/* ── LOGIN BOX (masquée du public, accessible via le lien Staff en footer) ── */
-.login-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);
-  padding:28px;margin-top:12px;display:none}
+/* ── LOGIN BOX (masquée du public, accessible via le lien Staff en footer) — style embed Discord ── */
+.login-box{background:var(--dc-bg2);border:1px solid var(--dc-border);border-left:4px solid var(--dc-blurple);
+  border-radius:var(--r2);padding:26px;margin-top:12px;display:none;color:var(--dc-text);
+  box-shadow:0 8px 24px rgba(0,0,0,.28)}
 .login-box.visible{display:block;animation:fadeInUp .4s ease forwards}
-.login-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.login-icon{width:40px;height:40px;border-radius:10px;background:rgba(88,101,242,.18);
-  border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.login-title{font-weight:700;font-size:.95rem}
-.login-sub{font-size:.76rem;color:var(--text2);margin-top:1px}
+.login-eyebrow{font-size:.64rem;font-weight:700;color:var(--dc-blurple);text-transform:uppercase;
+  letter-spacing:.08em;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.login-hd{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.login-icon{width:42px;height:42px;border-radius:10px;background:var(--dc-blurple);
+  border:1px solid var(--dc-blurple);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.login-title{font-weight:700;font-size:.95rem;color:var(--dc-text)}
+.login-sub{font-size:.76rem;color:var(--dc-text2);margin-top:1px}
 .dc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  background:#5865F2;color:#fff;font-weight:600;font-size:.87rem;padding:11px 20px;
-  border-radius:var(--r);width:100%;border:none;cursor:pointer;
+  background:var(--dc-blurple);color:#fff;font-weight:600;font-size:.87rem;padding:11px 20px;
+  border-radius:4px;width:100%;border:none;cursor:pointer;
   transition:background .15s,transform .15s;font-family:'Plus Jakarta Sans',sans-serif}
-.dc-btn:hover{background:#4752C4;transform:translateY(-1px)}
-.dc-btn.ghost{background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2)}
-.dc-btn.ghost:hover{background:var(--surface-hover-strong)}
-.status-ok{background:var(--green-bg);border:1px solid rgba(62,207,142,.25);border-radius:var(--r);
-  padding:12px 16px;font-size:.83rem;color:var(--green);display:flex;align-items:center;gap:10px}
-.status-err{background:var(--red-bg);border:1px solid rgba(232,93,93,.25);border-radius:var(--r);
-  padding:12px 16px;font-size:.83rem;color:var(--red);display:flex;align-items:center;gap:10px}
+.dc-btn:hover{background:var(--dc-blurple-h);transform:translateY(-1px)}
+.dc-btn.ghost{background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2)}
+.dc-btn.ghost:hover{background:#45474e;color:var(--dc-text)}
+.status-ok{background:rgba(35,165,90,.12);border:1px solid var(--dc-green);border-radius:6px;
+  padding:12px 16px;font-size:.83rem;color:var(--dc-green);display:flex;align-items:center;gap:10px}
+.status-err{background:rgba(218,55,60,.12);border:1px solid var(--dc-red);border-radius:6px;
+  padding:12px 16px;font-size:.83rem;color:#ff6b6f;display:flex;align-items:center;gap:10px}
 
-/* ── MODAL ── */
+/* ── MODAL — style fenêtre Discord ── */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
   backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
-.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r2);
-  padding:24px;max-width:500px;width:calc(100% - 40px);box-shadow:0 20px 60px rgba(16,26,46,.18)}
-.modal-title{font-weight:700;font-size:1rem;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.modal{background:var(--dc-bg2);border:1px solid var(--dc-border);border-radius:8px;
+  padding:24px;max-width:500px;width:calc(100% - 40px);box-shadow:0 20px 60px rgba(0,0,0,.45);
+  color:var(--dc-text)}
+.modal-title{font-weight:700;font-size:1rem;margin-bottom:18px;display:flex;align-items:center;gap:9px;color:var(--dc-text)}
 .modal-fields{display:flex;flex-direction:column;gap:13px}
 .modal-actions{display:flex;gap:10px;margin-top:18px}
 .modal-actions .btn{flex:2}
-.modal-cancel{flex:1;padding:10px;border-radius:var(--r);background:var(--surface-faint);
-  color:var(--text2);font-weight:600;font-size:.83rem;border:1px solid var(--border2);
+.modal-cancel{flex:1;padding:10px;border-radius:4px;background:transparent;
+  color:var(--dc-text2);font-weight:600;font-size:.83rem;border:none;
   cursor:pointer;transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif}
-.modal-cancel:hover{background:var(--surface-hover-strong)}
+.modal-cancel:hover{color:var(--dc-text);text-decoration:underline}
 
 footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid var(--border);
   max-width:780px;margin:0 auto}
@@ -448,10 +466,11 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
   <div class="admin-panel" id="adminPanel">
     <div class="admin-bar">
       <div style="flex:1">
+        <div class="admin-bar-eyebrow">🛡 Panneau Staff</div>
         <div class="admin-bar-title">Administration</div>
-        <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--text)">—</span></div>
+        <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--dc-text)">—</span></div>
       </div>
-      <button onclick="logout()" style="background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déconnexion</button>
+      <button onclick="logout()" style="background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2);font-size:.72rem;padding:6px 12px;border-radius:4px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déconnexion</button>
     </div>
     <div class="admin-tabs">
       <button class="atab active" onclick="switchAdminTab('status',this)">Statuts</button>
@@ -462,7 +481,7 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
     </div>
 
     <div class="atab-content active" id="atab-status">
-      <p style="font-size:.78rem;color:var(--text2);margin-bottom:14px;line-height:1.6">Forcer manuellement le statut. <strong style="color:var(--text)">Automatique</strong> = basé sur le ping réel.</p>
+      <p style="font-size:.78rem;color:var(--dc-text2);margin-bottom:14px;line-height:1.6">Forcer manuellement le statut. <strong style="color:var(--dc-text)">Automatique</strong> = basé sur le ping réel.</p>
       <div id="statusGrid" style="margin-bottom:12px"></div>
       <button class="btn btn-blue" id="btnSaveStatus" onclick="saveStatuses()">Enregistrer</button>
       <div class="toast" id="toastStatus"></div>
@@ -491,7 +510,7 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
         <div class="toast" id="toastInc"></div>
       </div>
       <div class="sec-title">Incidents publiés</div>
-      <div class="list-wrap" id="adminIncList"><div style="color:var(--text3);font-size:.8rem;padding:8px 0">Chargement…</div></div>
+      <div class="list-wrap" id="adminIncList"><div style="color:var(--dc-text3);font-size:.8rem;padding:8px 0">Chargement…</div></div>
     </div>
 
     <div class="atab-content" id="atab-maintenance">
@@ -506,12 +525,12 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
         <div class="toast" id="toastMaint"></div>
       </div>
       <div class="sec-title">Planifiées</div>
-      <div class="list-wrap" id="adminMaintList"><div style="color:var(--text3);font-size:.8rem;padding:8px 0">Chargement…</div></div>
+      <div class="list-wrap" id="adminMaintList"><div style="color:var(--dc-text3);font-size:.8rem;padding:8px 0">Chargement…</div></div>
     </div>
 
     <div class="atab-content" id="atab-logs">
       <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
-        <button onclick="loadLogs()" style="background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);font-size:.76rem;padding:7px 14px;border-radius:var(--r);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">↻ Actualiser</button>
+        <button onclick="loadLogs()" style="background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2);font-size:.76rem;padding:7px 14px;border-radius:4px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">↻ Actualiser</button>
       </div>
       <div class="list-wrap" id="logsList"></div>
     </div>
@@ -520,35 +539,36 @@ footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid v
   <!-- DISCORD LOGIN (réservé au staff, révélée via le lien en footer) -->
   <div class="login-box" id="loginBox">
     <div id="stateLogin">
+      <div class="login-eyebrow">🔒 Accès réservé</div>
       <div class="login-hd">
-        <div class="login-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/></svg></div>
+        <div class="login-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="white"/></svg></div>
         <div><div class="login-title">Connexion Admin</div><div class="login-sub">Réservé aux membres avec le rôle requis</div></div>
       </div>
-      <p style="font-size:.82rem;color:var(--text2);margin-bottom:16px;line-height:1.65">Connecte ton Discord pour accéder au panneau d'administration.</p>
+      <p style="font-size:.82rem;color:var(--dc-text2);margin-bottom:16px;line-height:1.65">Connecte ton Discord pour accéder au panneau d'administration.</p>
       <button class="dc-btn" onclick="startDiscordLogin()">
         <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="white"/></svg>
         Se connecter avec Discord
       </button>
     </div>
     <div id="stateLoading" style="display:none;text-align:center;padding:20px">
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="rgba(59,125,224,.2)" stroke-width="3"/><path d="M16 3 A13 13 0 0 1 29 16" stroke="#5a9cf8" stroke-width="3" stroke-linecap="round"/></svg>
-      <p style="font-size:.8rem;color:var(--text2);margin-top:10px">Vérification Discord…</p>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="13" stroke="rgba(88,101,242,.25)" stroke-width="3"/><path d="M16 3 A13 13 0 0 1 29 16" stroke="var(--dc-blurple)" stroke-width="3" stroke-linecap="round"/></svg>
+      <p style="font-size:.8rem;color:var(--dc-text2);margin-top:10px">Vérification Discord…</p>
     </div>
     <div id="stateGranted" style="display:none">
-      <div class="status-ok"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5L5.5 11L13 4" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Accès admin actif — panneau disponible ci-dessus.</div>
+      <div class="status-ok"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5L5.5 11L13 4" stroke="var(--dc-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Accès admin actif — panneau disponible ci-dessus.</div>
     </div>
     <div id="stateDenied" style="display:none">
       <div class="login-hd">
-        <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--red)"><img id="avatarDenied" src="" width="40" height="40" style="object-fit:cover;display:block" alt=""/></div>
-        <div style="flex:1"><div class="login-title" id="nameDenied">—</div><div class="login-sub" style="color:var(--red)">Accès refusé · Rôle manquant</div></div>
-        <button onclick="logout()" style="background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déco</button>
+        <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--dc-red)"><img id="avatarDenied" src="" width="40" height="40" style="object-fit:cover;display:block" alt=""/></div>
+        <div style="flex:1"><div class="login-title" id="nameDenied">—</div><div class="login-sub" style="color:#ff6b6f">Accès refusé · Rôle manquant</div></div>
+        <button onclick="logout()" style="background:var(--dc-bg-hover);border:1px solid var(--dc-border);color:var(--dc-text2);font-size:.72rem;padding:5px 10px;border-radius:4px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déco</button>
       </div>
-      <div class="status-err" style="margin-top:10px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="var(--red)" stroke-width="1.5"/><path d="M7 4.5V7M7 9.5H7.01" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>Tu n'as pas le rôle requis sur le serveur Dev Center.</div>
+      <div class="status-err" style="margin-top:10px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="var(--dc-red)" stroke-width="1.5"/><path d="M7 4.5V7M7 9.5H7.01" stroke="var(--dc-red)" stroke-width="1.5" stroke-linecap="round"/></svg>Tu n'as pas le rôle requis sur le serveur Dev Center.</div>
     </div>
     <div id="stateNotMember" style="display:none">
       <div class="login-hd">
-        <div class="login-icon" style="background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.3)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="var(--yellow)" stroke-width="1.5"/><path d="M9 6V9M9 12H9.01" stroke="var(--yellow)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div><div class="login-title">Pas membre</div><div class="login-sub" style="color:var(--yellow)">Tu n'es pas dans le serveur Dev Center</div></div>
+        <div class="login-icon" style="background:rgba(240,178,50,.15);border-color:var(--dc-yellow)"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6.5" stroke="var(--dc-yellow)" stroke-width="1.5"/><path d="M9 6V9M9 12H9.01" stroke="var(--dc-yellow)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <div><div class="login-title">Pas membre</div><div class="login-sub" style="color:var(--dc-yellow)">Tu n'es pas dans le serveur Dev Center</div></div>
       </div>
       <button class="dc-btn ghost" onclick="logout()" style="margin-top:12px">Réessayer</button>
     </div>
