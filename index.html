@@ -22,7 +22,7 @@
 <meta name="twitter:description" content="Surveillance en temps réel des services Dev Center.">
 <meta name="twitter:image" content="https://images-ext-1.discordapp.net/external/S_Z8gqs11xrmMb5i0JYkIjqB7GtZTCEgpXoqC03YDO8/%3Fsize%3D256/https/cdn.discordapp.com/icons/1452963098284785765/4255d99dd972ab407c31044fe9a899b0.png?format=webp&quality=lossless">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -34,7 +34,7 @@ html{scroll-behavior:smooth}
   --green-bg:rgba(31,168,114,.1);--yellow-bg:rgba(201,138,10,.1);--red-bg:rgba(220,70,70,.1);
   --r:8px;--r2:12px;
 }
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;font-size:15px;line-height:1.6;
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;font-size:15px;line-height:1.6;
   background-image:linear-gradient(rgba(16,26,46,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(16,26,46,.025) 1px,transparent 1px);
   background-size:60px 60px}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -73,6 +73,10 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;
   color:var(--text);text-decoration:none}
 .nav-logo img{width:30px;height:30px;border-radius:8px;object-fit:cover}
+.nav-status-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:var(--green);
+  box-shadow:0 0 8px var(--green);animation:pulse 2s ease-in-out infinite}
+.nav-status-dot.warn{background:var(--yellow);box-shadow:0 0 8px var(--yellow)}
+.nav-status-dot.down{background:var(--red);box-shadow:0 0 8px var(--red)}
 .nav-right{display:flex;align-items:center;gap:10px}
 #navUser{display:none;align-items:center;gap:8px}
 #navUser img{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue)}
@@ -84,17 +88,32 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .hero::after{content:'';position:absolute;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,rgba(62,207,142,.25),transparent);
   animation:scanline 5s linear infinite;pointer-events:none}
-.hero-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
-.hero-icon.ok{background:var(--green-bg);border:1.5px solid rgba(62,207,142,.3);animation:glow 3s ease-in-out infinite}
-.hero-icon.warn{background:var(--yellow-bg);border:1.5px solid rgba(245,200,66,.3);animation:glowYellow 2.5s ease-in-out infinite}
-.hero-icon.down{background:var(--red-bg);border:1.5px solid rgba(232,93,93,.3);animation:glowRed 2s ease-in-out infinite}
-.hero h1{font-size:1.9rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.hero-icon{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 26px;position:relative}
+.hero-icon::before{content:'';position:absolute;inset:0;border-radius:50%;filter:blur(18px)}
+.hero-icon .orb-core{width:46px;height:46px;border-radius:50%;position:relative;z-index:1;
+  box-shadow:0 0 24px 4px var(--orb-shadow, rgba(31,168,114,.5))}
+.hero-icon.ok{--orb-shadow:rgba(31,168,114,.55)}
+.hero-icon.ok::before{background:radial-gradient(circle,rgba(31,168,114,.35) 0%,transparent 70%)}
+.hero-icon.ok .orb-core{background:radial-gradient(circle at 35% 30%,#5be0aa,var(--green) 70%)}
+.hero-icon.ok{animation:glow 3s ease-in-out infinite}
+.hero-icon.warn{--orb-shadow:rgba(201,138,10,.5)}
+.hero-icon.warn::before{background:radial-gradient(circle,rgba(201,138,10,.32) 0%,transparent 70%)}
+.hero-icon.warn .orb-core{background:radial-gradient(circle at 35% 30%,#f3c463,var(--yellow) 70%)}
+.hero-icon.warn{animation:glowYellow 2.5s ease-in-out infinite}
+.hero-icon.down{--orb-shadow:rgba(220,70,70,.5)}
+.hero-icon.down::before{background:radial-gradient(circle,rgba(220,70,70,.32) 0%,transparent 70%)}
+.hero-icon.down .orb-core{background:radial-gradient(circle at 35% 30%,#f38b8b,var(--red) 70%)}
+.hero-icon.down{animation:glowRed 2s ease-in-out infinite}
+.hero h1{font-size:1.9rem;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
 .hero-sub{font-size:.84rem;color:var(--text3)}
+.hero-timestamp{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;color:var(--text3);
+  margin-top:18px;padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:var(--bg2)}
+.hero-timestamp svg{flex-shrink:0}
 
 .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:32px}
 .tab{padding:11px 20px;font-size:.88rem;font-weight:500;color:var(--text2);background:none;
   border:none;border-bottom:2px solid transparent;cursor:pointer;
-  transition:color .15s,border-color .15s;margin-bottom:-1px;font-family:'Inter',sans-serif}
+  transition:color .15s,border-color .15s;margin-bottom:-1px;font-family:'Plus Jakarta Sans',sans-serif}
 .tab:hover{color:var(--text)}
 .tab.active{color:var(--text);border-bottom-color:var(--text)}
 .tab-panel{display:none}
@@ -212,7 +231,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .admin-bar-sub{font-size:.74rem;color:var(--text2)}
 .admin-tabs{display:flex;border-bottom:1px solid var(--border);background:rgba(16,26,46,.04)}
 .atab{flex:1;padding:11px 4px;font-size:.76rem;font-weight:500;color:var(--text2);background:none;
-  border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Inter',sans-serif;
+  border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
   transition:color .15s,border-color .15s;display:flex;align-items:center;justify-content:center;gap:5px}
 .atab:hover{color:var(--text)}
 .atab.active{color:var(--blue);border-bottom-color:var(--blue)}
@@ -220,7 +239,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .atab-content.active{display:block}
 .field-lbl{font-size:.72rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
 .ainput,.atextarea{width:100%;background:var(--bg3);border:1px solid var(--border2);
-  color:var(--text);font-size:.85rem;font-family:'Inter',sans-serif;
+  color:var(--text);font-size:.85rem;font-family:'Plus Jakarta Sans',sans-serif;
   padding:9px 13px;border-radius:var(--r);outline:none;transition:border-color .15s}
 .ainput:focus,.atextarea:focus{border-color:rgba(59,125,224,.5)}
 .ainput[type=number]{-moz-appearance:textfield}
@@ -236,7 +255,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .arow-sub{font-size:.72rem;color:var(--text3);margin-top:2px}
 .asel{background:var(--bg2);border:1px solid var(--border2);color:var(--text);
   font-size:.76rem;padding:7px 26px 7px 10px;border-radius:var(--r);cursor:pointer;outline:none;
-  appearance:none;-webkit-appearance:none;min-width:148px;font-family:'Inter',sans-serif;
+  appearance:none;-webkit-appearance:none;min-width:148px;font-family:'Plus Jakarta Sans',sans-serif;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23636880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 8px center;transition:border-color .15s}
 .asel option{background:#fff}
@@ -244,7 +263,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .sev-row{display:flex;gap:8px}
 .sev-btn{flex:1;padding:8px 4px;border-radius:var(--r);border:1px solid var(--border2);
   background:var(--bg3);color:var(--text2);font-size:.75rem;font-weight:500;
-  cursor:pointer;transition:all .15s;text-align:center;font-family:'Inter',sans-serif}
+  cursor:pointer;transition:all .15s;text-align:center;font-family:'Plus Jakarta Sans',sans-serif}
 .sev-btn:hover{background:rgba(16,26,46,.07)}
 .sev-btn.active-info{background:rgba(59,125,224,.15);border-color:rgba(59,125,224,.4);color:var(--blue)}
 .sev-btn.active-warn{background:var(--yellow-bg);border-color:rgba(245,200,66,.35);color:var(--yellow)}
@@ -252,13 +271,13 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .sev-btn.active-ok{background:var(--green-bg);border-color:rgba(62,207,142,.35);color:var(--green)}
 .btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 18px;
   border-radius:var(--r);font-weight:600;font-size:.83rem;border:none;cursor:pointer;
-  transition:background .15s,transform .15s;font-family:'Inter',sans-serif;width:100%}
+  transition:background .15s,transform .15s;font-family:'Plus Jakarta Sans',sans-serif;width:100%}
 .btn-blue{background:var(--blue);color:#fff}
 .btn-blue:hover{background:#4a8de8;transform:translateY(-1px)}
 .btn-blue:disabled{opacity:.45;cursor:not-allowed;transform:none}
 .btn-ghost{background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2)}
 .btn-ghost:hover{background:rgba(16,26,46,.09)}
-.btn-sm{padding:5px 12px;font-size:.74rem;border-radius:6px;font-family:'Inter',sans-serif;
+.btn-sm{padding:5px 12px;font-size:.74rem;border-radius:6px;font-family:'Plus Jakarta Sans',sans-serif;
   font-weight:600;cursor:pointer;transition:all .15s;border:1px solid var(--border2);
   background:rgba(16,26,46,.04);color:var(--text2)}
 .btn-sm:hover{background:rgba(16,26,46,.08)}
@@ -296,7 +315,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .dc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
   background:#5865F2;color:#fff;font-weight:600;font-size:.87rem;padding:11px 20px;
   border-radius:var(--r);width:100%;border:none;cursor:pointer;
-  transition:background .15s,transform .15s;font-family:'Inter',sans-serif}
+  transition:background .15s,transform .15s;font-family:'Plus Jakarta Sans',sans-serif}
 .dc-btn:hover{background:#4752C4;transform:translateY(-1px)}
 .dc-btn.ghost{background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2)}
 .dc-btn.ghost:hover{background:rgba(16,26,46,.09)}
@@ -317,7 +336,7 @@ main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px
 .modal-actions .btn{flex:2}
 .modal-cancel{flex:1;padding:10px;border-radius:var(--r);background:rgba(16,26,46,.04);
   color:var(--text2);font-weight:600;font-size:.83rem;border:1px solid var(--border2);
-  cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+  cursor:pointer;transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif}
 .modal-cancel:hover{background:rgba(16,26,46,.09)}
 
 footer{position:relative;z-index:1;text-align:center;padding:28px;
@@ -337,7 +356,7 @@ footer a:hover{color:var(--text)}
 
 <nav>
   <a class="nav-logo" href="https://devcenter.vyral-studio.com/" target="_blank">
-    <img src="https://images-ext-1.discordapp.net/external/NS4JUvkfST4XlWEGbaAFV12lDQnF8UkS6IOCwTtLgQg/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1452963098284785765/27bfa54de893009c84f974d273d43ec5.png?format=webp&quality=lossless&width=599&height=599" alt="Dev Center"/>
+    <span class="nav-status-dot ok" id="navStatusDot"></span>
     Dev Center
   </a>
   <div class="nav-right">
@@ -350,12 +369,14 @@ footer a:hover{color:var(--text)}
   <!-- HERO -->
   <div class="hero">
     <div class="hero-icon ok" id="heroIcon">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" id="heroSvg">
-        <path d="M6 14L11.5 19.5L22 9" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <span class="orb-core"></span>
     </div>
     <h1 id="heroTitle">Vérification…</h1>
     <p class="hero-sub" id="heroSub">Connexion aux services en cours</p>
+    <div class="hero-timestamp">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M7 4V7L9 8.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="heroTimestampText">—</span>
+    </div>
   </div>
 
   <!-- TABS -->
@@ -392,7 +413,7 @@ footer a:hover{color:var(--text)}
         <div class="admin-bar-title">Administration</div>
         <div class="admin-bar-sub">Connecté · <span id="adminUserName" style="color:var(--text)">—</span></div>
       </div>
-      <button onclick="logout()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif">Déconnexion</button>
+      <button onclick="logout()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déconnexion</button>
     </div>
     <div class="admin-tabs">
       <button class="atab active" onclick="switchAdminTab('status',this)">Statuts</button>
@@ -452,7 +473,7 @@ footer a:hover{color:var(--text)}
 
     <div class="atab-content" id="atab-logs">
       <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
-        <button onclick="loadLogs()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.76rem;padding:7px 14px;border-radius:var(--r);cursor:pointer;font-family:'Inter',sans-serif">↻ Actualiser</button>
+        <button onclick="loadLogs()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.76rem;padding:7px 14px;border-radius:var(--r);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">↻ Actualiser</button>
       </div>
       <div class="list-wrap" id="logsList"></div>
     </div>
@@ -482,7 +503,7 @@ footer a:hover{color:var(--text)}
       <div class="login-hd">
         <div style="width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--red)"><img id="avatarDenied" src="" width="40" height="40" style="object-fit:cover;display:block" alt=""/></div>
         <div style="flex:1"><div class="login-title" id="nameDenied">—</div><div class="login-sub" style="color:var(--red)">Accès refusé · Rôle manquant</div></div>
-        <button onclick="logout()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Inter',sans-serif">Déco</button>
+        <button onclick="logout()" style="background:rgba(16,26,46,.05);border:1px solid var(--border2);color:var(--text2);font-size:.72rem;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif">Déco</button>
       </div>
       <div class="status-err" style="margin-top:10px"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="var(--red)" stroke-width="1.5"/><path d="M7 4.5V7M7 9.5H7.01" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/></svg>Tu n'as pas le rôle requis sur le serveur Dev Center.</div>
     </div>
@@ -618,24 +639,25 @@ function setSvcStatus(svc,autoState,ms){
 
 function updateHero(states){
   const allOk=states.every(s=>s==='operational'),anyDown=states.some(s=>s==='down');
-  const icon=$('heroIcon'),title=$('heroTitle'),sub=$('heroSub'),svg=$('heroSvg');
+  const icon=$('heroIcon'),title=$('heroTitle'),sub=$('heroSub'),navDot=$('navStatusDot'),tsText=$('heroTimestampText');
   const now=new Date().toLocaleString('fr-FR',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
   if(allOk){
     icon.className='hero-icon ok';
-    svg.innerHTML='<path d="M6 14L11.5 19.5L22 9" stroke="#3ecf8e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>';
+    if(navDot) navDot.className='nav-status-dot ok';
     title.textContent='All services are online';
     sub.textContent='Last updated on '+now;
   }else if(anyDown){
     icon.className='hero-icon down';
-    svg.innerHTML='<path d="M9 9L19 19M19 9L9 19" stroke="#e85d5d" stroke-width="2.5" stroke-linecap="round"/>';
+    if(navDot) navDot.className='nav-status-dot down';
     title.textContent='Some services are down';
     sub.textContent='Last updated on '+now;
   }else{
     icon.className='hero-icon warn';
-    svg.innerHTML='<path d="M14 4L23 21H5L14 4Z" stroke="#f5c842" stroke-width="2" stroke-linejoin="round" fill="none"/><path d="M14 10V15M14 18H14.01" stroke="#f5c842" stroke-width="2" stroke-linecap="round"/>';
+    if(navDot) navDot.className='nav-status-dot warn';
     title.textContent='Some services are degraded';
     sub.textContent='Last updated on '+now;
   }
+  if(tsText) tsText.textContent='Dernière vérification : '+new Date().toLocaleString('fr-FR',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
 }
 
 // ── Checks ────────────────────────────────────────────────────
