@@ -67,6 +67,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 
 
+/* ── ANIMATIONS ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes glow{0%,100%{box-shadow:0 0 20px rgba(62,207,142,.15)}50%{box-shadow:0 0 40px rgba(62,207,142,.3)}}
 @keyframes glowRed{0%,100%{box-shadow:0 0 20px rgba(232,93,93,.15)}50%{box-shadow:0 0 40px rgba(232,93,93,.3)}}
@@ -77,28 +78,30 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 @keyframes incSlideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
 @keyframes scanline{0%{transform:translateY(-100%)}100%{transform:translateY(100vh)}}
 
-.top-bar{height:2px;background:linear-gradient(90deg,#5a9cf8,#a78bfa,#3ecf8e,#f5c842,#5a9cf8);
-  background-size:200% 100%;animation:shimmer 5s linear infinite}
-
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
-  padding:0 32px;height:58px;background:var(--nav-bg);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border)}
-.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;
-  color:var(--text);text-decoration:none}
-.nav-logo img{width:30px;height:30px;border-radius:8px;object-fit:cover}
-.nav-status-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;background:var(--green);
+  padding:0 36px;height:64px;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);transition:box-shadow .25s ease,height .25s ease}
+nav.scrolled{box-shadow:0 8px 24px -12px rgba(16,26,46,.18);height:56px}
+.nav-logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.02rem;letter-spacing:-.01em;
+  color:var(--text);text-decoration:none;transition:opacity .15s}
+.nav-logo:hover{opacity:.8}
+.nav-logo img{width:28px;height:28px;border-radius:8px;object-fit:cover;box-shadow:0 0 0 1px var(--border2)}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.nav-logo-sub{font-size:.66rem;font-weight:500;color:var(--text3);letter-spacing:.02em}
+.nav-status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--green);
   box-shadow:0 0 8px var(--green);animation:pulse 2s ease-in-out infinite}
 .nav-status-dot.warn{background:var(--yellow);box-shadow:0 0 8px var(--yellow)}
 .nav-status-dot.down{background:var(--red);box-shadow:0 0 8px var(--red)}
-.nav-right{display:flex;align-items:center;gap:10px}
+.nav-right{display:flex;align-items:center;gap:12px}
 .theme-toggle{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:var(--surface-hover);border:1px solid var(--border2);color:var(--text2);cursor:pointer;
   transition:background .15s,color .15s,transform .15s;flex-shrink:0}
-.theme-toggle:hover{background:var(--surface-hover-strong);color:var(--text);transform:translateY(-1px)}
+.theme-toggle:hover{background:var(--surface-hover-strong);color:var(--text);transform:translateY(-1px) rotate(12deg)}
 .theme-toggle svg{width:16px;height:16px}
-#navUser{display:none;align-items:center;gap:8px}
-#navUser img{width:26px;height:26px;border-radius:50%;border:1.5px solid var(--blue)}
-#navUser span{font-size:.78rem;color:var(--text2)}
+#navUser{display:none;align-items:center;gap:8px;padding:4px 10px 4px 4px;border-radius:999px;
+  background:var(--surface-faint);border:1px solid var(--border)}
+#navUser img{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--blue)}
+#navUser span{font-size:.78rem;font-weight:600;color:var(--text2)}
 
 main{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:56px 24px 100px}
 
@@ -324,9 +327,10 @@ html.dark .asel option{background:#161d33}
 .log-by{font-size:.7rem;color:var(--text3);white-space:nowrap;padding-top:1px}
 .sec-title{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
 
-/* ── LOGIN BOX ── */
+/* ── LOGIN BOX (masquée du public, accessible via le lien Staff en footer) ── */
 .login-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);
-  padding:28px;margin-top:12px}
+  padding:28px;margin-top:12px;display:none}
+.login-box.visible{display:block;animation:fadeInUp .4s ease forwards}
 .login-hd{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .login-icon{width:40px;height:40px;border-radius:10px;background:rgba(88,101,242,.18);
   border:1px solid rgba(88,101,242,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -359,10 +363,20 @@ html.dark .asel option{background:#161d33}
   cursor:pointer;transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif}
 .modal-cancel:hover{background:var(--surface-hover-strong)}
 
-footer{position:relative;z-index:1;text-align:center;padding:28px;
-  font-size:.74rem;color:var(--text3);border-top:1px solid var(--border)}
-footer a{color:var(--text2);text-decoration:none}
-footer a:hover{color:var(--text)}
+footer{position:relative;z-index:1;padding:36px 24px 30px;border-top:1px solid var(--border);
+  max-width:780px;margin:0 auto}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.footer-brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.88rem;color:var(--text)}
+.footer-brand img{width:20px;height:20px;border-radius:6px;object-fit:cover}
+.footer-links{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;
+  font-size:.78rem;color:var(--text2)}
+.footer-links a{color:var(--text2);text-decoration:none;padding:4px 2px;transition:color .15s}
+.footer-links a:hover{color:var(--text)}
+.footer-dot{width:3px;height:3px;border-radius:50%;background:var(--text3);flex-shrink:0}
+.footer-meta{font-size:.72rem;color:var(--text3)}
+.footer-staff-link{display:inline-flex;align-items:center;gap:5px;color:var(--text3)!important;
+  font-size:.72rem!important;opacity:.75;transition:opacity .15s}
+.footer-staff-link:hover{opacity:1}
 
 #stateLoading{text-align:center;padding:20px}
 #stateLoading svg{animation:spin 1s linear infinite}
@@ -372,12 +386,13 @@ footer a:hover{color:var(--text)}
 </head>
 <body>
 
-<div class="top-bar"></div>
-
-<nav>
+<nav id="mainNav">
   <a class="nav-logo" href="https://devcenter.vyral-studio.com/" target="_blank">
-    <span class="nav-status-dot ok" id="navStatusDot"></span>
-    Dev Center
+    <img src="https://images-ext-1.discordapp.net/external/NS4JUvkfST4XlWEGbaAFV12lDQnF8UkS6IOCwTtLgQg/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1452963098284785765/27bfa54de893009c84f974d273d43ec5.png?format=webp&quality=lossless&width=599&height=599" alt="Dev Center"/>
+    <span class="nav-logo-text">
+      Dev Center
+      <span class="nav-logo-sub"><span class="nav-status-dot ok" id="navStatusDot" style="display:inline-block;margin-right:4px;vertical-align:middle"></span>Status</span>
+    </span>
   </a>
   <div class="nav-right">
     <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Basculer le thème" title="Mode sombre / clair">
@@ -502,8 +517,8 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <!-- DISCORD LOGIN -->
-  <div class="login-box">
+  <!-- DISCORD LOGIN (réservé au staff, révélée via le lien en footer) -->
+  <div class="login-box" id="loginBox">
     <div id="stateLogin">
       <div class="login-hd">
         <div class="login-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M17.64 4.52A16.07 16.07 0 0013.49 3.3a.06.06 0 00-.06.03c-.19.34-.4.78-.54 1.13a14.84 14.84 0 00-4.47 0c-.15-.36-.36-.8-.55-1.13A.06.06 0 007.8 3.3a16.03 16.03 0 00-4.15 1.22.05.05 0 00-.03.02C1.3 8.01.73 11.37 1.01 14.7a.07.07 0 00.03.04 16.17 16.17 0 004.88 2.47.06.06 0 00.07-.02c.38-.52.71-1.07.99-1.65a.06.06 0 00-.03-.08 10.65 10.65 0 01-1.52-.73.06.06 0 010-.1c.1-.08.2-.16.3-.24a.06.06 0 01.06-.01c3.19 1.46 6.64 1.46 9.79 0a.06.06 0 01.06.01c.1.08.2.16.3.24a.06.06 0 010 .1c-.49.29-.99.53-1.52.73a.06.06 0 00-.03.08c.29.58.62 1.13 1 1.65a.06.06 0 00.06.02 16.12 16.12 0 004.9-2.47.07.07 0 00.02-.04c.33-3.39-.55-6.73-2.6-9.16a.05.05 0 00-.03-.02zM7.88 12.8c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.78 1.97-1.76 1.97zm6.51 0c-.96 0-1.76-.88-1.76-1.97s.78-1.97 1.76-1.97c.99 0 1.78.9 1.76 1.97 0 1.09-.77 1.97-1.76 1.97z" fill="#5865F2"/></svg></div>
@@ -564,7 +579,22 @@ footer a:hover{color:var(--text)}
 </div>
 
 <footer>
-  <a href="https://devcenter.vyral-studio.com/" target="_blank">Dev Center</a> · Status Page · <span id="lastCheck">—</span>
+  <div class="footer-inner">
+    <a class="footer-brand" href="https://devcenter.vyral-studio.com/" target="_blank">
+      <img src="https://images-ext-1.discordapp.net/external/NS4JUvkfST4XlWEGbaAFV12lDQnF8UkS6IOCwTtLgQg/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1452963098284785765/27bfa54de893009c84f974d273d43ec5.png?format=webp&quality=lossless&width=599&height=599" alt=""/>
+      Dev Center
+    </a>
+    <div class="footer-links">
+      <a href="https://devcenter.vyral-studio.com/" target="_blank">Site</a>
+      <span class="footer-dot"></span>
+      <a href="#main-status" onclick="switchMainTab('status',document.querySelector('.tab'))">Status</a>
+      <span class="footer-dot"></span>
+      <a href="#main-incidents" onclick="switchMainTab('incidents',document.querySelectorAll('.tab')[2])">Incidents</a>
+      <span class="footer-dot"></span>
+      <a href="#loginBox" class="footer-staff-link" onclick="revealStaffLogin(event)" title="Accès réservé au staff">Staff</a>
+    </div>
+    <div class="footer-meta">Dernière vérification · <span id="lastCheck">—</span></div>
+  </div>
 </footer>
 
 <script>
@@ -1030,6 +1060,19 @@ async function verifyAccess(tok){
     }else{$('avatarDenied').src=av;$('nameDenied').textContent=name;showLoginState('denied');}
   }catch{showLoginState('login');}
 }
+
+// ── Staff: révéler la carte de connexion Discord (masquée du public) ──
+function revealStaffLogin(e){
+  if(e) e.preventDefault();
+  const box=$('loginBox');
+  box.classList.add('visible');
+  box.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+// ── Nav: ombre au scroll ──────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  $('mainNav').classList.toggle('scrolled',window.scrollY>8);
+},{passive:true});
 
 // ── Theme toggle ──────────────────────────────────────────────
 const SUN_ICON='<circle cx="12" cy="12" r="4.5"/><path d="M12 2.5V4.5M12 19.5V21.5M4.2 4.2L5.6 5.6M18.4 18.4L19.8 19.8M2.5 12H4.5M19.5 12H21.5M4.2 19.8L5.6 18.4M18.4 5.6L19.8 4.2"/>';
